@@ -6,22 +6,7 @@ import constants
 from DJITelloPy.api import Tello
 import threading
 
-global frame_read
-state_logging_interval = 0.5
-keepRecording = True
-
-
-def videoRecorder():
-    # create a VideoWrite object, recoring to ./video.avi
-    global frame_read
-    height, width, _ = frame_read.frame.shape
-    video = cv2.VideoWriter('video.avi', cv2.VideoWriter_fourcc(*'XVID'), 30, (width, height))
-
-    while keepRecording:
-        video.write(frame_read.frame)
-        time.sleep(1 / 30)
-
-    video.release()
+state_logging_interval = 0.5  # seconds
 
 
 def log_before_execution(tello):
@@ -41,51 +26,44 @@ def log_state(interval_sec, tello):
     log_state(interval_sec, tello)
 
 
-def main():
-    """ CONNECT TO THE DRONE"""
-    tello = Tello()
-    tello.LOGGER.info(constants.MESSAGES.try_connect_drone)
-    try:
-        tello.connect()
-    except Exception as e:
-        tello.LOGGER.error(constants.MESSAGES.failed_connect_drone)
-        sys.exit('*** Exiting program. Could not connect to the drone.***')
+""" CONNECT TO THE DRONE"""
+tello = Tello()
+tello.LOGGER.info(constants.MESSAGES.try_connect_drone)
 
-    tello.LOGGER.info(constants.MESSAGES.successful_connect_drone)
+try:
+    tello.connect()
+except Exception as e:
+    tello.LOGGER.error(constants.MESSAGES.failed_connect_drone)
+    sys.exit('*** Exiting program. Could not connect to the drone.***')
 
-    # Start the periodic drone state logger
-    daemon = threading.Thread(target=log_state, args=(state_logging_interval, tello), daemon=True, name='state-logger')
-    daemon.start()
+tello.LOGGER.info(constants.MESSAGES.successful_connect_drone)
 
-    recorder = threading.Thread(target=videoRecorder)
-    recorder.start()
+# Start the periodic drone state logger
+state_logger = threading.Thread(target=log_state, args=(state_logging_interval, tello), daemon=True, name='state-logger')
+state_logger.start()
 
-    start_time = time.time()  # start the flight timer
+start_time = time.time()  # start the flight timer
 
-    tello.streamon()
-    global frame_read
-    frame_read = tello.get_frame_read()
+tello.LOGGER.info('Setting up the recorder:')
 
-    """ DO SOME PRE-FLIGHT ACTIONS """
-    tello.turn_motor_on()
-    time.sleep(5)
-    log_before_execution(tello)
+""" DO SOME PRE-FLIGHT ACTIONS """
+tello.turn_motor_on()
+time.sleep(5)
+log_before_execution(tello)
 
-    """ EXECUTE THE DRONE FLIGHT """
-    # tello.takeoff()
-    # time.sleep(10)
+""" EXECUTE THE DRONE FLIGHT """
+tello.takeoff()
+time.sleep(10)
 
-    """ READY TO LAND THE DRONE"""
-    # tello.land()
-    # tello.turn_motor_on()
-    # time.sleep(5)
-    tello.turn_motor_off()
+""" READY TO LAND THE DRONE"""
+tello.land()
+tello.turn_motor_on()
+time.sleep(5)
+tello.turn_motor_off()
 
-    """ Gracefully close any resources """
-    log_before_execution(tello)
-    tello.LOGGER.info("EXECUTION TIME: --- %s seconds ---" % (time.time() - start_time))
-    exit(1)
+""" Gracefully close any resources """
+log_before_execution(tello)
 
 
-if __name__ == '__main__':
-    main()
+tello.LOGGER.info("EXECUTION TIME: --- %s seconds ---" % (time.time() - start_time))
+exit(1)
