@@ -4,6 +4,7 @@ import cv2
 import logging
 import constants
 from DJITelloPy.api import Tello
+from CameraController import CameraController
 import threading
 
 state_logging_interval = 0.5  # seconds
@@ -42,14 +43,18 @@ tello.LOGGER.info(constants.MESSAGES.successful_connect_drone)
 state_logger = threading.Thread(target=log_state, args=(state_logging_interval, tello), daemon=True, name='state-logger')
 state_logger.start()
 
+camera = CameraController(tello=tello)
+# camera.run_front_cam()
+camera.run_bottom_cam()
 start_time = time.time()  # start the flight timer
-
-tello.LOGGER.info('Setting up the recorder:')
 
 """ DO SOME PRE-FLIGHT ACTIONS """
 tello.turn_motor_on()
+try:
+    log_before_execution(tello)
+except Exception as e:
+    pass
 time.sleep(5)
-log_before_execution(tello)
 
 """ EXECUTE THE DRONE FLIGHT """
 tello.takeoff()
@@ -62,8 +67,8 @@ time.sleep(5)
 tello.turn_motor_off()
 
 """ Gracefully close any resources """
+# daemon threads are joined by default
 log_before_execution(tello)
-
 
 tello.LOGGER.info("EXECUTION TIME: --- %s seconds ---" % (time.time() - start_time))
 exit(1)
