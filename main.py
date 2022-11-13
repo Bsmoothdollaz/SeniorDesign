@@ -44,8 +44,8 @@ state_logger = threading.Thread(target=log_state, args=(state_logging_interval, 
 state_logger.start()
 
 camera = CameraController(tello=tello)
-# camera.run_front_cam()
-camera.run_bottom_cam()
+camera.run_front_cam()
+# camera.run_bottom_cam()
 start_time = time.time()  # start the flight timer
 
 """ DO SOME PRE-FLIGHT ACTIONS """

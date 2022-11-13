@@ -53,6 +53,11 @@ class CameraController:
         bottom_camera = threading.Thread(target=self.get_bottom_cam, args=(self.tello,), daemon=True, name='bottom-camera')
         bottom_camera.start()
 
+    def kill_cam(self):
+        self.tello.streamoff()
+        self.tello.streamon()
+
+
 #
 # tello = Tello()
 # tello.connect()

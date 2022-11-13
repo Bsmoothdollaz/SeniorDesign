@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="refactor for threading">
-      <change afterPath="$PROJECT_DIR$/CameraController.py" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="option to pick a front or bottom stream working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CameraController.py" beforeDir="false" afterPath="$PROJECT_DIR$/CameraController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,7 +229,7 @@
       <workItem from="1668279949794" duration="449000" />
       <workItem from="1668280420816" duration="316000" />
       <workItem from="1668281098557" duration="3453000" />
-      <workItem from="1668289354999" duration="9097000" />
+      <workItem from="1668289354999" duration="10223000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -259,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668290943818</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="option to pick a front or bottom stream working">
+      <created>1668382093220</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668382093220</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +288,8 @@
     <MESSAGE value="get the execution time of flight" />
     <MESSAGE value="updates" />
     <MESSAGE value="refactor for threading" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor for threading" />
+    <MESSAGE value="option to pick a front or bottom stream working" />
+    <option name="LAST_COMMIT_MESSAGE" value="option to pick a front or bottom stream working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -307,7 +315,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SR_DESIGN$record_video.coverage" NAME="record-video Coverage Results" MODIFIED="1668282914124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DJITelloPy/examples" />
     <SUITE FILE_PATH="coverage/SR_DESIGN$manual_control_pygame.coverage" NAME="manual-control-pygame Coverage Results" MODIFIED="1668139037467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helpers" />
-    <SUITE FILE_PATH="coverage/SR_DESIGN$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1668381771028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1668382864770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SR_DESIGN$VideoStreamRecorder.coverage" NAME="VideoStreamRecorder Coverage Results" MODIFIED="1668381425000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SR_DESIGN$main.coverage" NAME="main Coverage Results" MODIFIED="1668127362287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SR_DESIGN$scratch_3.coverage" NAME="scratch_3 Coverage Results" MODIFIED="1668203360623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
