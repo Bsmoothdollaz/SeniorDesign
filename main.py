@@ -54,7 +54,8 @@ try:
     log_before_execution(tello)
 except Exception as e:
     pass
-time.sleep(5)
+time.sleep(10)
+print('taking off')
 
 """ EXECUTE THE DRONE FLIGHT """
 tello.takeoff()

@@ -7,17 +7,17 @@ import cv2
 class CameraController:
 
     def __init__(self, tello):
-        self.front_active = False
-        self.bottom_active = False
+        self.lock = threading.Lock()
         self.tello = tello
 
-    def get_bottom_cam(self, tello):
-        if not self.front_active and not self.bottom_active:
-            tello.streamon()
+    # some kind of mutex lock needs to go here to switch safely between the front and bottom cameras
 
+    def get_bottom_cam(self, tello):
+        self.lock.acquire()
+
+        tello.streamon()
         tello.set_video_direction(Tello.CAMERA_DOWNWARD)
         tello.set_video_fps(Tello.FPS_30)
-        self.front_active = True
         try:
             while True:
                 img = tello.get_frame_read().frame
@@ -26,15 +26,14 @@ class CameraController:
         except KeyboardInterrupt:
             exit(1)
         finally:
-            self.bottom_active = False
+            self.lock.release()
 
     def get_front_cam(self, tello):
-        if not self.bottom_active and not self.front_active:
-            tello.streamon()
+        self.lock.acquire()
 
+        tello.streamon()
         tello.set_video_direction(Tello.CAMERA_FORWARD)
         tello.set_video_fps(Tello.FPS_30)
-        self.front_active = True
         try:
             while True:
                 img = tello.get_frame_read().frame
@@ -43,7 +42,7 @@ class CameraController:
         except KeyboardInterrupt:
             exit(1)
         finally:
-            self.front_active = False
+            self.lock.release()
 
     def run_front_cam(self):
         front_camera = threading.Thread(target=self.get_front_cam, args=(self.tello,), daemon=True, name='front-camera')
