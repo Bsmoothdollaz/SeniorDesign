@@ -8,6 +8,19 @@ from CameraController import CameraController
 import threading
 
 state_logging_interval = 0.5  # seconds
+mission_pad_logging_interval = 0.5
+
+
+def mission_pad_logger(tello, mission_pad_logging_interval):
+    time.sleep(mission_pad_logging_interval)
+    if tello.get_mission_pad_id() != 1:
+        tello.LOGGER.info('misison pad number detected:{}'.format(tello.get_mission_pad_id()))
+
+        move_x = tello.get_mission_pad_distance_x()
+        move_y = tello.get_mission_pad_distance_y()
+        move_z = tello.get_mission_pad_distance_z()
+
+    mission_pad_logger(tello, mission_pad_logging_interval)
 
 
 def log_before_execution(tello):
@@ -44,22 +57,30 @@ state_logger = threading.Thread(target=log_state, args=(state_logging_interval, 
 state_logger.start()
 
 camera = CameraController(tello=tello)
-camera.run_front_cam()
-# camera.run_bottom_cam()
-start_time = time.time()  # start the flight timer
+camera.run_bottom_cam()
 
 """ DO SOME PRE-FLIGHT ACTIONS """
+tello.enable_mission_pads()
+tello.set_mission_pad_detection_direction(0)
+start_time = time.time()  # start the flight timer
 tello.turn_motor_on()
-try:
-    log_before_execution(tello)
-except Exception as e:
-    pass
+# try:
+#     log_before_execution(tello)
+# except Exception as e:
+#     pass
+
 time.sleep(10)
 print('taking off')
 
 """ EXECUTE THE DRONE FLIGHT """
 tello.takeoff()
-time.sleep(10)
+
+# mission_pad_helper = threading.Thread(target=mission_pad_logger, args=(tello,mission_pad_logging_interval), daemon=True,name='mission-pad-helper')
+# mission_pad_helper.start()
+
+tello.go_xyz_speed_mid(tello.get_mission_pad_distance_x(), tello.get_mission_pad_distance_y(), tello.get_mission_pad_distance_z()-30, speed=10, mid=4)
+time.sleep(5)
+
 
 """ READY TO LAND THE DRONE"""
 tello.land()
@@ -69,7 +90,7 @@ tello.turn_motor_off()
 
 """ Gracefully close any resources """
 # daemon threads are joined by default
-log_before_execution(tello)
-
+# log_before_execution(tello)
+tello.streamoff()
 tello.LOGGER.info("EXECUTION TIME: --- %s seconds ---" % (time.time() - start_time))
 exit(1)
