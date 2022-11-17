@@ -56,29 +56,29 @@ tello.LOGGER.info(constants.MESSAGES.successful_connect_drone)
 state_logger = threading.Thread(target=log_state, args=(state_logging_interval, tello), daemon=True, name='state-logger')
 state_logger.start()
 
+# tello.set_video_bitrate(Tello.BITRATE_1MBPS)
+# tello.set_video_resolution(Tello.RESOLUTION_720P)
 camera = CameraController(tello=tello)
-camera.run_bottom_cam()
-
+# camera.run_bottom_cam()
+camera.run_front_cam()
 """ DO SOME PRE-FLIGHT ACTIONS """
 tello.enable_mission_pads()
 tello.set_mission_pad_detection_direction(0)
 start_time = time.time()  # start the flight timer
 tello.turn_motor_on()
-# try:
-#     log_before_execution(tello)
-# except Exception as e:
-#     pass
+try:
+    log_before_execution(tello)
+except Exception as e:
+    pass
 
-time.sleep(10)
-print('taking off')
+
 
 """ EXECUTE THE DRONE FLIGHT """
+
+time.sleep(5)
 tello.takeoff()
 
-# mission_pad_helper = threading.Thread(target=mission_pad_logger, args=(tello,mission_pad_logging_interval), daemon=True,name='mission-pad-helper')
-# mission_pad_helper.start()
 
-tello.go_xyz_speed_mid(tello.get_mission_pad_distance_x(), tello.get_mission_pad_distance_y(), tello.get_mission_pad_distance_z()-30, speed=10, mid=4)
 time.sleep(5)
 
 
