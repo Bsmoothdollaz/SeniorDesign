@@ -72,17 +72,51 @@ except Exception as e:
     pass
 
 
-
 """ EXECUTE THE DRONE FLIGHT """
-
 time.sleep(5)
+tello.turn_motor_on()
+time.sleep(10)
+
+
 tello.takeoff()
-
-
 time.sleep(5)
 
 
 """ READY TO LAND THE DRONE"""
+target_mission_pad = 1
+calculated_confidence = 0
+centeredConfidenceThreshold = .9
+confidenceCounter = 0
+confidenceCounterThreshold = 10
+
+while tello.get_mission_pad_id() == target_mission_pad and calculated_confidence < centeredConfidenceThreshold and confidenceCounterThreshold < 10:
+
+    curr_m_pad = tello.get_mission_pad_id()
+    droneX = tello.get_mission_pad_distance_x()
+    droneY = tello.get_mission_pad_distance_y()
+    droneZ = tello.get_mission_pad_distance_z()
+
+    if -20 < droneX < 20:
+        if -20 < droneY < 20:
+            confidenceCounter += 1
+            time.sleep(1)
+        else:
+            confidenceCounter = 0
+            if droneY > 20:
+                tello.move_back(droneY)
+            elif droneY < 20:
+                tello.move_forward(abs(droneY))
+    else:
+        confidenceCounter = 0
+        if droneX > 20:
+            tello.move_left(droneX)
+        elif droneX < 20:
+            tello.move_right(abs(droneX))
+
+
+
+
+
 tello.land()
 tello.turn_motor_on()
 time.sleep(5)
