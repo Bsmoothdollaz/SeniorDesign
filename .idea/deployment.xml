@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
   <component name="PublishConfigData">
-=======
-  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
->>>>>>> c74160f50674a4b9f87853dcf95d96bba7c71149
     <serverData>
       <paths name="bot">
         <serverdata>

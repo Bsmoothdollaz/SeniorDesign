@@ -1,5 +1,4 @@
-from djitellopy import Tello
-import cv2
+from DJITelloPy.api import Tello
 import pygame
 import numpy as np
 import time
