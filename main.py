@@ -40,6 +40,8 @@ def log_state(interval_sec, tello):
     log_state(interval_sec, tello)
 
 
+
+
 """ CONNECT TO THE DRONE"""
 tello = Tello()
 tello.LOGGER.info(constants.MESSAGES.try_connect_drone)
@@ -59,8 +61,8 @@ state_logger.start()
 # tello.set_video_bitrate(Tello.BITRATE_1MBPS)
 # tello.set_video_resolution(Tello.RESOLUTION_720P)
 camera = CameraController(tello=tello)
-# camera.run_bottom_cam()
-camera.run_front_cam()
+camera.run_bottom_cam()
+# camera.run_front_cam()
 """ DO SOME PRE-FLIGHT ACTIONS """
 tello.enable_mission_pads()
 tello.set_mission_pad_detection_direction(0)
@@ -74,12 +76,28 @@ except Exception as e:
 
 
 """ EXECUTE THE DRONE FLIGHT """
-
 time.sleep(5)
 tello.takeoff()
 
 
-time.sleep(5)
+# time.sleep(5)
+
+""" USER INPUT TO MOVE DRONE IN DIFFERENT DIRECTIONS"""
+
+moveUp = float(input("Enter distance to move up: "))
+moveDown = float(input("Enter distance to move down: "))
+moveLeft = float(input("Enter distance to move left: "))
+moveRight = float(input("Enter distance to move right: "))
+
+
+tello.move("up", 400)
+time.sleep(3)
+tello.move_down(400)
+time.sleep(3)
+tello.move_left(400)
+time.sleep(3)
+tello.move_right(400)
+time.sleep(3)
 
 
 """ READY TO LAND THE DRONE"""
