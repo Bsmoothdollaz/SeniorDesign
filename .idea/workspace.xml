@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="test">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_2_14_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_2_14_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="center the drone algo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -253,7 +251,7 @@
       <workItem from="1668431553195" duration="10128000" />
       <workItem from="1668528390940" duration="4237000" />
       <workItem from="1668703512985" duration="4895000" />
-      <workItem from="1669663065504" duration="1663000" />
+      <workItem from="1669663065504" duration="2621000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -318,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668704049239</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="center the drone algo">
+      <created>1669664830161</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669664830161</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +361,8 @@
     <MESSAGE value="stable camera stream" />
     <MESSAGE value="some progress. buggy stream. still unsure what go_xyz_speed_mid actually does. might want to overwrite it" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="center the drone algo" />
+    <option name="LAST_COMMIT_MESSAGE" value="center the drone algo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

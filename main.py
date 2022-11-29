@@ -81,31 +81,28 @@ time.sleep(10)
 tello.takeoff()
 time.sleep(5)
 
+""" CENTER THE DRONE IN THE MIDDLE OF THE MISSION PAD """
+target_mission_pad = 1      # number of the mission pad that we want to center around
+calculated_confidence = 0   # initalize the variable
+centeredConfidenceThreshold = .9    # "centered position" within this region * 500 in x and y directions
+confidenceCounter = 0       # number of "centered positions"
+confidenceCounterThreshold = 10     # number of centered positions needed to be centered and exit the loop
 
-""" READY TO LAND THE DRONE"""
-target_mission_pad = 1
-calculated_confidence = 0
-centeredConfidenceThreshold = .9
-confidenceCounter = 0
-confidenceCounterThreshold = 10
-
-while tello.get_mission_pad_id() == target_mission_pad and calculated_confidence < centeredConfidenceThreshold and confidenceCounterThreshold < 10:
+while tello.get_mission_pad_id() == target_mission_pad and confidenceCounterThreshold < 10:
 
     curr_m_pad = tello.get_mission_pad_id()
+
+    # get the offset of the position of the drone relative to (0,0) or the center of the mission pad
     droneX = tello.get_mission_pad_distance_x()
     droneY = tello.get_mission_pad_distance_y()
     droneZ = tello.get_mission_pad_distance_z()
 
+    # consider changing the move_direction with go_xyz or similar
+    # go_xyz_speed_mid (x,y,z,speed,m_pad_id)
+
     if -20 < droneX < 20:
-        if -20 < droneY < 20:
-            confidenceCounter += 1
-            time.sleep(1)
-        else:
-            confidenceCounter = 0
-            if droneY > 20:
-                tello.move_back(droneY)
-            elif droneY < 20:
-                tello.move_forward(abs(droneY))
+        confidenceCounter += 1
+        time.sleep(1)
     else:
         confidenceCounter = 0
         if droneX > 20:
@@ -113,9 +110,19 @@ while tello.get_mission_pad_id() == target_mission_pad and calculated_confidence
         elif droneX < 20:
             tello.move_right(abs(droneX))
 
+    if -20 < droneY < 20:
+        confidenceCounter += 1
+        time.sleep(1)
+    else:
+        confidenceCounter = 0
+        if droneY > 20:
+            tello.move_back(droneY)
+        elif droneY < 20:
+            tello.move_forward(abs(droneY))
 
 
 
+""" READY TO LAND THE DRONE"""
 
 tello.land()
 tello.turn_motor_on()
