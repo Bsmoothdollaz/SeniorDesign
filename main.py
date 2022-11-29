@@ -39,13 +39,17 @@ except Exception as e:
 
 tello.LOGGER.info(constants.MESSAGES.successful_connect_drone)
 
+# Start the camera thread
+tello.set_video_bitrate(Tello.BITRATE_5MBPS)
+tello.set_video_resolution(Tello.RESOLUTION_480P)
+camera = CameraController(tello=tello)
+# camera.run_front_cam()
+camera.run_bottom_cam()
+
 # Start the periodic drone state logger
 state_logger = threading.Thread(target=log_state, args=(state_logging_interval, tello), daemon=True, name='state-logger')
 state_logger.start()
 
-camera = CameraController(tello=tello)
-camera.run_front_cam()
-# camera.run_bottom_cam()
 start_time = time.time()  # start the flight timer
 
 """ DO SOME PRE-FLIGHT ACTIONS """
@@ -59,7 +63,7 @@ print('taking off')
 
 """ EXECUTE THE DRONE FLIGHT """
 tello.takeoff()
-time.sleep(10)
+time.sleep(6)
 
 """ READY TO LAND THE DRONE"""
 tello.land()
