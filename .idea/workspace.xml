@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="center the drone algo">
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="comments and refactor code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CameraController.py" beforeDir="false" afterPath="$PROJECT_DIR$/CameraController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main-2" />
+        <entry key="$PROJECT_DIR$" value="ChikeActualBranch" />
         <entry key="$PROJECT_DIR$/DJITelloPy" value="fceafaafca922287b1c413909dd9c7c762566352" />
       </map>
     </option>
@@ -251,7 +252,7 @@
       <workItem from="1668431553195" duration="10128000" />
       <workItem from="1668528390940" duration="4237000" />
       <workItem from="1668703512985" duration="4895000" />
-      <workItem from="1669663065504" duration="2621000" />
+      <workItem from="1669663065504" duration="6460000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -323,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669664830161</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="comments and refactor code">
+      <created>1669691136254</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669691136254</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,7 +370,8 @@
     <MESSAGE value="some progress. buggy stream. still unsure what go_xyz_speed_mid actually does. might want to overwrite it" />
     <MESSAGE value="test" />
     <MESSAGE value="center the drone algo" />
-    <option name="LAST_COMMIT_MESSAGE" value="center the drone algo" />
+    <MESSAGE value="comments and refactor code" />
+    <option name="LAST_COMMIT_MESSAGE" value="comments and refactor code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

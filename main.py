@@ -61,6 +61,8 @@ state_logger.start()
 camera = CameraController(tello=tello)
 # camera.run_bottom_cam()
 camera.run_front_cam()
+
+
 """ DO SOME PRE-FLIGHT ACTIONS """
 tello.enable_mission_pads()
 tello.set_mission_pad_detection_direction(0)
@@ -119,7 +121,6 @@ while tello.get_mission_pad_id() == target_mission_pad and confidenceCounterThre
             tello.move_back(droneY)
         elif droneY < 20:
             tello.move_forward(abs(droneY))
-
 
 
 """ READY TO LAND THE DRONE"""
