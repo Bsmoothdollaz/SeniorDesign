@@ -1,0 +1,98 @@
+2022-11-29 11:54:04,635 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2022-11-29 11:54:04,635 | INFO | Trying to connect to the drone now!
+2022-11-29 11:54:04,651 | INFO | Send command: 'command'
+2022-11-29 11:54:04,763 | INFO | Response command: 'ok'
+2022-11-29 11:54:04,764 | INFO | Connected to the drone successfully.
+2022-11-29 11:54:04,778 | INFO | Send command: 'mon'
+2022-11-29 11:54:04,778 | INFO | Send command: 'streamon'
+2022-11-29 11:54:04,888 | INFO | Response streamon: 'ok'
+2022-11-29 11:54:04,888 | INFO | Response mon: 'ok'
+2022-11-29 11:54:04,888 | INFO | Send command: 'downvision 1'
+2022-11-29 11:54:04,904 | INFO | Send command: 'mdirection 0'
+2022-11-29 11:54:04,998 | INFO | Response downvision 1: 'ok'
+2022-11-29 11:54:05,013 | INFO | Send command: 'setfps high'
+2022-11-29 11:54:05,014 | INFO | Response mdirection 0: 'ok'
+2022-11-29 11:54:05,028 | INFO | Send command: 'motoron'
+2022-11-29 11:54:05,123 | INFO | Response setfps high: 'ok'
+2022-11-29 11:54:05,138 | INFO | Response motoron: 'ok'
+2022-11-29 11:54:05,138 | INFO | data goes here
+2022-11-29 11:54:05,139 | INFO | Send command: 'attitude?'
+2022-11-29 11:54:05,247 | INFO | Response attitude?: 'pitch:0;roll:0;yaw:-9;'
+2022-11-29 11:54:05,248 | INFO | ATTITUDE: {'pitch': 0, 'roll': 0, 'yaw': -9}
+2022-11-29 11:54:05,263 | INFO | Send command: 'baro?'
+2022-11-29 11:54:05,279 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -9, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 92, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.64, 'time': 38, 'agx': -5.0, 'agy': -13.0, 'agz': -1002.0}
+2022-11-29 11:54:05,374 | INFO | Response baro?: '99.617432'
+2022-11-29 11:54:05,374 | INFO | BAROMETER: 9961.743199999999
+2022-11-29 11:54:05,374 | INFO | Send command: 'battery?'
+2022-11-29 11:54:05,484 | INFO | Response battery?: '46'
+2022-11-29 11:54:05,484 | INFO | BATTERY: 46
+2022-11-29 11:54:05,484 | INFO | Send command: 'tof?'
+2022-11-29 11:54:05,593 | INFO | Response tof?: '100mm'
+2022-11-29 11:54:05,593 | INFO | TOF_DISTANCE: 10.0 
+2022-11-29 11:54:05,593 | INFO | Send command: 'wifi?'
+2022-11-29 11:54:05,704 | INFO | Response wifi?: '90'
+2022-11-29 11:54:05,704 | INFO | WIFI_SIGNAL_NOISE RATIO: 90
+2022-11-29 11:54:05,720 | INFO | Send command: 'sdk?'
+2022-11-29 11:54:05,782 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -9, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 92, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.6, 'time': 38, 'agx': -2.0, 'agy': -8.0, 'agz': -1003.0}
+2022-11-29 11:54:05,829 | INFO | Response sdk?: '30'
+2022-11-29 11:54:05,829 | INFO | SDK VERSION: 30
+2022-11-29 11:54:05,845 | INFO | Send command: 'sn?'
+2022-11-29 11:54:05,955 | INFO | Response sn?: '0TQZK7JCNT2468'
+2022-11-29 11:54:05,955 | INFO | SERIAL NUMBER: 0TQZK7JCNT2468
+2022-11-29 11:54:06,298 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -9, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 92, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.54, 'time': 38, 'agx': -6.0, 'agy': -12.0, 'agz': -999.0}
+2022-11-29 11:54:06,813 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -8, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 93, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.58, 'time': 38, 'agx': 21.0, 'agy': 25.0, 'agz': -1009.0}
+2022-11-29 11:54:07,317 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -10, 'vgx': 0, 'vgy': -2, 'vgz': 0, 'templ': 93, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.59, 'time': 38, 'agx': -37.0, 'agy': -68.0, 'agz': -1000.0}
+2022-11-29 11:54:07,831 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 93, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.57, 'time': 38, 'agx': -17.0, 'agy': 9.0, 'agz': -1011.0}
+2022-11-29 11:54:08,344 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 93, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.54, 'time': 38, 'agx': -24.0, 'agy': -7.0, 'agz': -1008.0}
+2022-11-29 11:54:08,848 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 93, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.47, 'time': 38, 'agx': -11.0, 'agy': 12.0, 'agz': -997.0}
+2022-11-29 11:54:09,352 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 93, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.5, 'time': 38, 'agx': -36.0, 'agy': -12.0, 'agz': -1008.0}
+2022-11-29 11:54:09,857 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 93, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.51, 'time': 38, 'agx': -1.0, 'agy': 6.0, 'agz': -994.0}
+2022-11-29 11:54:10,372 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 93, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.53, 'time': 38, 'agx': -12.0, 'agy': 11.0, 'agz': -991.0}
+2022-11-29 11:54:10,888 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 94, 'temph': 96, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.48, 'time': 38, 'agx': 5.0, 'agy': 20.0, 'agz': -994.0}
+2022-11-29 11:54:10,968 | INFO | Send command: 'takeoff'
+2022-11-29 11:54:11,394 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 1, 'templ': 94, 'temph': 96, 'tof': 10, 'h': 10, 'bat': 46, 'baro': 97.33, 'time': 38, 'agx': -35.0, 'agy': -26.0, 'agz': -992.0}
+2022-11-29 11:54:11,900 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -14, 'vgx': 0, 'vgy': 0, 'vgz': 7, 'templ': 93, 'temph': 96, 'tof': 12, 'h': 40, 'bat': 46, 'baro': 99.32, 'time': 39, 'agx': -17.0, 'agy': -11.0, 'agz': -1169.0}
+2022-11-29 11:54:12,406 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 7, 'templ': 93, 'temph': 96, 'tof': 40, 'h': 80, 'bat': 46, 'baro': 100.18, 'time': 39, 'agx': -14.0, 'agy': -18.0, 'agz': -898.0}
+2022-11-29 11:54:12,908 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 3, 'yaw': -13, 'vgx': 0, 'vgy': 1, 'vgz': 2, 'templ': 93, 'temph': 96, 'tof': 49, 'h': 90, 'bat': 46, 'baro': 100.28, 'time': 40, 'agx': -25.0, 'agy': -5.0, 'agz': -999.0}
+2022-11-29 11:54:13,409 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': -2, 'z': 46, 'mpry': '1,-167,-177', 'pitch': 0, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 1, 'templ': 93, 'temph': 96, 'tof': 51, 'h': 90, 'bat': 46, 'baro': 100.32, 'time': 40, 'agx': 4.0, 'agy': -28.0, 'agz': -1039.0}
+2022-11-29 11:54:13,925 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -4, 'y': -6, 'z': 53, 'mpry': '1,-168,-173', 'pitch': 0, 'roll': 1, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 2, 'templ': 93, 'temph': 96, 'tof': 62, 'h': 90, 'bat': 46, 'baro': 100.4, 'time': 41, 'agx': 10.0, 'agy': -32.0, 'agz': -996.0}
+2022-11-29 11:54:14,427 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -3, 'y': -5, 'z': 63, 'mpry': '0,-168,-173', 'pitch': 0, 'roll': 1, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 1, 'templ': 93, 'temph': 96, 'tof': 72, 'h': 100, 'bat': 46, 'baro': 100.5, 'time': 41, 'agx': 0.0, 'agy': -15.0, 'agz': -974.0}
+2022-11-29 11:54:14,930 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -5, 'y': -6, 'z': 72, 'mpry': '0,-168,-172', 'pitch': 0, 'roll': 1, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 93, 'temph': 95, 'tof': 62, 'h': 110, 'bat': 46, 'baro': 100.56, 'time': 42, 'agx': 11.0, 'agy': -36.0, 'agz': -999.0}
+2022-11-29 11:54:15,447 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -18, 'y': 1, 'z': 78, 'mpry': '7,-168,-164', 'pitch': 0, 'roll': 1, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 93, 'temph': 95, 'tof': 85, 'h': 110, 'bat': 46, 'baro': 100.7, 'time': 42, 'agx': 19.0, 'agy': -34.0, 'agz': -975.0}
+2022-11-29 11:54:15,963 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': 0, 'y': -1, 'z': 87, 'mpry': '-3,-168,-170', 'pitch': 0, 'roll': 1, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 92, 'temph': 96, 'tof': 90, 'h': 120, 'bat': 46, 'baro': 100.65, 'time': 43, 'agx': -8.0, 'agy': -2.0, 'agz': -991.0}
+2022-11-29 11:54:16,479 | INFO | PERIODIC STATE VALUES: {'mid': 4, 'x': -1, 'y': -26, 'z': 87, 'mpry': '-1,103,-178', 'pitch': 0, 'roll': 1, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 92, 'temph': 96, 'tof': 92, 'h': 120, 'bat': 46, 'baro': 100.66, 'time': 43, 'agx': -17.0, 'agy': -12.0, 'agz': -991.0}
+2022-11-29 11:54:16,982 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -4, 'y': -8, 'z': 93, 'mpry': '1,-168,-173', 'pitch': 0, 'roll': 1, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 92, 'temph': 95, 'tof': 90, 'h': 120, 'bat': 46, 'baro': 100.66, 'time': 44, 'agx': -11.0, 'agy': -16.0, 'agz': -998.0}
+2022-11-29 11:54:17,499 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -4, 'y': -11, 'z': 93, 'mpry': '1,-168,-173', 'pitch': 0, 'roll': 1, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 92, 'temph': 95, 'tof': 90, 'h': 120, 'bat': 46, 'baro': 100.69, 'time': 44, 'agx': 8.0, 'agy': -28.0, 'agz': -993.0}
+2022-11-29 11:54:18,016 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -2, 'y': -9, 'z': 93, 'mpry': '0,-168,-172', 'pitch': 0, 'roll': 1, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 92, 'temph': 95, 'tof': 87, 'h': 110, 'bat': 46, 'baro': 100.62, 'time': 45, 'agx': -17.0, 'agy': -8.0, 'agz': -1001.0}
+2022-11-29 11:54:18,519 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': 1, 'y': -10, 'z': 91, 'mpry': '0,-168,-173', 'pitch': 0, 'roll': 2, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 91, 'temph': 92, 'tof': 83, 'h': 110, 'bat': 46, 'baro': 100.66, 'time': 45, 'agx': 3.0, 'agy': -24.0, 'agz': -990.0}
+2022-11-29 11:54:19,036 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': 1, 'y': -11, 'z': 88, 'mpry': '0,-168,-173', 'pitch': 0, 'roll': 2, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 91, 'temph': 92, 'tof': 76, 'h': 110, 'bat': 46, 'baro': 100.64, 'time': 46, 'agx': 8.0, 'agy': -12.0, 'agz': -991.0}
+2022-11-29 11:54:19,538 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': 12, 'y': -16, 'z': 82, 'mpry': '-4,-167,-175', 'pitch': 0, 'roll': 2, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 90, 'temph': 93, 'tof': 82, 'h': 110, 'bat': 46, 'baro': 100.68, 'time': 46, 'agx': -3.0, 'agy': -1.0, 'agz': -1005.0}
+2022-11-29 11:54:19,758 | INFO | Response takeoff: 'ok'
+2022-11-29 11:54:19,773 | INFO | Send command: 'land'
+2022-11-29 11:54:20,039 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': 12, 'y': -16, 'z': 82, 'mpry': '-4,-167,-175', 'pitch': 0, 'roll': 2, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 90, 'temph': 93, 'tof': 75, 'h': 110, 'bat': 46, 'baro': 100.69, 'time': 47, 'agx': 10.0, 'agy': -28.0, 'agz': -994.0}
+2022-11-29 11:54:20,541 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': 12, 'y': -16, 'z': 82, 'mpry': '-4,-167,-175', 'pitch': 0, 'roll': 3, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 90, 'temph': 93, 'tof': 56, 'h': 110, 'bat': 46, 'baro': 100.73, 'time': 47, 'agx': -20.0, 'agy': -1.0, 'agz': -959.0}
+2022-11-29 11:54:21,058 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': 6, 'z': 55, 'mpry': '-1,-106,-178', 'pitch': 0, 'roll': 2, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': -3, 'templ': 90, 'temph': 92, 'tof': 45, 'h': 100, 'bat': 46, 'baro': 100.59, 'time': 48, 'agx': -14.0, 'agy': 7.0, 'agz': -951.0}
+2022-11-29 11:54:21,573 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': 6, 'z': 55, 'mpry': '-1,-106,-178', 'pitch': 0, 'roll': 2, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': -4, 'templ': 90, 'temph': 91, 'tof': 15, 'h': 70, 'bat': 46, 'baro': 100.18, 'time': 48, 'agx': -1.0, 'agy': -12.0, 'agz': -1004.0}
+2022-11-29 11:54:22,074 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': 6, 'z': 55, 'mpry': '-1,-106,-178', 'pitch': -1, 'roll': 0, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': -3, 'templ': 90, 'temph': 91, 'tof': 10, 'h': 50, 'bat': 46, 'baro': 98.62, 'time': 49, 'agx': -15.0, 'agy': -4.0, 'agz': -1013.0}
+2022-11-29 11:54:22,577 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': 6, 'z': 55, 'mpry': '-1,-106,-178', 'pitch': -3, 'roll': 5, 'yaw': -3, 'vgx': -1, 'vgy': 0, 'vgz': 1, 'templ': 88, 'temph': 91, 'tof': 10, 'h': 50, 'bat': 46, 'baro': 98.21, 'time': 49, 'agx': 36.0, 'agy': 19.0, 'agz': -683.0}
+2022-11-29 11:54:23,080 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': 6, 'z': 55, 'mpry': '-1,-106,-178', 'pitch': -4, 'roll': -5, 'yaw': 0, 'vgx': -5, 'vgy': -2, 'vgz': 0, 'templ': 88, 'temph': 91, 'tof': 6553, 'h': 60, 'bat': 46, 'baro': 98.63, 'time': 50, 'agx': -244.0, 'agy': 402.0, 'agz': -1607.0}
+2022-11-29 11:54:23,595 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': 6, 'z': 55, 'mpry': '-1,-106,-178', 'pitch': -4, 'roll': 20, 'yaw': -5, 'vgx': -6, 'vgy': -8, 'vgz': 1, 'templ': 89, 'temph': 91, 'tof': 10, 'h': 60, 'bat': 46, 'baro': 98.47, 'time': 50, 'agx': -33.0, 'agy': -298.0, 'agz': -994.0}
+2022-11-29 11:54:23,939 | INFO | Response land: 'ok'
+2022-11-29 11:54:23,939 | INFO | Send command: 'motoron'
+2022-11-29 11:54:24,048 | INFO | Response motoron: 'ok'
+2022-11-29 11:54:24,111 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': 6, 'z': 55, 'mpry': '-1,-106,-178', 'pitch': -6, 'roll': 19, 'yaw': -6, 'vgx': 0, 'vgy': 0, 'vgz': -1, 'templ': 89, 'temph': 91, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.48, 'time': 51, 'agx': -48.0, 'agy': -288.0, 'agz': -954.0}
+2022-11-29 11:54:24,629 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': 6, 'z': 55, 'mpry': '-1,-106,-178', 'pitch': -11, 'roll': 14, 'yaw': -13, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 88, 'temph': 90, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.76, 'time': 51, 'agx': -107.0, 'agy': -195.0, 'agz': -857.0}
+2022-11-29 11:54:25,133 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': 6, 'z': 55, 'mpry': '-1,-106,-178', 'pitch': -8, 'roll': 9, 'yaw': -22, 'vgx': 0, 'vgy': 0, 'vgz': -1, 'templ': 88, 'temph': 90, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.73, 'time': 51, 'agx': -144.0, 'agy': -155.0, 'agz': -1032.0}
+2022-11-29 11:54:25,639 | INFO | PERIODIC STATE VALUES: {'mid': 6, 'x': -1, 'y': 6, 'z': 55, 'mpry': '-1,-106,-178', 'pitch': -6, 'roll': 10, 'yaw': -26, 'vgx': 0, 'vgy': 0, 'vgz': 3, 'templ': 88, 'temph': 91, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.8, 'time': 51, 'agx': -107.0, 'agy': -172.0, 'agz': -943.0}
+2022-11-29 11:54:26,154 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': -3, 'roll': 8, 'yaw': -29, 'vgx': 0, 'vgy': 0, 'vgz': 5, 'templ': 88, 'temph': 91, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.73, 'time': 51, 'agx': -49.0, 'agy': -73.0, 'agz': -951.0}
+2022-11-29 11:54:26,656 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': -3, 'roll': 14, 'yaw': -31, 'vgx': 0, 'vgy': 0, 'vgz': 3, 'templ': 88, 'temph': 91, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.68, 'time': 51, 'agx': 15.0, 'agy': -239.0, 'agz': -1044.0}
+2022-11-29 11:54:27,173 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 2, 'roll': 6, 'yaw': -32, 'vgx': 0, 'vgy': 0, 'vgz': 1, 'templ': 88, 'temph': 91, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.63, 'time': 51, 'agx': 82.0, 'agy': -54.0, 'agz': -952.0}
+2022-11-29 11:54:27,678 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 8, 'yaw': -38, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 89, 'temph': 91, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.63, 'time': 51, 'agx': 51.0, 'agy': -101.0, 'agz': -1026.0}
+2022-11-29 11:54:28,195 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 6, 'yaw': -38, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 89, 'temph': 91, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.68, 'time': 51, 'agx': 63.0, 'agy': -50.0, 'agz': -925.0}
+2022-11-29 11:54:28,697 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': -1, 'roll': 2, 'yaw': -38, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 88, 'temph': 91, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.66, 'time': 51, 'agx': 48.0, 'agy': 39.0, 'agz': -998.0}
+2022-11-29 11:54:29,058 | INFO | Send command: 'motoroff'
+2022-11-29 11:54:29,168 | INFO | Response motoroff: 'ok'
+2022-11-29 11:54:29,183 | INFO | Send command: 'streamoff'
+2022-11-29 11:54:29,199 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 6, 'yaw': -34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 88, 'temph': 91, 'tof': 10, 'h': 0, 'bat': 46, 'baro': 99.81, 'time': 51, 'agx': -161.0, 'agy': -169.0, 'agz': -849.0}
+2022-11-29 11:54:29,294 | INFO | Response streamoff: 'ok'
+2022-11-29 11:54:29,295 | INFO | EXECUTION TIME: --- 24.279980421066284 seconds ---

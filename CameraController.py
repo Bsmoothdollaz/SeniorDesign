@@ -34,6 +34,8 @@ class CameraController:
         tello.streamon()
         tello.set_video_direction(Tello.CAMERA_FORWARD)
         tello.set_video_fps(Tello.FPS_30)
+        # tello.set_video_bitrate(Tello.BITRATE_1MBPS)
+        # tello.set_video_resolution(Tello.RESOLUTION_720P)
         try:
             while True:
                 img = tello.get_frame_read().frame
