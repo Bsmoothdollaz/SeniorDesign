@@ -12,7 +12,7 @@ state_logging_interval = 0.5  # seconds
 
 def log_before_execution(tello):
     tello.LOGGER.info('data goes here')
-    tello.LOGGER.info('ATTITUDE: {}'.format(tello.query_attitude()))
+    tello.LOGGER.info('pitch:{} roll:{} yaw:{}'.format(tello.get_pitch(),tello.get_roll(),tello.get_yaw()))
     tello.LOGGER.info('BAROMETER: {}'.format(tello.query_barometer()))
     tello.LOGGER.info('BATTERY: {}'.format(tello.query_battery()))
     tello.LOGGER.info('TOF_DISTANCE: {} '.format(tello.query_distance_tof()))

@@ -2,6 +2,8 @@ import sys
 import time
 import cv2
 import logging
+
+import DJITelloPy.api.tello
 import constants
 from DJITelloPy.api import Tello
 from CameraController import CameraController
@@ -11,14 +13,21 @@ state_logging_interval = 0.5  # seconds
 
 
 def log_before_execution(tello):
-    tello.LOGGER.info('data goes here')
-    tello.LOGGER.info('ATTITUDE: {}'.format(tello.query_attitude()))
-    tello.LOGGER.info('BAROMETER: {}'.format(tello.query_barometer()))
-    tello.LOGGER.info('BATTERY: {}'.format(tello.query_battery()))
-    tello.LOGGER.info('TOF_DISTANCE: {} '.format(tello.query_distance_tof()))
-    tello.LOGGER.info('WIFI_SIGNAL_NOISE RATIO: {}'.format(tello.query_wifi_signal_noise_ratio()))
-    tello.LOGGER.info('SDK VERSION: {}'.format(tello.query_sdk_version()))
-    tello.LOGGER.info('SERIAL NUMBER: {}'.format(tello.query_serial_number()))
+    try:
+        tello.LOGGER.info('data goes here')
+        tello.LOGGER.info('BATTERY: {}'.format(tello.get_battery()))
+        if tello.get_battery() < 30:
+            tello.LOGGER.error('*** REPLACE BATTERY ***')
+            tello.turn_motor_off()
+            exit(2)
+        tello.LOGGER.info('ATTITUDE: {}'.format(tello.query_attitude()))
+        tello.LOGGER.info('BAROMETER: {}'.format(tello.query_barometer()))
+        tello.LOGGER.info('TOF_DISTANCE: {} '.format(tello.query_distance_tof()))
+        tello.LOGGER.info('WIFI_SIGNAL_NOISE RATIO: {}'.format(tello.query_wifi_signal_noise_ratio()))
+        tello.LOGGER.info('SDK VERSION: {}'.format(tello.query_sdk_version()))
+        tello.LOGGER.info('SERIAL NUMBER: {}'.format(tello.query_serial_number()))
+    except ValueError as ve:
+        print('caught value error')
 
 
 def log_state(interval_sec, tello):
@@ -41,6 +50,12 @@ try:
     tello.LOGGER.info(constants.MESSAGES.successful_connect_drone)
     tello.send_control_command('EXT mled g 00000000')            # clear the display
     tello.send_control_command('EXT led 0 0 0')           # clear to top led
+    try:
+        log_before_execution(tello)
+    except Exception as e:
+        print('caught a log exception',e)
+        exit(1)
+    time.sleep(2)
 
     # Start the camera thread
     tello.set_video_bitrate(Tello.BITRATE_5MBPS)
@@ -56,29 +71,52 @@ try:
     start_time = time.time()  # start the flight timer
 
     """ DO SOME PRE-FLIGHT ACTIONS """
-    tello.turn_motor_on()
     try:
-        log_before_execution(tello)
+        tello.turn_motor_on()
     except Exception as e:
-        pass
-    time.sleep(2)
+        tello.turn_motor_off()
+        tello.turn_motor_on()
 
     """ COUNT DOWN ON THE MATRIX BEFORE TAKING OFF """
     for i in range(5,0,-1):
-        tello.send_control_command('EXT mled s b {}'.format(i))
+        try:
+            tello.send_control_command('EXT mled s b {}'.format(i))
+        except DJITelloPy.api.tello.TelloException as e:
+            print('caught an excepton!')
         time.sleep(1)
     tello.send_control_command('EXT mled g 00000000')            # clear display
 
-
     """ DRONE TAKE OFF AND PREFORM FLIGHT"""
     tello.send_control_command('EXT led br 1 0 0 255')    # breathing effect with frequency and color
+    time.sleep(2)   # cool down the udp port before takeoff
     tello.takeoff()
+    #
+    # tello.move_right(20)
+    #
+    # curr_pad = -1
+    # while tello.get_mission_pad_id() != -1:
+    #     tello.send_control_command('EXT mled s b {}'.format(tello.get_mission_pad_id()))
+    #     curr_pad = tello.get_mission_pad_id()
+    #     break
+    # time.sleep(2)
+    # starting_height = tello.get_height()
+    # print('starting height', starting_height)
+    # tello.go_xyz_speed_mid(0,0,starting_height,20,curr_pad)
+    # for i in range(3):
+    #     tello.move_down(20)
+    #     time.sleep(0.5)
+    #     print('height:', tello.get_height())
 
-    while tello.get_mission_pad_id() != -1:
-        tello.send_control_command('EXT mled s b {}'.format(tello.get_mission_pad_id()))
-        break
 
 
+    # tello.move_forward(210)
+    # while tello.get_mission_pad_id() != -1:
+    #     # tello.send_control_command('EXT mled s b {}'.format(tello.get_mission_pad_id()))
+    #     # time.sleep(2)
+    #     tello.go_xyz_speed_mid(0,0,30,50,7)
+    #     tello.rotate_clockwise(360)
+    #     tello.go_xyz_speed_mid(0,0,30,50,7)
+    #     break
 
 
     tello.land()
