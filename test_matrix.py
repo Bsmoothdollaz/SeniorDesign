@@ -90,22 +90,33 @@ try:
     tello.send_control_command('EXT led br 1 0 0 255')    # breathing effect with frequency and color
     time.sleep(2)   # cool down the udp port before takeoff
     tello.takeoff()
-    #
-    # tello.move_right(20)
-    #
-    # curr_pad = -1
-    # while tello.get_mission_pad_id() != -1:
-    #     tello.send_control_command('EXT mled s b {}'.format(tello.get_mission_pad_id()))
-    #     curr_pad = tello.get_mission_pad_id()
-    #     break
-    # time.sleep(2)
-    # starting_height = tello.get_height()
-    # print('starting height', starting_height)
-    # tello.go_xyz_speed_mid(0,0,starting_height,20,curr_pad)
-    # for i in range(3):
-    #     tello.move_down(20)
-    #     time.sleep(0.5)
-    #     print('height:', tello.get_height())
+
+    tello.move_right(20)
+
+    curr_pad = -1
+    while tello.get_mission_pad_id() != -1:
+        tello.send_control_command('EXT mled s b {}'.format(tello.get_mission_pad_id()))
+        curr_pad = tello.get_mission_pad_id()
+        break
+    time.sleep(2)
+
+    curr_height = tello.get_height()
+    print('starting height', curr_height)
+    if curr_height < 20:
+        tello.land()
+
+
+
+
+
+
+
+
+    tello.go_xyz_speed_mid(0,0,starting_height,20,curr_pad)
+    for i in range(3):
+        tello.move_down(starting_height-20)
+        time.sleep(0.5)
+        print('height:', tello.get_height())
 
 
 
