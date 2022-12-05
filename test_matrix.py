@@ -1,8 +1,5 @@
 import sys
 import time
-import cv2
-import logging
-
 import DJITelloPy.api.tello
 import constants
 from DJITelloPy.api import Tello
@@ -27,13 +24,28 @@ def log_before_execution(tello):
         tello.LOGGER.info('SDK VERSION: {}'.format(tello.query_sdk_version()))
         tello.LOGGER.info('SERIAL NUMBER: {}'.format(tello.query_serial_number()))
     except ValueError as ve:
-        print('caught value error')
+        print('caught value error', ve)
 
 
 def log_state(interval_sec, tello):
     time.sleep(interval_sec)
     tello.LOGGER.info('PERIODIC STATE VALUES: {}'.format(tello.get_current_state()))
     log_state(interval_sec, tello)
+
+
+def find_mission_pad(tello):
+    while tello.get_mission_pad_id() != -1:
+        try:
+            detected_pad = tello.get_mission_pad_id()
+            tello.send_control_command('EXT mled s p {}'.format(detected_pad))
+            tello.go_xyz_speed_mid(0, 0, 50, 20, detected_pad)
+            tello.move_up(30)
+            tello.rotate_clockwise(360)
+            tello.go_xyz_speed_mid(0, 0, 50, 20, detected_pad)
+            return
+        except Exception as e:
+            print('caught an exception when detecting a mission pad', e)
+            tello.LOGGER.error('EXCEPTION WHILE DETECTING MISSION PAD', e)
 
 
 """ CONNECT TO THE DRONE"""
@@ -70,7 +82,7 @@ try:
 
     start_time = time.time()  # start the flight timer
 
-    """ DO SOME PRE-FLIGHT ACTIONS """
+    """ DO SOME PRE-FLIGHT ACTIONS / COOL OFF THE BATTERY BEFORE FLIGHT """
     try:
         tello.turn_motor_on()
     except Exception as e:
@@ -80,7 +92,7 @@ try:
     """ COUNT DOWN ON THE MATRIX BEFORE TAKING OFF """
     for i in range(5,0,-1):
         try:
-            tello.send_control_command('EXT mled s b {}'.format(i))
+            tello.send_control_command('EXT mled s p {}'.format(i))
         except DJITelloPy.api.tello.TelloException as e:
             print('caught an excepton!')
         time.sleep(1)
@@ -88,66 +100,68 @@ try:
 
     """ DRONE TAKE OFF AND PREFORM FLIGHT"""
     tello.send_control_command('EXT led br 1 0 0 255')    # breathing effect with frequency and color
-    time.sleep(2)   # cool down the udp port before takeoff
+    time.sleep(1)   # cool down the udp port before takeoff
     tello.takeoff()
 
-    tello.move_right(20)
+    # first mission pad
+    try:
+        find_mission_pad(tello)
+    except Exception as e:
+        tello.send_control_command('EXT led br 1 255 0 0')
+        time.sleep(3)
+        tello.land()
+        exit('NO MISSION PAD 1 FOUND')
 
-    curr_pad = -1
-    while tello.get_mission_pad_id() != -1:
-        tello.send_control_command('EXT mled s b {}'.format(tello.get_mission_pad_id()))
-        curr_pad = tello.get_mission_pad_id()
-        break
+    time.sleep(1)
+    tello.move_up(30)           # help our mission pad detection range by moving up
+    tello.move_forward(215)
+
+    # second mission pad
+    try:
+        find_mission_pad(tello)
+    except Exception as e:
+        tello.send_control_command('EXT led br 1 255 0 0')
+        time.sleep(3)
+        tello.land()
+        exit('NO MISSION PAD 2 FOUND')
+    time.sleep(1)
+    tello.rotate_counter_clockwise(90)
+    tello.move_up(30)  # help our mission pad detection range by moving up
+    tello.move_forward(145)    # 160
+
+    # third mission pad
+    try:
+        find_mission_pad(tello)
+    except Exception as e:
+        tello.send_control_command('EXT led br 1 255 0 0')
+        time.sleep(3)
+        tello.land()
+        exit('NO MISSION PAD 3 FOUND')
     time.sleep(2)
 
-    curr_height = tello.get_height()
-    print('starting height', curr_height)
-    if curr_height < 20:
-        tello.land()
+    tello.send_control_command('EXT led br 1.5 255 0 0')  # breathing effect with frequency and color
+    try:
+        tello.move_up(100)
+        tello.flip_back()
+    except Exception as e:
+        tello.LOGGER.warn('COULD NOT FLIP THE DRONE BACK!!! CONTINUING')
+        pass
 
+    try:
+        tello.flip_left()
+    except Exception as e:
+        tello.LOGGER.warn('COULD NOT FLIP THE DRONE LEFT!!! CONTINUING')
+        pass
 
+    tello.send_control_command('EXT mled l p 2.5 thanks')
+    tello.rotate_clockwise(360)
+    time.sleep(4)
 
-
-
-
-
-
-    tello.go_xyz_speed_mid(0,0,starting_height,20,curr_pad)
-    for i in range(3):
-        tello.move_down(starting_height-20)
-        time.sleep(0.5)
-        print('height:', tello.get_height())
-
-
-
-    # tello.move_forward(210)
-    # while tello.get_mission_pad_id() != -1:
-    #     # tello.send_control_command('EXT mled s b {}'.format(tello.get_mission_pad_id()))
-    #     # time.sleep(2)
-    #     tello.go_xyz_speed_mid(0,0,30,50,7)
-    #     tello.rotate_clockwise(360)
-    #     tello.go_xyz_speed_mid(0,0,30,50,7)
-    #     break
-
-
+    find_mission_pad(tello)
     tello.land()
-
-
-
-    # tello.send_control_command('EXT led 0 0 255')           # set the top led to a static color
-    # tello.send_control_command('EXT led bl 1 0 0 255 255 255 0')    # blink between two colors at frequency
-    # tello.send_control_command('EXT mled g rrrbb0pp')            # set colors for matrix
-    # tello.send_control_command('EXT mled l b 2.5 1')     # display a string
-
-    # tello.send_control_command('EXT mled s b 1')    # display a static ascii character
-
-    # tello.send_control_command('EXT mled sg 0000')  #
 
 except KeyboardInterrupt as e:
     tello.emergency()
-
-
-
 
 """ Gracefully close any resources """
 # daemon threads are joined by default
