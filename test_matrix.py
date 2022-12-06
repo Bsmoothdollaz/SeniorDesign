@@ -13,7 +13,9 @@ def log_before_execution(tello):
     try:
         tello.LOGGER.info('data goes here')
         tello.LOGGER.info('BATTERY: {}'.format(tello.get_battery()))
-        if tello.get_battery() < 30:
+        if tello.get_battery() < 60:
+            tello.LOGGER.error('*** BATTERY < 60 FLIPS MIGHT NOT WORK ***')
+        elif tello.get_battery() < 30:
             tello.LOGGER.error('*** REPLACE BATTERY ***')
             tello.turn_motor_off()
             exit(2)
@@ -103,6 +105,7 @@ try:
     time.sleep(1)   # cool down the udp port before takeoff
     tello.takeoff()
 
+    tello.send_control_command('EXT mled sl 255')   # full brightness on the matrix
     # first mission pad
     try:
         find_mission_pad(tello)
@@ -139,7 +142,8 @@ try:
         exit('NO MISSION PAD 3 FOUND')
     time.sleep(2)
 
-    tello.send_control_command('EXT led br 1.5 255 0 0')  # breathing effect with frequency and color
+    # flips coming, change the status color to indicate a warning
+    tello.send_control_command('EXT led br 1.5 255 0 0')  # breathing effect with frequency and color RED
     try:
         tello.move_up(100)
         tello.flip_back()
@@ -153,11 +157,24 @@ try:
         tello.LOGGER.warn('COULD NOT FLIP THE DRONE LEFT!!! CONTINUING')
         pass
 
-    tello.send_control_command('EXT mled l p 2.5 thanks')
-    tello.rotate_clockwise(360)
-    time.sleep(4)
+    smily_face = '0p0000p0' \
+                 '0p0000p0' \
+                 '00000000' \
+                 '00000000' \
+                 '00000000' \
+                 '0p0000p0' \
+                 '0pppppp0'
 
+    tello.send_control_command('EXT led 255 255 0')
+    tello.send_control_command('EXT mled g {}'.format(smily_face))
+
+    tello.rotate_clockwise(360)
+    time.sleep(2)
+    tello.rotate_counter_clockwise(360)
+
+    # locate the final mission pad
     find_mission_pad(tello)
+
     tello.land()
 
 except KeyboardInterrupt as e:
