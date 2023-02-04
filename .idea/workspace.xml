@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="minor fixes and progress">
+      <change afterPath="$PROJECT_DIR$/algo_dev.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/config.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/control.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/flight.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_matrix.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="27e1da9cb40cb51c558491138f761a2a6870f955" />
+        <entry key="$PROJECT_DIR$" value="main" />
         <entry key="$PROJECT_DIR$/DJITelloPy" value="4e8c9480d763a0edbe915300e1c1d0dbcf7b4a4a" />
       </map>
     </option>
