@@ -1,5 +1,7 @@
 # **Syracuse University CSE 491 Senior Design Project**
 
+Hardware Demo - 12/6/22 - https://www.youtube.com/watch?v=UrSwveWoaB8&ab_channel=AlexanderPerez
+
 Source code to facilitate manual control, path-finding/travel and video/image processing of Robomaster Tello DJI Drone.
 
 

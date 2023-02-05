@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="stable camera stream">
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="minor fixes and progress">
+      <change afterPath="$PROJECT_DIR$/algo_dev.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/config.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/control.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/flight.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/tello.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello_gui.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,15 +27,26 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="hardware-demo" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="tysean-testing" />
-        <entry key="$PROJECT_DIR$/DJITelloPy" value="bd5a123cb637310f6981e3759a3b81caf083e1df" />
+        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$/DJITelloPy" value="4e8c9480d763a0edbe915300e1c1d0dbcf7b4a4a" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -38,24 +57,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "C:/Users/KENNETH-DEAN/PycharmProjects/randomCode/main.py",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../venmo-request-utils" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\acpere\localRepoMaint" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN\DJITelloPy\api" />
       <recent name="C:\Users\acpere\PycharmProjects\SR-DESIGN" />
       <recent name="C:\Users\acpere\PycharmProjects\SR-DESIGN\DJITelloPy" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (1)">
-    <configuration name="CameraController (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.test_matrix">
+    <configuration name="lambda" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -63,11 +83,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/localRepoMaint" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CameraController.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/localRepoMaint/lambda.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -90,24 +111,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SR-DESIGN" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/randomCode" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/randomCode/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -160,7 +163,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tello_gui (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="scratch_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -168,11 +171,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DJITelloPy/api" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DJITelloPy/api/tello_gui.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,7 +185,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tello_gui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_matrix" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -193,7 +197,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN\DJITelloPy\api\tello_gui.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_matrix.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -202,21 +207,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.main (2)" />
-      <item itemvalue="Python.tello_gui" />
-      <item itemvalue="Python.tello_gui (1)" />
-      <item itemvalue="Python.main (1)" />
-      <item itemvalue="Python.CameraController (1)" />
-    </list>
+    <configuration name="test_uart" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SR-DESIGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_uart.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_matrix" />
         <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.tello_gui (1)" />
-        <item itemvalue="Python.main (2)" />
-        <item itemvalue="Python.tello_gui" />
-        <item itemvalue="Python.CameraController (1)" />
+        <item itemvalue="Python.test_uart" />
+        <item itemvalue="Python.scratch_4" />
+        <item itemvalue="Python.lambda" />
       </list>
     </recent_temporary>
   </component>
@@ -236,9 +255,11 @@
       <workItem from="1668281098557" duration="3453000" />
       <workItem from="1668289354999" duration="10745000" />
       <workItem from="1668386727467" duration="89000" />
-      <workItem from="1668431553195" duration="10128000" />
-      <workItem from="1668528390940" duration="4237000" />
-      <workItem from="1668703512985" duration="450000" />
+      <workItem from="1668431553195" duration="7321000" />
+      <workItem from="1669914319954" duration="1105000" />
+      <workItem from="1669942155538" duration="4120000" />
+      <workItem from="1670095299333" duration="8289000" />
+      <workItem from="1670260369566" duration="13356000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -282,21 +303,42 @@
       <option name="project" value="LOCAL" />
       <updated>1668382960870</updated>
     </task>
-    <task id="LOCAL-00007" summary="stable camera stream">
-      <created>1668454748274</created>
+    <task id="LOCAL-00007" summary="able to write info to the dot matrix">
+      <created>1669833521368</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1668454748274</updated>
+      <updated>1669833521368</updated>
     </task>
-    <task id="LOCAL-00008" summary="some progress. buggy stream. still unsure what go_xyz_speed_mid actually does. might want to overwrite it">
-      <created>1668457387085</created>
+    <task id="LOCAL-00008" summary="chike">
+      <created>1669911610613</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1668457387085</updated>
+      <updated>1669911610613</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="emergency handler">
+      <created>1669911762152</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669911762152</updated>
+    </task>
+    <task id="LOCAL-00010" summary="caught some exceptions">
+      <created>1669946035530</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669946035530</updated>
+    </task>
+    <task id="LOCAL-00011" summary="minor fixes and progress">
+      <created>1669946399637</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669946399637</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,23 +349,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="text">
-                    <value>
-                      <list>
-                        <option value="tello.py" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bug fix" />
@@ -332,8 +363,12 @@
     <MESSAGE value="refactor for threading" />
     <MESSAGE value="option to pick a front or bottom stream working" />
     <MESSAGE value="stable camera stream" />
-    <MESSAGE value="some progress. buggy stream. still unsure what go_xyz_speed_mid actually does. might want to overwrite it" />
-    <option name="LAST_COMMIT_MESSAGE" value="some progress. buggy stream. still unsure what go_xyz_speed_mid actually does. might want to overwrite it" />
+    <MESSAGE value="able to write info to the dot matrix" />
+    <MESSAGE value="chike" />
+    <MESSAGE value="emergency handler" />
+    <MESSAGE value="caught some exceptions" />
+    <MESSAGE value="minor fixes and progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fixes and progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
