@@ -1,0 +1,39 @@
+2022-12-03 16:01:16,906 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2022-12-03 16:01:16,907 | INFO | Trying to connect to the drone now!
+2022-12-03 16:01:18,791 | INFO | Send command: 'up 20'
+2022-12-03 16:01:20,125 | INFO | Send command: 'down 20'
+2022-12-03 16:01:21,497 | INFO | Send command: 'right 20'
+2022-12-03 16:01:22,398 | INFO | Send command: 'left 20'
+2022-12-03 16:01:23,278 | INFO | Send command: 'mon'
+2022-12-03 16:01:24,233 | INFO | Send command: 'land'
+2022-12-03 16:01:25,896 | WARNING | Aborting command 'up 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:25,899 | INFO | Send command: 'up 20'
+2022-12-03 16:01:27,140 | WARNING | Aborting command 'down 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:27,141 | INFO | Send command: 'down 20'
+2022-12-03 16:01:28,211 | INFO | Send command (no response expected): 'emergency'
+2022-12-03 16:01:28,515 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:28,515 | INFO | Send command: 'right 20'
+2022-12-03 16:01:29,406 | WARNING | Aborting command 'left 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:29,407 | INFO | Send command: 'left 20'
+2022-12-03 16:01:30,298 | WARNING | Aborting command 'mon'. Did not receive a response after 7 seconds
+2022-12-03 16:01:30,299 | INFO | Send command: 'mon'
+2022-12-03 16:01:31,295 | WARNING | Aborting command 'land'. Did not receive a response after 7 seconds
+2022-12-03 16:01:31,295 | INFO | Send command: 'land'
+2022-12-03 16:01:32,901 | WARNING | Aborting command 'up 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:32,901 | INFO | Send command: 'up 20'
+2022-12-03 16:01:34,219 | WARNING | Aborting command 'down 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:34,219 | INFO | Send command: 'down 20'
+2022-12-03 16:01:35,538 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:35,539 | INFO | Send command: 'right 20'
+2022-12-03 16:01:36,420 | WARNING | Aborting command 'left 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:36,421 | INFO | Send command: 'left 20'
+2022-12-03 16:01:37,407 | WARNING | Aborting command 'mon'. Did not receive a response after 7 seconds
+2022-12-03 16:01:37,408 | INFO | Send command: 'mon'
+2022-12-03 16:01:38,398 | WARNING | Aborting command 'land'. Did not receive a response after 7 seconds
+2022-12-03 16:01:38,400 | INFO | Send command: 'land'
+2022-12-03 16:01:39,948 | WARNING | Aborting command 'up 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:41,272 | WARNING | Aborting command 'down 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:42,596 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:43,477 | WARNING | Aborting command 'left 20'. Did not receive a response after 7 seconds
+2022-12-03 16:01:44,460 | WARNING | Aborting command 'mon'. Did not receive a response after 7 seconds
+2022-12-03 16:01:45,451 | WARNING | Aborting command 'land'. Did not receive a response after 7 seconds

@@ -1,0 +1,190 @@
+2022-12-03 16:32:05,585 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2022-12-03 16:32:05,585 | INFO | Trying to connect to the drone now!
+2022-12-03 16:32:05,601 | INFO | Send command: 'command'
+2022-12-03 16:32:05,713 | INFO | Response command: 'ok'
+2022-12-03 16:32:09,650 | INFO | Send command: 'mon'
+2022-12-03 16:32:09,761 | INFO | Response mon: 'ok'
+2022-12-03 16:32:09,777 | INFO | Send command: 'mdirection 0'
+2022-12-03 16:32:09,885 | INFO | Response mdirection 0: 'ok'
+2022-12-03 16:32:09,885 | INFO | Send command: 'motoron'
+2022-12-03 16:32:09,994 | INFO | Response motoron: 'ok'
+2022-12-03 16:32:10,009 | INFO | Send command: 'takeoff'
+2022-12-03 16:32:12,888 | INFO | Send command: 'up 20'
+2022-12-03 16:32:13,433 | INFO | Response up 20: 'error Not joystick'
+2022-12-03 16:32:13,448 | INFO | Send command: 'up 20'
+2022-12-03 16:32:14,001 | INFO | Response up 20: 'error Not joystick'
+2022-12-03 16:32:14,016 | INFO | Send command: 'up 20'
+2022-12-03 16:32:14,670 | INFO | Response up 20: 'error Not joystick'
+2022-12-03 16:32:18,448 | INFO | Send command: 'up 20'
+2022-12-03 16:32:18,752 | INFO | Response takeoff: 'ok'
+2022-12-03 16:32:20,105 | INFO | Response up 20: 'ok'
+2022-12-03 16:32:23,291 | INFO | Send command: 'right 20'
+2022-12-03 16:32:26,582 | INFO | Response right 20: 'ok'
+2022-12-03 16:32:26,745 | INFO | Send command: 'left 20'
+2022-12-03 16:32:28,837 | INFO | Response left 20: 'ok'
+2022-12-03 16:32:30,554 | INFO | Send command: 'right 20'
+2022-12-03 16:32:33,090 | INFO | Send command: 'right 20'
+2022-12-03 16:32:33,861 | INFO | Response right 20: 'ok'
+2022-12-03 16:32:35,259 | INFO | Send command: 'right 20'
+2022-12-03 16:32:35,513 | INFO | Send command: 'right 20'
+2022-12-03 16:32:35,698 | INFO | Send command: 'right 20'
+2022-12-03 16:32:36,338 | INFO | Send command: 'right 20'
+2022-12-03 16:32:36,522 | INFO | Send command: 'right 20'
+2022-12-03 16:32:36,747 | INFO | Send command: 'right 20'
+2022-12-03 16:32:37,186 | INFO | Send command: 'right 20'
+2022-12-03 16:32:37,726 | INFO | Send command: 'right 20'
+2022-12-03 16:32:37,926 | INFO | Send command: 'right 20'
+2022-12-03 16:32:38,178 | INFO | Response right 20: 'ok'
+2022-12-03 16:32:38,520 | INFO | Send command: 'right 20'
+2022-12-03 16:32:40,147 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:40,147 | INFO | Send command: 'right 20'
+2022-12-03 16:32:41,207 | INFO | Response right 20: 'ok'
+2022-12-03 16:32:42,326 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:42,327 | INFO | Send command: 'right 20'
+2022-12-03 16:32:42,577 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:42,579 | INFO | Send command: 'right 20'
+2022-12-03 16:32:43,331 | INFO | Send command: 'right 20'
+2022-12-03 16:32:43,397 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:43,397 | INFO | Send command: 'right 20'
+2022-12-03 16:32:43,806 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:43,807 | INFO | Send command: 'right 20'
+2022-12-03 16:32:44,064 | INFO | Send command: 'right 20'
+2022-12-03 16:32:44,203 | INFO | Send command: 'right 20'
+2022-12-03 16:32:44,245 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:44,245 | INFO | Send command: 'right 20'
+2022-12-03 16:32:44,357 | INFO | Send command: 'right 20'
+2022-12-03 16:32:44,597 | INFO | Send command: 'right 20'
+2022-12-03 16:32:44,727 | INFO | Send command: 'right 20'
+2022-12-03 16:32:44,782 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:44,782 | INFO | Send command: 'right 20'
+2022-12-03 16:32:44,891 | INFO | Response right 20: 'ok'
+2022-12-03 16:32:44,985 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:45,095 | INFO | Send command: 'right 20'
+2022-12-03 16:32:45,112 | INFO | Send command: 'right 20'
+2022-12-03 16:32:45,275 | INFO | Send command: 'right 20'
+2022-12-03 16:32:45,429 | INFO | Send command: 'right 20'
+2022-12-03 16:32:45,581 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:45,581 | INFO | Send command: 'right 20'
+2022-12-03 16:32:45,607 | INFO | Send command: 'right 20'
+2022-12-03 16:32:45,822 | INFO | Send command: 'right 20'
+2022-12-03 16:32:46,008 | INFO | Send command: 'right 20'
+2022-12-03 16:32:46,193 | INFO | Send command: 'right 20'
+2022-12-03 16:32:46,570 | INFO | Send command: 'right 20'
+2022-12-03 16:32:46,778 | INFO | Send command: 'right 20'
+2022-12-03 16:32:46,963 | INFO | Send command: 'right 20'
+2022-12-03 16:32:47,196 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:47,197 | INFO | Send command: 'right 20'
+2022-12-03 16:32:47,481 | INFO | Response right 20: 'ok'
+2022-12-03 16:32:49,162 | INFO | Send command: 'back 20'
+2022-12-03 16:32:49,354 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:49,355 | INFO | Send command: 'right 20'
+2022-12-03 16:32:49,603 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:49,604 | INFO | Send command: 'right 20'
+2022-12-03 16:32:50,361 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:50,361 | INFO | Send command: 'right 20'
+2022-12-03 16:32:50,424 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:50,425 | INFO | Send command: 'right 20'
+2022-12-03 16:32:50,835 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:50,836 | INFO | Send command: 'right 20'
+2022-12-03 16:32:51,087 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:51,088 | INFO | Send command: 'right 20'
+2022-12-03 16:32:51,228 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:51,229 | INFO | Send command: 'right 20'
+2022-12-03 16:32:51,275 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:51,276 | INFO | Send command: 'right 20'
+2022-12-03 16:32:51,384 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:51,385 | INFO | Send command: 'right 20'
+2022-12-03 16:32:51,574 | INFO | Response right 20: 'ok'
+2022-12-03 16:32:51,622 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:51,684 | INFO | Send command: 'right 20'
+2022-12-03 16:32:51,747 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:51,747 | INFO | Send command: 'right 20'
+2022-12-03 16:32:52,125 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:52,125 | INFO | Send command: 'right 20'
+2022-12-03 16:32:52,141 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:52,141 | INFO | Send command: 'right 20'
+2022-12-03 16:32:52,297 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:52,298 | INFO | Send command: 'right 20'
+2022-12-03 16:32:52,453 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:52,454 | INFO | Send command: 'right 20'
+2022-12-03 16:32:52,579 | INFO | Send command: 'forward 20'
+2022-12-03 16:32:52,608 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:52,608 | INFO | Send command: 'right 20'
+2022-12-03 16:32:52,841 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:52,842 | INFO | Send command: 'right 20'
+2022-12-03 16:32:53,027 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:53,028 | INFO | Send command: 'right 20'
+2022-12-03 16:32:53,596 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:53,596 | INFO | Send command: 'right 20'
+2022-12-03 16:32:53,799 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:53,800 | INFO | Send command: 'right 20'
+2022-12-03 16:32:53,843 | INFO | Send command: 'forward 20'
+2022-12-03 16:32:53,862 | INFO | Response right 20: 'ok'
+2022-12-03 16:32:53,987 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:53,988 | INFO | Send command: 'right 20'
+2022-12-03 16:32:54,222 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:55,659 | INFO | Response forward 20: 'ok'
+2022-12-03 16:32:56,211 | WARNING | Aborting command 'back 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:56,211 | INFO | Send command: 'back 20'
+2022-12-03 16:32:56,397 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:56,403 | INFO | Send command: 'forward 20'
+2022-12-03 16:32:56,648 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:57,400 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:57,402 | INFO | Send command: 'right 20'
+2022-12-03 16:32:57,463 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:57,868 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:58,057 | INFO | Response right 20: 'ok'
+2022-12-03 16:32:58,121 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:58,199 | INFO | Send command: 'right 20'
+2022-12-03 16:32:58,307 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:58,417 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:58,417 | INFO | Send command: 'right 20'
+2022-12-03 16:32:58,775 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:58,776 | INFO | Send command: 'right 20'
+2022-12-03 16:32:59,152 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:59,168 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:59,169 | INFO | Send command: 'right 20'
+2022-12-03 16:32:59,325 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:59,325 | INFO | Send command: 'right 20'
+2022-12-03 16:32:59,481 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:59,481 | INFO | Send command: 'right 20'
+2022-12-03 16:32:59,638 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:59,873 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:32:59,874 | INFO | Send command: 'right 20'
+2022-12-03 16:33:00,061 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:00,062 | INFO | Send command: 'right 20'
+2022-12-03 16:33:00,392 | INFO | Response right 20: 'ok'
+2022-12-03 16:33:00,627 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:00,628 | INFO | Send command: 'right 20'
+2022-12-03 16:33:00,834 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:00,835 | INFO | Send command: 'right 20'
+2022-12-03 16:33:00,880 | WARNING | Aborting command 'forward 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:00,881 | INFO | Send command: 'forward 20'
+2022-12-03 16:33:01,021 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:01,021 | INFO | Send command: 'right 20'
+2022-12-03 16:33:02,902 | INFO | Response right 20: 'ok'
+2022-12-03 16:33:03,249 | WARNING | Aborting command 'back 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:03,250 | INFO | Send command: 'back 20'
+2022-12-03 16:33:03,436 | WARNING | Aborting command 'forward 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:03,437 | INFO | Send command: 'forward 20'
+2022-12-03 16:33:04,446 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:05,249 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:05,313 | INFO | Response forward 20: 'ok'
+2022-12-03 16:33:05,832 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:06,223 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:06,381 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:06,935 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:07,123 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:07,689 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:07,893 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:07,939 | WARNING | Aborting command 'forward 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:07,939 | INFO | Send command: 'forward 20'
+2022-12-03 16:33:08,082 | WARNING | Aborting command 'right 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:09,709 | INFO | Response forward 20: 'ok'
+2022-12-03 16:33:10,307 | WARNING | Aborting command 'back 20'. Did not receive a response after 7 seconds
+2022-12-03 16:33:14,610 | INFO | Send command: 'down 20'
+2022-12-03 16:33:17,016 | INFO | Response down 20: 'ok'
+2022-12-03 16:33:17,587 | INFO | Send command: 'back 20'
+2022-12-03 16:33:19,134 | INFO | Response back 20: 'ok'
+2022-12-03 16:33:20,286 | INFO | Send command: 'land'
+2022-12-03 16:33:26,343 | INFO | Response land: 'ok'

@@ -1,0 +1,10 @@
+2022-12-03 15:24:55,536 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2022-12-03 15:24:55,537 | INFO | Trying to connect to the drone now!
+2022-12-03 15:24:55,547 | INFO | Send command: 'command'
+2022-12-03 15:24:55,656 | INFO | Response command: 'ok'
+2022-12-03 15:24:55,796 | INFO | Send command: 'up 20'
+2022-12-03 15:24:55,911 | INFO | Response up 20: 'error Motor stop'
+2022-12-03 15:24:55,927 | INFO | Send command: 'up 20'
+2022-12-03 15:24:56,037 | INFO | Response up 20: 'error Motor stop'
+2022-12-03 15:24:56,052 | INFO | Send command: 'up 20'
+2022-12-03 15:24:56,162 | INFO | Response up 20: 'error Motor stop'

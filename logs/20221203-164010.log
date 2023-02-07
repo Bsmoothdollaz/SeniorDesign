@@ -1,0 +1,14 @@
+2022-12-03 16:40:10,756 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2022-12-03 16:40:10,757 | INFO | Trying to connect to the drone now!
+2022-12-03 16:40:10,764 | INFO | Send command: 'command'
+2022-12-03 16:40:10,874 | INFO | Response command: 'ok'
+2022-12-03 16:40:12,909 | INFO | Send command: 'mon'
+2022-12-03 16:40:13,015 | INFO | Response mon: 'ok'
+2022-12-03 16:40:13,015 | INFO | Send command: 'mdirection 0'
+2022-12-03 16:40:13,123 | INFO | Response mdirection 0: 'ok'
+2022-12-03 16:40:13,138 | INFO | Send command: 'motoron'
+2022-12-03 16:40:13,249 | INFO | Response motoron: 'error'
+2022-12-03 16:40:13,265 | INFO | Send command: 'motoron'
+2022-12-03 16:40:13,377 | INFO | Response motoron: 'error'
+2022-12-03 16:40:13,377 | INFO | Send command: 'motoron'
+2022-12-03 16:40:13,485 | INFO | Response motoron: 'error'

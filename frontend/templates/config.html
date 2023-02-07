@@ -8,8 +8,23 @@
   <head>
     <title>Config page</title>
   </head>
-  <body>
-    <h1>lets go configure the drone</h1>
+  <body style="background-color:beige;">
+    <h1><center>CONFIGURE FLIGHT PLAN</center></h1>
+    <p>Specify flight plan in entry box below. Flight plan should be in plain text, a sample plan can be found <a href="help">here</a></p><br>
+    <p>A sample flight plan involving delivery of items from Locations A and B to Home is provided below</p><br>
+    <textarea rows = "7" cols = "60" id= "fplan">
+    </textarea><br>
+    <button type = "button" onclick="getPlan()">Submit</button>
+    </br>
+    <p id="demo"></p>
+    <script>
+      function getPlan(){
+        var planInput = document.getElementById("fplan").value;
+        document.getElementById("demo").innerHTML = planInput;
+      }
+    </script>
+
+
   </body>
 
 
