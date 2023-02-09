@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="minor fixes and progress">
-      <change afterPath="$PROJECT_DIR$/algo_dev.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/config.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/control.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/flight.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/navbar.html" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="merged chike commit and cleanup files">
+      <change beforePath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DJITelloPy" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/tello.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/std.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,13 +23,24 @@
       </list>
     </option>
   </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="hardware-demo" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="ChikeActualBranch" />
         <entry key="$PROJECT_DIR$/DJITelloPy" value="4e8c9480d763a0edbe915300e1c1d0dbcf7b4a4a" />
       </map>
     </option>
@@ -62,8 +69,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../venmo-request-utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -74,8 +82,8 @@
       <recent name="C:\Users\acpere\PycharmProjects\SR-DESIGN\DJITelloPy" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test_matrix">
-    <configuration name="lambda" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -83,12 +91,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/localRepoMaint" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/frontend" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/localRepoMaint/lambda.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frontend/app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -163,7 +171,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="tello" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -171,12 +179,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DJITelloPy/api" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DJITelloPy/api/tello.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -229,13 +237,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.main (1)" />
+      <item itemvalue="Python.test_matrix" />
+      <item itemvalue="Python.test_uart" />
+      <item itemvalue="Python.tello" />
+      <item itemvalue="Python.app" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.tello" />
         <item itemvalue="Python.test_matrix" />
         <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.test_uart" />
-        <item itemvalue="Python.scratch_4" />
-        <item itemvalue="Python.lambda" />
       </list>
     </recent_temporary>
   </component>
@@ -260,6 +276,8 @@
       <workItem from="1669942155538" duration="4120000" />
       <workItem from="1670095299333" duration="8289000" />
       <workItem from="1670260369566" duration="13356000" />
+      <workItem from="1675972029592" duration="214000" />
+      <workItem from="1675983684926" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -354,7 +372,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bug fix" />
@@ -390,5 +407,20 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SR_DESIGN$record_video.coverage" NAME="record-video Coverage Results" MODIFIED="1668531537967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DJITelloPy/examples" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$manual_control_pygame.coverage" NAME="manual-control-pygame Coverage Results" MODIFIED="1668139037467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helpers" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$app.coverage" NAME="app Coverage Results" MODIFIED="1675971716741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$lambda.coverage" NAME="lambda Coverage Results" MODIFIED="1668440925764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/localRepoMaint" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1669945286716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$VideoStreamRecorder.coverage" NAME="VideoStreamRecorder Coverage Results" MODIFIED="1668381425000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$test_uart.coverage" NAME="test_uart Coverage Results" MODIFIED="1669758610684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$scratch_3.coverage" NAME="scratch_3 Coverage Results" MODIFIED="1668203360623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$test_matrix.coverage" NAME="test_matrix Coverage Results" MODIFIED="1670345862015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$scratch_4.coverage" NAME="scratch_4 Coverage Results" MODIFIED="1668441489819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$tello.coverage" NAME="tello Coverage Results" MODIFIED="1675971532690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DJITelloPy/api" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$main.coverage" NAME="main Coverage Results" MODIFIED="1672794274984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SR_DESIGN$recv_stream.coverage" NAME="recv_stream Coverage Results" MODIFIED="1668306729765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
