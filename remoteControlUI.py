@@ -9,8 +9,7 @@ import threading
 import tkinter as tk
 from tkinter import *
 from threading import *
-# from DJITelloPy.api import GUI
-# buttonPressed = False
+
 
 
 
@@ -70,6 +69,7 @@ except Exception as e:
     telloDrone.LOGGER.error(telloConstants.MESSAGES.failed_connect_drone)
     sys.exit('*** Exiting program. Could not connect to the drone.***')
 
+# Multidirectional movement of drone, along with associated threading functions
 def goUp():
     telloDrone.move_up(50)
     time.sleep(1)
@@ -98,6 +98,7 @@ def threadRight():
     t4 = Thread(target=goRight)
     t4.start()
 
+# Functions for takeoff, landing (both intentional and emergency), along with associated threading
 def threadTakeoff():
     t5 = Thread(target=telloDrone.takeoff)
     t5.start()
@@ -126,6 +127,7 @@ def threadBackward():
     t9 = Thread(target=goBackward)
     t9.start()
 
+# Functions to facilitate rotation (clockwise and counterclockwise) of drone
 def rotateC():
     telloDrone.rotate_clockwise(180)
     time.sleep(1)
@@ -142,6 +144,7 @@ def threadCC():
     t11 = Thread(target=rotateCC)
     t11.start()
 
+# Setup UI window
 telloUI = tk.Tk()
 telloUI.geometry("400x300")
 telloUI.title("CONTROLLER")
@@ -188,3 +191,7 @@ telloUI.mainloop()
 start_time = time.time()
 telloDrone.LOGGER.info("EXECUTION TIME: --- %s seconds ---" % (time.time() - start_time))
 exit(1)
+
+
+
+

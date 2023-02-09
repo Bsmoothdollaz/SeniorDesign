@@ -1,0 +1,23 @@
+2022-11-29 12:14:24,453 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2022-11-29 12:14:24,453 | INFO | Trying to connect to the drone now!
+2022-11-29 12:14:24,463 | INFO | Send command: 'command'
+2022-11-29 12:14:24,573 | INFO | Response command: 'ok'
+2022-11-29 12:14:24,574 | INFO | Connected to the drone successfully.
+2022-11-29 12:14:24,589 | INFO | Send command: 'mon'
+2022-11-29 12:14:24,589 | INFO | Send command: 'streamon'
+2022-11-29 12:14:24,699 | INFO | Response streamon: 'ok'
+2022-11-29 12:14:24,699 | INFO | Response mon: 'ok'
+2022-11-29 12:14:24,715 | INFO | Send command: 'downvision 0'
+2022-11-29 12:14:24,715 | INFO | Send command: 'mdirection 0'
+2022-11-29 12:14:25,092 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:25,595 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:26,100 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:26,603 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:27,106 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:27,610 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:28,112 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:28,628 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:29,131 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:29,634 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:30,140 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}
+2022-11-29 12:14:30,644 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': 34, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 81, 'temph': 84, 'tof': 10, 'h': 0, 'bat': 82, 'baro': 100.07, 'time': 113, 'agx': -1.0, 'agy': 0.0, 'agz': -999.0}

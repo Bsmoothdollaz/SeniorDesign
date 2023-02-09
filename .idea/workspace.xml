@@ -2,19 +2,243 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="stable camera stream">
-      <change afterPath="$PROJECT_DIR$/frontend/static/drone.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/help.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/remotecontrolUI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webUI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-210546.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-210630.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-210745.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-212609.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-213025.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-213928.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-214121.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-214159.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-214255.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-214426.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-214632.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-214706.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-215402.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-215434.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-215540.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-215558.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-215800.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-215926.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-220109.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221120-221828.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221121-235808.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221121-235827.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221121-235919.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-000030.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-000051.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-000136.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-000228.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-000434.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-000530.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-000700.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-000809.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-000917.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-001011.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221122-001114.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-115013.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-115123.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-115404.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-115440.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-115735.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-115846.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-115932.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-115948.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-120104.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-120254.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-120319.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-120708.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-120720.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-120820.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-120934.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-121018.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-121223.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-121259.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-121330.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-121424.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-121434.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-121453.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221129-121632.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-104434.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-105320.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-105348.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-105443.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-113531.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-114149.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-114208.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-114250.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-114800.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115002.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115054.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115117.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115151.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115209.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115420.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115437.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115517.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115612.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115701.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115726.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115853.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-115954.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-120025.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-120140.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-120235.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-120258.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-120334.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-120459.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-120533.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221201-120548.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-142805.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-142942.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-143022.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-143033.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-143125.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-143220.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-143420.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-143628.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-143657.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-144215.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-144336.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-144508.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-144537.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-144658.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145159.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145253.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145340.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145357.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145547.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145601.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145612.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145844.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145914.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145935.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-145939.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150024.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150052.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150121.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150137.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150301.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150314.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150322.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150347.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150358.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150415.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150506.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150516.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150528.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150548.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150614.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150648.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150657.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150713.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150802.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150815.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150923.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150934.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-150942.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151004.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151052.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151208.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151217.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151227.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151234.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151242.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151308.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151323.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151333.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151815.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151836.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151858.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151907.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-151928.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-152131.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-152142.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-152455.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-152614.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-152626.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-152658.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-152844.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-153435.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-153734.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-153839.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-153858.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-154055.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-154128.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-154145.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-154838.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-155459.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-155544.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-155556.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-155903.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-160116.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-160501.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-161306.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-161352.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-161403.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-161416.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-161505.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-161743.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-161829.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-161855.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-162012.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-162135.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-162155.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-162319.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-162447.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-162759.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-163044.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-163205.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-163505.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-163631.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-164010.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-164021.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-164033.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-164430.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-164625.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-164727.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-164851.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-165420.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-165536.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-165614.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-165628.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-165743.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-165812.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-165848.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-165914.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-165933.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-165948.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-170004.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-170019.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-170036.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-170230.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-170341.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221203-170521.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221206-102641.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221206-103058.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221206-103138.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221206-103219.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221206-115556.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221210-140138.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20221210-141526.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/logs/20230130-171737.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-100525.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-100556.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-100613.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-101145.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-101356.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-101651.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-102253.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-102332.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-102434.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-102508.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-102624.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230207-104453.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/20230209-103639.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello_gui.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/config.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/config.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/control.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/control.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remotecontrolUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/remoteControlUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,12 +283,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "last_opened_file_path": "C:/Users/KENNETH-DEAN/Desktop/Github/SR-DESIGN"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/KENNETH-DEAN/Desktop/Github/SR-DESIGN&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN" />
@@ -72,6 +296,7 @@
       <recent name="C:\Users\acpere\localRepoMaint" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN\frontend" />
       <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN\frontend\static" />
       <recent name="C:\Users\acpere\PycharmProjects\SR-DESIGN" />
       <recent name="C:\Users\acpere\PycharmProjects\SR-DESIGN\DJITelloPy" />
@@ -91,48 +316,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frontend/app.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main (3)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SR-DESIGN" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/randomProject" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/randomProject/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main (4)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SR-DESIGN" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/HW1" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/HW1/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -185,6 +368,69 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="remoteControlUI (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SR-DESIGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/remoteControlUI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="remoteControlUI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SR-DESIGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN\remoteControlUI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="remotecontrolUI (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SR-DESIGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/remotecontrolUI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="remotecontrolUI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -207,42 +453,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tello_gui (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SR-DESIGN" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DJITelloPy/api" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DJITelloPy/api/tello_gui.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.remoteControlUI" />
+      <item itemvalue="Python.remoteControlUI (1)" />
+      <item itemvalue="Python.remotecontrolUI (1)" />
       <item itemvalue="Python.app" />
-      <item itemvalue="Python.main (3)" />
-      <item itemvalue="Python.main (4)" />
       <item itemvalue="Python.remotecontrolUI" />
-      <item itemvalue="Python.tello_gui (1)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.remoteControlUI (1)" />
+        <item itemvalue="Python.remoteControlUI" />
+        <item itemvalue="Python.remotecontrolUI (1)" />
         <item itemvalue="Python.remotecontrolUI" />
-        <item itemvalue="Python.tello_gui (1)" />
-        <item itemvalue="Python.main (3)" />
-        <item itemvalue="Python.main (4)" />
       </list>
     </recent_temporary>
   </component>

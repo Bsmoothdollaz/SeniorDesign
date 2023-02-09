@@ -1,0 +1,11 @@
+2023-02-09 10:47:04,350 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2023-02-09 10:47:58,695 | INFO | Send command: 'command'
+2023-02-09 10:47:58,811 | INFO | Response command: 'ok'
+2023-02-09 10:48:02,135 | INFO | Send command: 'mon'
+2023-02-09 10:48:02,244 | INFO | Response mon: 'ok'
+2023-02-09 10:48:02,261 | INFO | Send command: 'mdirection 0'
+2023-02-09 10:48:02,371 | INFO | Response mdirection 0: 'ok'
+2023-02-09 10:48:02,371 | INFO | Send command: 'motoron'
+2023-02-09 10:48:02,478 | INFO | Response motoron: 'ok'
+2023-02-09 10:48:02,494 | INFO | Send command: 'takeoff'
+2023-02-09 10:48:11,359 | INFO | Response takeoff: 'ok'

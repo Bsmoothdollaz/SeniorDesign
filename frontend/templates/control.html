@@ -10,6 +10,92 @@
   </head>
   <body>
     <h1>lets go control the drone</h1>
+    <button id="connectButton">Connect</button>
+    <button id="takeoffButton">Takeoff</button>
+    <button id="landButton">Land</button>
+    <button id="upButton">Up</button>
+    <button id="downButton">Down</button>
+    <button id="leftButton">Left</button>
+    <button id="rightButton">Right</button>
+    <button id="rotateCWButton">Rotate Clockwise</button>
+    <button id="rotateCCWButton">Rotate Counterclockwise</button>
+    <button id="emergencyButton">Kill</button>
+    <button id="pickButton">Pickup</button>
+    <button id="dropButton">Dropoff</button>
+    <script>
+      document.getElementById("connectButton").onclick = function() {
+      // Make an AJAX request to the server to establish connection to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/connect", true);
+      xhr.send();
+      };
+      document.getElementById("takeoffButton").onclick = function() {
+      // Make an AJAX request to the server to send the takeoff command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/takeoff", true);
+      xhr.send();
+      };
+      document.getElementById("landButton").onclick = function() {
+      // Make an AJAX request to the server to send the land command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/land", true);
+      xhr.send();
+      };
+      document.getElementById("rightButton").onclick = function() {
+      // Make an AJAX request to the server to send the move right command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/right", true);
+      xhr.send();
+      };
+      document.getElementById("leftButton").onclick = function() {
+      // Make an AJAX request to the server to send the move left command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/left", true);
+      xhr.send();
+      };
+      document.getElementById("upButton").onclick = function() {
+      // Make an AJAX request to the server to send the move up command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/up", true);
+      xhr.send();
+      };
+      document.getElementById("downButton").onclick = function() {
+      // Make an AJAX request to the server to send the move down command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/down", true);
+      xhr.send();
+      };
+      document.getElementById("emergencyButton").onclick = function() {
+      // Make an AJAX request to the server to send the emergency command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/kill", true);
+      xhr.send();
+      };
+      document.getElementById("rotateCWButton").onclick = function() {
+      // Make an AJAX request to the server to send the rotate clockwise command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/rotatecw", true);
+      xhr.send();
+      };
+      document.getElementById("rotateCCWButton").onclick = function() {
+      // Make an AJAX request to the server to send the rotate counterclockwise command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/rotateccw", true);
+      xhr.send();
+      };
+      document.getElementById("pickButton").onclick = function() {
+      // Make an AJAX request to the server to make the drone pick the package
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/pick", true);
+      xhr.send();
+      };
+      document.getElementById("dropButton").onclick = function() {
+      // Make an AJAX request to the server to make the drone drop the package
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/drop", true);
+      xhr.send();
+      };
+    </script>
   </body>
 
 

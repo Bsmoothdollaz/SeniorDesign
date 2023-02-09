@@ -1,0 +1,57 @@
+2022-11-22 00:00:51,188 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2022-11-22 00:00:51,189 | INFO | Trying to connect to the drone now!
+2022-11-22 00:00:51,207 | INFO | Send command: 'command'
+2022-11-22 00:00:51,316 | INFO | Response command: 'ok'
+2022-11-22 00:00:51,317 | INFO | Connected to the drone successfully.
+2022-11-22 00:00:51,332 | INFO | Send command: 'mon'
+2022-11-22 00:00:51,333 | INFO | Send command: 'streamon'
+2022-11-22 00:00:51,441 | INFO | Response mon: 'ok'
+2022-11-22 00:00:51,441 | INFO | Response streamon: 'ok'
+2022-11-22 00:00:51,457 | INFO | Send command: 'downvision 1'
+2022-11-22 00:00:51,457 | INFO | Send command: 'mdirection 0'
+2022-11-22 00:00:51,567 | INFO | Response mdirection 0: 'ok'
+2022-11-22 00:00:51,567 | INFO | Response downvision 1: 'ok'
+2022-11-22 00:00:51,582 | INFO | Send command: 'motoron'
+2022-11-22 00:00:51,583 | INFO | Send command: 'setfps high'
+2022-11-22 00:00:51,693 | INFO | Response setfps high: 'ok'
+2022-11-22 00:00:51,693 | INFO | Response motoron: 'ok'
+2022-11-22 00:00:51,694 | INFO | data goes here
+2022-11-22 00:00:51,709 | INFO | Send command: 'attitude?'
+2022-11-22 00:00:51,820 | INFO | Response attitude?: 'pitch:0;roll:0;yaw:-41;'
+2022-11-22 00:00:51,820 | INFO | ATTITUDE: {'pitch': 0, 'roll': 0, 'yaw': -41}
+2022-11-22 00:00:51,821 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 69, 'temph': 71, 'tof': 10, 'h': 0, 'bat': 8, 'baro': 113.24, 'time': 0, 'agx': -8.0, 'agy': -14.0, 'agz': -1002.0}
+2022-11-22 00:00:51,836 | INFO | Send command: 'baro?'
+2022-11-22 00:00:51,946 | INFO | Response baro?: '113.173195'
+2022-11-22 00:00:51,947 | INFO | BAROMETER: 11317.319500000001
+2022-11-22 00:00:51,962 | INFO | Send command: 'battery?'
+2022-11-22 00:00:52,070 | INFO | Response battery?: '8'
+2022-11-22 00:00:52,071 | INFO | BATTERY: 8
+2022-11-22 00:00:52,086 | INFO | Send command: 'tof?'
+2022-11-22 00:00:52,196 | INFO | Response tof?: '100mm'
+2022-11-22 00:00:52,196 | INFO | TOF_DISTANCE: 10.0 
+2022-11-22 00:00:52,227 | INFO | Send command: 'wifi?'
+2022-11-22 00:00:52,336 | INFO | Response wifi?: '90'
+2022-11-22 00:00:52,337 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 69, 'temph': 71, 'tof': 10, 'h': 0, 'bat': 8, 'baro': 113.21, 'time': 0, 'agx': -6.0, 'agy': -14.0, 'agz': -1007.0}
+2022-11-22 00:00:52,337 | INFO | WIFI_SIGNAL_NOISE RATIO: 90
+2022-11-22 00:00:52,352 | INFO | Send command: 'sdk?'
+2022-11-22 00:00:52,462 | INFO | Response sdk?: '30'
+2022-11-22 00:00:52,462 | INFO | SDK VERSION: 30
+2022-11-22 00:00:52,462 | INFO | Send command: 'sn?'
+2022-11-22 00:00:52,572 | INFO | Response sn?: '0TQZK7JCNT2468'
+2022-11-22 00:00:52,572 | INFO | SERIAL NUMBER: 0TQZK7JCNT2468
+2022-11-22 00:00:52,841 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 69, 'temph': 71, 'tof': 10, 'h': 0, 'bat': 8, 'baro': 113.23, 'time': 0, 'agx': -9.0, 'agy': -16.0, 'agz': -1001.0}
+2022-11-22 00:00:53,348 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 69, 'temph': 71, 'tof': 10, 'h': 0, 'bat': 8, 'baro': 113.11, 'time': 0, 'agx': -12.0, 'agy': -23.0, 'agz': -1004.0}
+2022-11-22 00:00:53,851 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 69, 'temph': 72, 'tof': 10, 'h': 0, 'bat': 8, 'baro': 113.15, 'time': 0, 'agx': -4.0, 'agy': 1.0, 'agz': -988.0}
+2022-11-22 00:00:54,353 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 69, 'temph': 72, 'tof': 10, 'h': 0, 'bat': 8, 'baro': 113.09, 'time': 0, 'agx': -5.0, 'agy': -10.0, 'agz': -995.0}
+2022-11-22 00:00:54,856 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 68, 'temph': 71, 'tof': 10, 'h': 0, 'bat': 7, 'baro': 113.09, 'time': 0, 'agx': -9.0, 'agy': -15.0, 'agz': -1001.0}
+2022-11-22 00:00:55,363 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 68, 'temph': 71, 'tof': 10, 'h': 0, 'bat': 7, 'baro': 113.12, 'time': 0, 'agx': -14.0, 'agy': -19.0, 'agz': -1001.0}
+2022-11-22 00:00:55,869 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 69, 'temph': 72, 'tof': 10, 'h': 0, 'bat': 7, 'baro': 113.13, 'time': 0, 'agx': -1.0, 'agy': -4.0, 'agz': -994.0}
+2022-11-22 00:00:56,370 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 69, 'temph': 72, 'tof': 10, 'h': 0, 'bat': 7, 'baro': 113.13, 'time': 0, 'agx': -10.0, 'agy': -16.0, 'agz': -1001.0}
+2022-11-22 00:00:56,874 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 70, 'temph': 72, 'tof': 10, 'h': 0, 'bat': 7, 'baro': 113.05, 'time': 0, 'agx': -13.0, 'agy': -16.0, 'agz': -998.0}
+2022-11-22 00:00:57,415 | INFO | PERIODIC STATE VALUES: {'mid': -1, 'x': -100, 'y': -100, 'z': -100, 'mpry': '0,0,0', 'pitch': 0, 'roll': 0, 'yaw': -41, 'vgx': 0, 'vgy': 0, 'vgz': 0, 'templ': 70, 'temph': 72, 'tof': 10, 'h': 0, 'bat': 7, 'baro': 113.1, 'time': 0, 'agx': -14.0, 'agy': -18.0, 'agz': -998.0}
+2022-11-22 00:00:57,586 | INFO | Send command: 'takeoff'
+2022-11-22 00:00:57,587 | INFO | Response takeoff: 'error'
+2022-11-22 00:00:57,602 | INFO | Send command: 'takeoff'
+2022-11-22 00:00:57,603 | INFO | Response takeoff: 'error'
+2022-11-22 00:00:57,618 | INFO | Send command: 'takeoff'
+2022-11-22 00:00:57,619 | INFO | Response takeoff: 'error'
