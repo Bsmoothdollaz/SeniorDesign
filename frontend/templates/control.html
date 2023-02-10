@@ -1,15 +1,13 @@
 {% extends 'base.html' %}
 
-<!DOCTYPE html>
 {% block content %}
-
-
+<!DOCTYPE html>
 <html>
   <head>
     <title>Control page</title>
   </head>
   <body>
-    <h1>lets go control the drone</h1>
+    <h1>Let's go control the drone</h1>
     <button id="connectButton">Connect</button>
     <button id="takeoffButton">Takeoff</button>
     <button id="landButton">Land</button>
@@ -23,82 +21,29 @@
     <button id="pickButton">Pickup</button>
     <button id="dropButton">Dropoff</button>
     <script>
-      document.getElementById("connectButton").onclick = function() {
-      // Make an AJAX request to the server to establish connection to the drone
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/connect", true);
-      xhr.send();
-      };
-      document.getElementById("takeoffButton").onclick = function() {
-      // Make an AJAX request to the server to send the takeoff command to the drone
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/takeoff", true);
-      xhr.send();
-      };
-      document.getElementById("landButton").onclick = function() {
-      // Make an AJAX request to the server to send the land command to the drone
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/land", true);
-      xhr.send();
-      };
-      document.getElementById("rightButton").onclick = function() {
-      // Make an AJAX request to the server to send the move right command to the drone
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/right", true);
-      xhr.send();
-      };
-      document.getElementById("leftButton").onclick = function() {
-      // Make an AJAX request to the server to send the move left command to the drone
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/left", true);
-      xhr.send();
-      };
-      document.getElementById("upButton").onclick = function() {
-      // Make an AJAX request to the server to send the move up command to the drone
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/up", true);
-      xhr.send();
-      };
-      document.getElementById("downButton").onclick = function() {
-      // Make an AJAX request to the server to send the move down command to the drone
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/down", true);
-      xhr.send();
-      };
-      document.getElementById("emergencyButton").onclick = function() {
-      // Make an AJAX request to the server to send the emergency command to the drone
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/kill", true);
-      xhr.send();
-      };
-      document.getElementById("rotateCWButton").onclick = function() {
-      // Make an AJAX request to the server to send the rotate clockwise command to the drone
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/rotatecw", true);
-      xhr.send();
-      };
-      document.getElementById("rotateCCWButton").onclick = function() {
-      // Make an AJAX request to the server to send the rotate counterclockwise command to the drone
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/rotateccw", true);
-      xhr.send();
-      };
-      document.getElementById("pickButton").onclick = function() {
-      // Make an AJAX request to the server to make the drone pick the package
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/pick", true);
-      xhr.send();
-      };
-      document.getElementById("dropButton").onclick = function() {
-      // Make an AJAX request to the server to make the drone drop the package
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/drop", true);
-      xhr.send();
-      };
+      const endpoints = [
+        '/connect',
+        '/takeoff',
+        '/land',
+        '/right',
+        '/left',
+        '/up',
+        '/down',
+        '/kill',
+        '/rotatecw',
+        '/rotateccw',
+        '/pick',
+        '/drop'
+      ];
+
+      endpoints.forEach(endpoint => {
+        document.getElementById(endpoint.slice(1).toLowerCase() + 'Button').onclick = function() {
+          const xhr = new XMLHttpRequest();
+          xhr.open("POST", endpoint, true);
+          xhr.send();
+        };
+      });
     </script>
   </body>
-
-
-{% endblock %}
-
 </html>
+{% endblock %}
