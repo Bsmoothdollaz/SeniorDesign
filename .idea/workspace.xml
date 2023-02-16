@@ -454,11 +454,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.remoteControlUI" />
-      <item itemvalue="Python.remoteControlUI (1)" />
-      <item itemvalue="Python.remotecontrolUI (1)" />
       <item itemvalue="Python.app" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.remoteControlUI (1)" />
+      <item itemvalue="Python.remoteControlUI" />
+      <item itemvalue="Python.remotecontrolUI (1)" />
       <item itemvalue="Python.remotecontrolUI" />
     </list>
     <recent_temporary>
