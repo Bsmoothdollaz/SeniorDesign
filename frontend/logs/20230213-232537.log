@@ -1,0 +1,7 @@
+2023-02-13 23:25:37,316 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2023-02-13 23:26:26,624 | INFO | Send command: 'streamon'
+2023-02-13 23:26:33,711 | WARNING | Aborting command 'streamon'. Did not receive a response after 7 seconds
+2023-02-13 23:26:33,715 | INFO | Send command: 'streamon'
+2023-02-13 23:26:40,788 | WARNING | Aborting command 'streamon'. Did not receive a response after 7 seconds
+2023-02-13 23:26:40,792 | INFO | Send command: 'streamon'
+2023-02-13 23:26:47,878 | WARNING | Aborting command 'streamon'. Did not receive a response after 7 seconds

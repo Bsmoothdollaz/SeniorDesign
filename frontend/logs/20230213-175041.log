@@ -1,0 +1,8 @@
+2023-02-13 17:50:41,348 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2023-02-13 17:50:49,145 | INFO | Send command: 'command'
+2023-02-13 17:50:56,251 | WARNING | Aborting command 'command'. Did not receive a response after 7 seconds
+2023-02-13 17:50:56,252 | INFO | Send command: 'command'
+2023-02-13 17:51:03,297 | WARNING | Aborting command 'command'. Did not receive a response after 7 seconds
+2023-02-13 17:51:03,299 | INFO | Send command: 'command'
+2023-02-13 17:51:10,365 | WARNING | Aborting command 'command'. Did not receive a response after 7 seconds
+2023-02-13 17:51:10,373 | ERROR | Could not connect to the drone.

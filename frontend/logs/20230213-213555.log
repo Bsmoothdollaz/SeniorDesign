@@ -1,0 +1,2 @@
+2023-02-13 21:35:55,259 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2023-02-13 21:35:55,392 | INFO | Send command: 'command'

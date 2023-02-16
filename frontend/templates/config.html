@@ -12,15 +12,17 @@
     <h1><center>CONFIGURE FLIGHT PLAN</center></h1>
     <p>Specify flight plan in entry box below. Flight plan should be in plain text, a sample plan can be found <a href="help">here</a></p><br>
     <p>A sample flight plan involving delivery of items from Locations A and B to Home is provided below</p><br>
-    <textarea rows = "7" cols = "60" id= "fplan">
+    <textarea id= "fplanfield" rows = "7" cols = "60" id= "fplan">
     </textarea><br>
     <button type = "button" onclick="getPlan()">Submit</button>
     </br>
-    <p id="demo"></p>
     <script>
       function getPlan(){
-        var planInput = document.getElementById("fplan").value;
-        document.getElementById("demo").innerHTML = planInput;
+        var fplan = document.getElementById("fplanfield").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/getFlightPlan", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("fplanfield=" + encodeURIComponent(fplan));
       }
     </script>
 

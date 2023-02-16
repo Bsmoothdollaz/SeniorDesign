@@ -1,0 +1,4 @@
+2023-02-13 21:20:00,425 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2023-02-13 21:20:09,585 | INFO | Send command: 'command'
+2023-02-13 21:20:16,589 | WARNING | Aborting command 'command'. Did not receive a response after 7 seconds
+2023-02-13 21:20:16,590 | INFO | Send command: 'command'

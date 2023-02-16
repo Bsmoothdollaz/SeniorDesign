@@ -1,0 +1,177 @@
+2023-02-13 21:57:08,092 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2023-02-13 21:57:19,939 | INFO | Send command: 'command'
+2023-02-13 21:57:20,045 | INFO | Response command: 'ok'
+2023-02-13 21:57:23,311 | INFO | Send command: 'mon'
+2023-02-13 21:57:23,426 | INFO | Response mon: 'ok'
+2023-02-13 21:57:23,426 | INFO | Send command: 'mdirection 0'
+2023-02-13 21:57:23,536 | INFO | Response mdirection 0: 'ok'
+2023-02-13 21:57:23,551 | INFO | Send command: 'motoron'
+2023-02-13 21:57:23,660 | INFO | Response motoron: 'ok'
+2023-02-13 21:57:23,676 | INFO | Send command: 'takeoff'
+2023-02-13 21:57:27,108 | INFO | Send command: 'down 50'
+2023-02-13 21:57:27,658 | INFO | Response down 50: 'error Not joystick'
+2023-02-13 21:57:27,674 | INFO | Send command: 'down 50'
+2023-02-13 21:57:28,222 | INFO | Response down 50: 'error Not joystick'
+2023-02-13 21:57:28,238 | INFO | Send command: 'down 50'
+2023-02-13 21:57:28,660 | INFO | Send command: 'down 50'
+2023-02-13 21:57:28,890 | INFO | Response down 50: 'error Not joystick'
+2023-02-13 21:57:32,461 | INFO | Send command: 'forward 50'
+2023-02-13 21:57:32,461 | INFO | Response forward 50: 'ok'
+2023-02-13 21:57:34,976 | INFO | Response down 50: 'ok'
+2023-02-13 21:57:35,701 | INFO | Send command: 'back 50'
+2023-02-13 21:57:37,635 | INFO | Response takeoff: 'ok'
+2023-02-13 21:57:40,683 | INFO | Send command: 'forward 50'
+2023-02-13 21:57:42,759 | INFO | Send command: 'left 50'
+2023-02-13 21:57:42,770 | WARNING | Aborting command 'back 50'. Did not receive a response after 7 seconds
+2023-02-13 21:57:42,771 | INFO | Send command: 'back 50'
+2023-02-13 21:57:42,848 | INFO | Response forward 50: 'ok'
+2023-02-13 21:57:44,824 | INFO | Response left 50: 'ok'
+2023-02-13 21:57:49,860 | WARNING | Aborting command 'back 50'. Did not receive a response after 7 seconds
+2023-02-13 21:57:49,860 | INFO | Send command: 'back 50'
+2023-02-13 21:57:52,035 | INFO | Response back 50: 'ok'
+2023-02-13 21:57:54,928 | INFO | Send command: 'cw 50'
+2023-02-13 21:57:56,460 | INFO | Response cw 50: 'ok'
+2023-02-13 21:57:56,775 | INFO | Send command: 'cw 50'
+2023-02-13 21:57:58,188 | INFO | Response cw 50: 'ok'
+2023-02-13 21:58:06,110 | INFO | Send command: 'right 50'
+2023-02-13 21:58:08,290 | INFO | Response right 50: 'ok'
+2023-02-13 21:58:11,149 | INFO | Send command: 'back 50'
+2023-02-13 21:58:13,331 | INFO | Response back 50: 'ok'
+2023-02-13 21:58:18,493 | INFO | Send command: 'up 50'
+2023-02-13 21:58:21,112 | INFO | Response up 50: 'ok'
+2023-02-13 21:58:22,944 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:24,169 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:24,472 | INFO | Response cw 50: 'ok'
+2023-02-13 21:58:25,139 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:26,499 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:26,604 | INFO | Response cw 50: 'ok'
+2023-02-13 21:58:27,045 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:28,522 | INFO | Response cw 50: 'ok'
+2023-02-13 21:58:30,363 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:31,229 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:31,229 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:31,830 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:32,688 | INFO | Response cw 50: 'ok'
+2023-02-13 21:58:33,331 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:34,649 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:35,841 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:35,954 | INFO | Response forward 50: 'ok'
+2023-02-13 21:58:36,796 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:37,447 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:37,447 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:38,295 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:38,296 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:38,899 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:38,899 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:39,119 | INFO | Response forward 50: 'ok'
+2023-02-13 21:58:39,163 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:40,383 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:40,384 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:41,709 | INFO | Response forward 50: 'ok'
+2023-02-13 21:58:41,756 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:43,272 | INFO | Response cw 50: 'ok'
+2023-02-13 21:58:43,847 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:43,848 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:44,501 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:44,502 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:45,360 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:46,123 | INFO | Response forward 50: 'ok'
+2023-02-13 21:58:47,444 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:47,446 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:47,560 | INFO | Send command: 'right 50'
+2023-02-13 21:58:48,645 | INFO | Send command: 'right 50'
+2023-02-13 21:58:49,939 | INFO | Send command: 'right 50'
+2023-02-13 21:58:50,156 | INFO | Response forward 50: 'ok'
+2023-02-13 21:58:50,920 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:50,920 | INFO | Send command: 'forward 50'
+2023-02-13 21:58:51,376 | INFO | Send command: 'right 50'
+2023-02-13 21:58:53,312 | INFO | Response forward 50: 'ok'
+2023-02-13 21:58:54,027 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:54,528 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:54,635 | WARNING | Aborting command 'right 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:54,636 | INFO | Send command: 'right 50'
+2023-02-13 21:58:55,162 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:55,553 | INFO | Response cw 50: 'ok'
+2023-02-13 21:58:55,709 | WARNING | Aborting command 'right 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:55,710 | INFO | Send command: 'right 50'
+2023-02-13 21:58:55,957 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:57,015 | WARNING | Aborting command 'right 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:57,016 | INFO | Send command: 'right 50'
+2023-02-13 21:58:58,103 | INFO | Response right 50: 'ok'
+2023-02-13 21:58:58,135 | INFO | Send command: 'cw 50'
+2023-02-13 21:58:58,443 | WARNING | Aborting command 'right 50'. Did not receive a response after 7 seconds
+2023-02-13 21:58:58,443 | INFO | Send command: 'right 50'
+2023-02-13 21:58:59,414 | INFO | Response cw 50: 'ok'
+2023-02-13 21:58:59,461 | INFO | Send command: 'cw 50'
+2023-02-13 21:59:00,845 | INFO | Response right 50: 'ok'
+2023-02-13 21:59:01,718 | WARNING | Aborting command 'right 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:01,719 | INFO | Send command: 'right 50'
+2023-02-13 21:59:02,887 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:03,031 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:03,032 | INFO | Send command: 'cw 50'
+2023-02-13 21:59:03,869 | INFO | Response right 50: 'ok'
+2023-02-13 21:59:05,030 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:05,211 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:05,212 | INFO | Send command: 'cw 50'
+2023-02-13 21:59:06,536 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:06,536 | INFO | Send command: 'cw 50'
+2023-02-13 21:59:07,265 | INFO | Response right 50: 'ok'
+2023-02-13 21:59:07,311 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:09,973 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:09,974 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:10,113 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:10,114 | INFO | Send command: 'cw 50'
+2023-02-13 21:59:10,333 | INFO | Response cw 50: 'ok'
+2023-02-13 21:59:10,349 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:12,109 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:12,110 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:12,297 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:12,299 | INFO | Send command: 'cw 50'
+2023-02-13 21:59:13,186 | INFO | Response forward 50: 'ok'
+2023-02-13 21:59:13,218 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:13,623 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:13,624 | INFO | Send command: 'cw 50'
+2023-02-13 21:59:14,399 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:14,401 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:16,409 | INFO | Response forward 50: 'ok'
+2023-02-13 21:59:16,441 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:19,200 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:19,202 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:19,387 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:19,409 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:19,528 | INFO | Response forward 50: 'ok'
+2023-02-13 21:59:19,543 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:20,311 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:20,312 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:20,718 | WARNING | Aborting command 'cw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:20,737 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:21,493 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:21,495 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:22,380 | INFO | Response forward 50: 'ok'
+2023-02-13 21:59:22,426 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:23,532 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:23,533 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:24,968 | INFO | Response forward 50: 'ok'
+2023-02-13 21:59:24,999 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:27,406 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:27,407 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:27,562 | INFO | Response forward 50: 'ok'
+2023-02-13 21:59:27,609 | INFO | Send command: 'ccw 50'
+2023-02-13 21:59:27,827 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:27,828 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:28,590 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:29,038 | INFO | Response forward 50: 'ok'
+2023-02-13 21:59:30,629 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:30,630 | INFO | Send command: 'forward 50'
+2023-02-13 21:59:32,823 | INFO | Response forward 50: 'ok'
+2023-02-13 21:59:34,255 | INFO | Send command: 'land'
+2023-02-13 21:59:34,479 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:34,666 | WARNING | Aborting command 'ccw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:34,666 | INFO | Send command: 'ccw 50'
+2023-02-13 21:59:34,696 | INFO | Response land: 'error Auto land'
+2023-02-13 21:59:34,712 | INFO | Send command: 'land'
+2023-02-13 21:59:37,686 | WARNING | Aborting command 'forward 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:39,728 | INFO | Response land: 'ok'
+2023-02-13 21:59:41,757 | WARNING | Aborting command 'ccw 50'. Did not receive a response after 7 seconds
+2023-02-13 21:59:41,758 | INFO | Send command: 'ccw 50'
+2023-02-13 21:59:41,866 | INFO | Response ccw 50: 'error Motor stop'

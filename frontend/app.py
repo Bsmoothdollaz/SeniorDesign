@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, Response
 import sys
 import time
 import cv2
@@ -11,10 +11,13 @@ import tkinter as tk
 from tkinter import *
 from threading import *
 
+# Need to come back to the console and rerun the scripts
 
 app = Flask(__name__,static_url_path='/static') #Flask checks static folder for image files
 
 telloDrone = Tello()
+
+
 @app.route("/")
 def view_home():
     return render_template("index.html", title="Home page")
@@ -29,26 +32,45 @@ def view_404():
 def view_config():
     return render_template("config.html", title="Config")
 
+@app.route("/getFlightPlan", methods=["POST"])
+def get_fplan():
+    fplan = request.form['fplanfield']
+    # print("FLIGHT PLAN: \n")
+    print(fplan)
+    return ""
+
 
 @app.route("/control", methods = ["GET","POST"])
 def view_control():
-    if request.method == "POST":
-        flightPlan = request.form.get
-    return render_template("control.html", title="Control")
+    return render_template("control.html", title="Control", speed=telloDrone.get_total_speed)
 
 
 @app.route("/flight")
 def view_flight():
     return render_template("flight.html", title="Flight")
 
+
+
+
+
+
+
+
 #Allows the drone connect
 @app.route("/connect",methods=["POST"])
 def connect():
+
     try:
         telloDrone.connect()
+        isConnected = "Connected Successfully! You may begin flight"
+        print(isConnected)
     except Exception as e:
         telloDrone.LOGGER.error(telloConstants.MESSAGES.failed_connect_drone)
-        sys.exit('*** Exiting program. Could not connect to the drone.***')
+        isConnected = "Failed to Connect, Please Try again"
+        print(isConnected)
+    return render_template("control.html",status=isConnected)
+
+
 
 # Allows the drone takeoff
 @app.route("/takeoff", methods = ["POST"])
@@ -128,6 +150,22 @@ def rotateCCW():
     thread11 = Thread(target=telloDrone.rotate_counter_clockwise(50))
     thread11.start()
     return ""
+
+
+
+@app.route("/increase")
+def incrSpeed():
+    thread12 = Thread(target=telloDrone.set_speed(telloDrone.get_total_speed+10))
+    thread12.start()
+    return render_template("control.html",speed=telloDrone.get_total_speed)
+
+
+@app.route("/decrease")
+def decrSpeed():
+    thread13 = Thread(target=telloDrone.set_speed(telloDrone.get_total_speed-10))
+    thread13.start()
+    return render_template("control.html",speed=telloDrone.get_total_speed)
+
 # Allows the drone pick the package
 @app.route("/pick", methods = ["POST"])
 def pick():
@@ -139,6 +177,8 @@ def pick():
 def drop():
     # Do something
     return ""
+
+
 
 @app.route("/help")
 def view_help():

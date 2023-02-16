@@ -1,0 +1,28 @@
+2023-02-13 23:38:57,657 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2023-02-13 23:39:32,104 | INFO | Send command: 'command'
+2023-02-13 23:39:32,105 | INFO | Response command: 'error'
+2023-02-13 23:39:32,105 | INFO | Send command: 'command'
+2023-02-13 23:39:32,105 | INFO | Response command: 'error'
+2023-02-13 23:39:32,119 | INFO | Send command: 'command'
+2023-02-13 23:39:32,119 | INFO | Response command: 'error'
+2023-02-13 23:39:32,120 | ERROR | Could not connect to the drone.
+2023-02-13 23:39:36,162 | INFO | Send command: 'mon'
+2023-02-13 23:39:36,163 | INFO | Response mon: 'error'
+2023-02-13 23:39:36,171 | INFO | Send command: 'mon'
+2023-02-13 23:39:36,171 | INFO | Response mon: 'error'
+2023-02-13 23:39:36,186 | INFO | Send command: 'mon'
+2023-02-13 23:39:36,186 | INFO | Response mon: 'error'
+2023-02-13 23:39:53,399 | INFO | Send command: 'command'
+2023-02-13 23:39:53,400 | INFO | Response command: 'error'
+2023-02-13 23:39:53,400 | INFO | Send command: 'command'
+2023-02-13 23:39:53,401 | INFO | Response command: 'error'
+2023-02-13 23:39:53,401 | INFO | Send command: 'command'
+2023-02-13 23:39:53,402 | INFO | Response command: 'error'
+2023-02-13 23:39:53,402 | ERROR | Could not connect to the drone.
+2023-02-13 23:39:55,227 | INFO | Send command: 'command'
+2023-02-13 23:39:55,228 | INFO | Response command: 'error'
+2023-02-13 23:39:55,228 | INFO | Send command: 'command'
+2023-02-13 23:39:55,229 | INFO | Response command: 'error'
+2023-02-13 23:39:55,229 | INFO | Send command: 'command'
+2023-02-13 23:39:55,230 | INFO | Response command: 'error'
+2023-02-13 23:39:55,230 | ERROR | Could not connect to the drone.
