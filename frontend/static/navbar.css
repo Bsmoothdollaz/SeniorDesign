@@ -1,0 +1,15 @@
+#battery-level {
+  display: flex;
+  align-items: center;
+}
+
+.battery-level-percent {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.battery-level-bar {
+  width: 100px;
+  height: 20px;
+  border: 1px solid gray;
+}

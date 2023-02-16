@@ -4,12 +4,15 @@ import time
 import cv2
 import logging
 import constants as telloConstants
-from DJITelloPy.api import Tello
-from CameraController import CameraController
 import threading
 import tkinter as tk
 from tkinter import *
 from threading import *
+
+sys.path.append('../')
+from DJITelloPy.api import Tello
+from CameraController import CameraController
+
 
 # Need to come back to the console and rerun the scripts
 
@@ -187,6 +190,11 @@ def view_help():
 @app.route("/contact")
 def view_contact():
     return render_template("contact.html", title="Contact")
+
+@app.route("/get_battery")
+def get_battery():
+    return render_template('navbar.html', variable=telloDrone.get_battery())
+
 
 if __name__ == '__main__':
     # run() method of Flask class runs the application
