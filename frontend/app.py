@@ -56,7 +56,7 @@ def view_control():
     return render_template("control.html", title="Control", speed=telloDrone.get_speed_x())
 
 
-@app.route("/flight")
+@app.route("/flight", methods=['GET'])
 def view_flight():
     return render_template("flight.html", title="Flight")
 
@@ -222,7 +222,12 @@ def get_battery():
     return render_template('navbar.html', battery_level=battery_level)
 
 
+@app.route('/video_feed', methods=['GET', 'POST'])
+def video_feed():
+    return 5
+
+
 if __name__ == '__main__':
     # run() method of Flask class runs the application
     # on the local development server.
-    app.run()
+    app.run(debug=True)
