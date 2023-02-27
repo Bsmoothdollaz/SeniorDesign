@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="minor changes on frontend2">
-      <change afterPath="$PROJECT_DIR$/frontend2/assets/js/vendor/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend2/static/bootstrap.min.css" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="added dependent files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/static/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -362,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677518248518</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added dependent files">
+      <created>1677532729747</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1677532729747</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +409,8 @@
     <MESSAGE value="minor bug fix" />
     <MESSAGE value="fix bug where if you connect without the drone present you can still get to control page" />
     <MESSAGE value="minor changes on frontend2" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes on frontend2" />
+    <MESSAGE value="added dependent files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dependent files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
