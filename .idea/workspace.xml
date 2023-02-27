@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="added dependent files">
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="minor text updates">
+      <change afterPath="$PROJECT_DIR$/frontend2/static/home.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/static/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,10 +53,13 @@
   <component name="PropertiesComponent">
     <property name="TF_FMT" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend2/static" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend2/static" />
+      <recent name="$PROJECT_DIR$/frontend2/assets" />
       <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN" />
       <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN\frontend\templates" />
       <recent name="C:\Users\acpere\localRepoMaint" />
@@ -368,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677532729747</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="minor text updates">
+      <created>1677533297985</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1677533297985</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +420,8 @@
     <MESSAGE value="fix bug where if you connect without the drone present you can still get to control page" />
     <MESSAGE value="minor changes on frontend2" />
     <MESSAGE value="added dependent files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added dependent files" />
+    <MESSAGE value="minor text updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor text updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
