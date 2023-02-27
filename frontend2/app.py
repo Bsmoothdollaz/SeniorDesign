@@ -18,4 +18,24 @@ app = Flask(__name__, static_url_path='/static')  # Flask checks static folder f
 
 @app.route("/")
 def view_home():
-    return render_template("index.html", title="Home page")
+    return render_template("index.html", title="Home")
+
+
+@app.route("/config")
+def view_config():
+    return render_template("config.html", title="Config")
+
+
+@app.route("/validate_flight_plan", methods=["POST"])
+def validate_flight_plan():
+    f_plan = request.form['fplanfield']
+    # At this point we have f_plan as a python variable that we can parse
+    # and return a value if it is valid or not. Or explain what is not valid.
+    return 'done'
+
+
+@app.route("/submit_flight_plan", methods=["POST"])
+def submit_flight_plan():
+    f_plan = request.form['fplanfield']
+    # At this point we have f_plan as a python variable that we send somewhere else
+    return 'done'
