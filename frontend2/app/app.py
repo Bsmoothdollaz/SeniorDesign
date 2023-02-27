@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, Response
 import sys
+import helpers
 import time
 import cv2
 import logging
@@ -9,7 +10,7 @@ import threading
 # from tkinter import *
 from threading import *
 
-sys.path.append('../')
+sys.path.append('../../')
 from DJITelloPy.api import Tello
 from CameraController import CameraController
 
@@ -31,11 +32,12 @@ def validate_flight_plan():
     f_plan = request.form['fplanfield']
     # At this point we have f_plan as a python variable that we can parse
     # and return a value if it is valid or not. Or explain what is not valid.
+    response = helpers.backend_validate_flight_plan(f_plan)
     return 'done'
 
 
 @app.route("/submit_flight_plan", methods=["POST"])
 def submit_flight_plan():
     f_plan = request.form['fplanfield']
-    # At this point we have f_plan as a python variable that we send somewhere else
+    response = helpers.backend_submit_flight_plan(f_plan)
     return 'done'

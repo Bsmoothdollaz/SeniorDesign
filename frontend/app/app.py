@@ -9,7 +9,7 @@ import threading
 # from tkinter import *
 from threading import *
 
-sys.path.append('../')
+sys.path.append('../../')
 from DJITelloPy.api import Tello
 from CameraController import CameraController
 
