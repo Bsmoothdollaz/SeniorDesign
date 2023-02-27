@@ -5,8 +5,8 @@ import cv2
 import logging
 import constants as telloConstants
 import threading
-import tkinter as tk
-from tkinter import *
+# import tkinter as tk
+# from tkinter import *
 from threading import *
 
 sys.path.append('../')
@@ -24,6 +24,10 @@ telloDrone = Tello()
 @app.route("/")
 def view_home():
     return render_template("index.html", title="Home page")
+
+@app.route("/product")
+def view_temp():
+    return render_template("product.html", title="temp dev page")
 
 
 @app.route("/404")
