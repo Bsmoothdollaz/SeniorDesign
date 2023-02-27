@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="minor text updates">
-      <change afterPath="$PROJECT_DIR$/frontend2/static/home.jpg" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="minor updates for chike">
+      <change afterPath="$PROJECT_DIR$/frontend2/templates/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend2/templates/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -378,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677533297985</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="minor updates for chike">
+      <created>1677535301079</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1677535301079</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +430,8 @@
     <MESSAGE value="minor changes on frontend2" />
     <MESSAGE value="added dependent files" />
     <MESSAGE value="minor text updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor text updates" />
+    <MESSAGE value="minor updates for chike" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor updates for chike" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
