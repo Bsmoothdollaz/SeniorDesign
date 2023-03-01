@@ -14,6 +14,7 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/config.css') }}">
     <link href="{{url_for('static', filename='main.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/config.css')}}" rel="stylesheet">
 
     <script src="{{url_for('static', filename='js/config.js')}}"></script>
 
@@ -27,6 +28,7 @@
   </head>
 
   {% block content %}
+
 
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
       <center>
@@ -42,12 +44,34 @@
   </center>
 
   <body>
-  <center>
 
-    <textarea id= "fplanfield" rows = "7" cols = "60" id= "fplan">
-      </textarea>
+<style>
+* {
+  box-sizing: border-box;
+}
 
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
 
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+<div class="row">
+  <div class="column" style="background-color:#ffffff;">
+    <center>
+      <h3> Enter Flight Plan Below:</h3>
+      <textarea id= "fplanfield" rows = "10" cols = "60" id= "fplan"></textarea>
+    </center>
       <script>
         function validate_flight_plan(){
           var fplan = document.getElementById("fplanfield").value;
@@ -67,6 +91,24 @@
           xhr.send("fplanfield=" + encodeURIComponent(fplan));
         }
       </script>
+  </div>
+  <div class="column" style="background-color:#ffffff;">
+    <center>
+      <h2>Example Flight Plan</h2>
+      <p>Some text..</p>
+    </center>
+
+  </div>
+</div>
+
+</body>
+
+
+  <center>
+
+
+
+
 
 
     </center>

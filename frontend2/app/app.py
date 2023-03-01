@@ -41,3 +41,9 @@ def submit_flight_plan():
     f_plan = request.form['fplanfield']
     response = helpers.backend_submit_flight_plan(f_plan)
     return 'done'
+
+
+@app.route("/get_connection_status", methods=["POST"])
+def get_connection_status():
+    response = helpers.get_tello_status()
+    return response

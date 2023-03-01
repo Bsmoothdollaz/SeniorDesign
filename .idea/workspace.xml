@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="validate and submit the text in the textbox">
-      <change afterPath="$PROJECT_DIR$/frontend2/app/static/js/config.js" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="validate and submit buttons work">
+      <change afterPath="$PROJECT_DIR$/frontend2/app/location.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend2/app/static/drone_man.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend2/app/static/image2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/logs/20221120-210546.log" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/logs/20221120-210546.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/logs/20221120-210630.log" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/logs/20221120-210630.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/logs/20221120-210745.log" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/logs/20221120-210745.log" afterDir="false" />
@@ -318,36 +319,13 @@
       <change beforePath="$PROJECT_DIR$/frontend/logs/20230214-104945.log" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/logs/20230214-104945.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/logs/20230214-105416.log" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/logs/20230214-105416.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/logs/20230214-105632.log" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/logs/20230214-105632.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/drone.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/static/drone.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/js/update_battery_level.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/static/js/update_battery_level.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/static/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/static/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/config.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/config.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/control.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/control.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/flight.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/flight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/help.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/help.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/statusbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/templates/statusbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/static/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/static/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/static/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/static/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/static/css/config.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/static/holder.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/static/holder.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/static/home.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/static/home.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/static/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/static/css/config.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/static/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/static/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/static/popper.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/templates/config.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/config.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/static/css/config.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/static/css/config.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/static/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/config.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/config.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -396,27 +374,48 @@
   <component name="PropertiesComponent">
     <property name="TF_FMT" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend2/static" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend2/app/static" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="application.passwordSafe" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend2/app/static" />
       <recent name="$PROJECT_DIR$/frontend2/static" />
       <recent name="$PROJECT_DIR$/frontend2/assets" />
       <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN" />
       <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN\frontend\templates" />
-      <recent name="C:\Users\acpere\localRepoMaint" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend2/app/static" />
       <recent name="$PROJECT_DIR$/frontend2/app" />
       <recent name="$PROJECT_DIR$/frontend/app" />
       <recent name="$PROJECT_DIR$/frontend2/static" />
       <recent name="$PROJECT_DIR$/frontend2/templates" />
-      <recent name="$PROJECT_DIR$/frontend/static" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.scratch_2">
+  <component name="RunManager" selected="Python.helpers">
+    <configuration name="app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SR-DESIGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/frontend2/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frontend2/app/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -431,6 +430,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frontend/app/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="helpers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SR-DESIGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/frontend2/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frontend2/app/helpers.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -475,50 +495,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="C:\Users\acpere\PycharmProjects\SR-DESIGN\main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="remoteControlUI (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SR-DESIGN" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/remoteControlUI.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="remotecontrolUI (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SR-DESIGN" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/remotecontrolUI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -573,18 +549,18 @@
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python.app" />
-      <item itemvalue="Python.remoteControlUI (1)" />
-      <item itemvalue="Python.remotecontrolUI (1)" />
       <item itemvalue="Python.remotecontrolUI" />
       <item itemvalue="Python.scratch_2" />
+      <item itemvalue="Python.app (1)" />
+      <item itemvalue="Python.helpers" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.helpers" />
+        <item itemvalue="Python.app (1)" />
         <item itemvalue="Python.scratch_2" />
         <item itemvalue="Python.remotecontrolUI" />
         <item itemvalue="Python.app" />
-        <item itemvalue="Python.remotecontrolUI (1)" />
-        <item itemvalue="Python.remoteControlUI (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -743,7 +719,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677539733127</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="validate and submit buttons work">
+      <created>1677541082845</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1677541082845</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -789,7 +772,8 @@
     <MESSAGE value="minor updates for chike" />
     <MESSAGE value="updated code to use templates" />
     <MESSAGE value="validate and submit the text in the textbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="validate and submit the text in the textbox" />
+    <MESSAGE value="validate and submit buttons work" />
+    <option name="LAST_COMMIT_MESSAGE" value="validate and submit buttons work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
