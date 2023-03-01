@@ -11,8 +11,8 @@ import threading
 from threading import *
 
 sys.path.append('../../')
-from DJITelloPy.api import Tello
-from CameraController import CameraController
+# from DJITelloPy.api import Tello
+# from CameraController import CameraController
 
 app = Flask(__name__, static_url_path='/static')  # Flask checks static folder for image files
 
@@ -25,6 +25,11 @@ def view_home():
 @app.route("/config")
 def view_config():
     return render_template("config.html", title="Config")
+
+
+@app.route("/flight")
+def view_flight():
+    return render_template("flight.html", title="Flight")
 
 
 @app.route("/validate_flight_plan", methods=["POST"])

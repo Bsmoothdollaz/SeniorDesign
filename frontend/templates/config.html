@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+{% block content %}
+
+
+<html>
+  <head>
+    <title>Config page</title>
+  </head>
+  <body style="background-color:beige;">
+    <h1><center>CONFIGURE FLIGHT PLAN</center></h1>
+    <p>Specify flight plan in entry box below. Flight plan should be in plain text, a sample plan can be found <a href="help">here</a></p><br>
+    <p>A sample flight plan involving delivery of items from Locations A and B to Home is provided below</p><br>
+    <textarea id= "fplanfield" rows = "7" cols = "60" id= "fplan">
+    </textarea><br>
+    <button type = "button" onclick="getPlan()">Submit</button>
+    </br>
+    <script>
+      function getPlan(){
+        var fplan = document.getElementById("fplanfield").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/getFlightPlan", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("fplanfield=" + encodeURIComponent(fplan));
+      }
+    </script>
+
+
+  </body>
+
+
+{% endblock %}
+
+</html>
