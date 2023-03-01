@@ -59,7 +59,7 @@ def get_tello_status():
     print('active')
     return 'active'
 
-
-example = '*pickup food_2;Home->B;*drop food_2;A->Home;'
-
-backend_validate_flight_plan(example)
+#
+# example = '*pickup food_2;Home->B;*drop food_2;A->Home;'
+#
+# backend_validate_flight_plan(example)
