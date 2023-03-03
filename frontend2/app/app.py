@@ -125,47 +125,34 @@ def turn_motor_off():
     motor_off_thread.start()
 
 
-@app.route("/flip_forward", methods=["POST"])
+@app.route("/flip", methods=["POST"])
 def flip_forward():
+    directions = ['l','r','f','b']
+    direction = str(request.form["direction"])
+    if direction not in directions:
+        print('bad direction')
+        return('bad direction')
     global drone_wrapper
-    flip_forward_thread = Thread(target=drone_wrapper.flip, args=('f',))
+    flip_forward_thread = Thread(target=drone_wrapper.flip, args=(direction,))
     flip_forward_thread.start()
 
-
-@app.route("/flip_backwards", methods=["POST"])
-def flip_back():
-    global drone_wrapper
-    flip_back_thread = Thread(target=drone_wrapper.flip, args=('b',))
-    flip_back_thread.start()
-
-
-@app.route("/flip_left", methods=["POST"])
-def flip_left():
-    global drone_wrapper
-    flip_left_thread = Thread(target=drone_wrapper.flip_forward, args=('l',))
-    flip_left_thread.start()
-
-
-@app.route("/flip_right", methods=["POST"])
-def flip_right():
-    global drone_wrapper
-    flip_right_thread = Thread(target=drone_wrapper.flip_forward, args=('r',))
-    flip_right_thread.start()
 
 
 @app.route("/set_speed", methods=["POST"])
 def set_drone_speed():
     global drone_wrapper
+    print('raw speed:', request.form["speed"])
     speed = int(request.form["speed"])
     if speed < 10 or speed > 100:
         print('cant set speed to that amount')
         return 'Bad speed amount'
     set_speed_thread = Thread(target=drone_wrapper.set_speed, args=(speed,))
     set_speed_thread.start()
+    return 'OK'
 
 
-@app.route("/drone_move_udlr", methods=["POST"])
-def drone_move_udlr():
+@app.route("/drone_move", methods=["POST"])
+def drone_move():
     global drone_wrapper
     direction = str(request.form["direction"])
     distance = int(request.form["distance"])
