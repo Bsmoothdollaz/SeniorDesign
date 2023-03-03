@@ -19,9 +19,12 @@ import test_drone_connection
 
 app = Flask(__name__, static_url_path='/static')  # Flask checks static folder for image files
 
-drone_thread = threading.Thread(target=helpers.get_connection_status, args=(), daemon=True, name='drone_connection')
-drone_thread.start()
+# drone_thread = threading.Thread(target=helpers.get_connection_status, args=(), daemon=True, name='drone_connection')
+# drone_thread.start()
 
+global drone_wrapper
+drone_wrapper = test_drone_connection.Custom_Drone()
+drone_wrapper.try_connect()
 
 @app.route("/")
 def view_home():
@@ -66,7 +69,8 @@ def submit_flight_plan():
 
 @app.route("/get_tello_battery", methods=["POST"])
 def get_tello_battery():
-    return str(test_drone_connection.get_battery())
+    global drone_wrapper
+    return str(drone_wrapper.get_battery())
 
 
 @app.route("/get_connection_status", methods=["POST"])
@@ -74,3 +78,16 @@ def get_connection_status():
     response = helpers.get_tello_status()
     return response
 
+
+@app.route("/takeoff", methods=["POST"])
+def tello_takeoff():
+    global drone_wrapper
+    drone_wrapper.takeoff()
+    return "True"
+
+
+@app.route("/land", methods=["POST"])
+def tello_land():
+    global drone_wrapper
+    drone_wrapper.land()
+    return "True"
