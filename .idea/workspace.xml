@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="ADD FLIGHT PAGE AND ADD OLD FLASK SITE">
-      <change afterPath="$PROJECT_DIR$/frontend2/app/templates/control.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend2/app/templates/support.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/tello.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_matrix.py" afterDir="false" />
-    </list>
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="stable version of connecting to the drone and getting battery" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -271,7 +259,7 @@
       <workItem from="1670260369566" duration="13356000" />
       <workItem from="1677613283373" duration="3239000" />
       <workItem from="1677632792114" duration="7051000" />
-      <workItem from="1677867911033" duration="1980000" />
+      <workItem from="1677867911033" duration="2434000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -413,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677613581112</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="stable version of connecting to the drone and getting battery">
+      <created>1677870170426</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1677870170426</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +465,8 @@
     <MESSAGE value="updated code to use templates" />
     <MESSAGE value="validate and submit the text in the textbox" />
     <MESSAGE value="ADD FLIGHT PAGE AND ADD OLD FLASK SITE" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADD FLIGHT PAGE AND ADD OLD FLASK SITE" />
+    <MESSAGE value="stable version of connecting to the drone and getting battery" />
+    <option name="LAST_COMMIT_MESSAGE" value="stable version of connecting to the drone and getting battery" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
