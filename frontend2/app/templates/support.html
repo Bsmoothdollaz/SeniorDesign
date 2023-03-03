@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/product/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/config.css') }}">
+    <link href="{{url_for('static', filename='main.css')}}" rel="stylesheet">
+
+
+
+
+    {% extends "base.html" %}
+
+    {% block title %}
+      Configuration
+    {% endblock %}
+
+  </head>
+
+  {% block content %}
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+      <center>
+        <div class="col-md-6 px-0">
+          <h1 class="display-3">Support</h1>
+          <p class="lead my-3">Contact the Team via Email by filling out the form</p>
+        </div>
+      </center>
+      </div>
+
+<style>
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #000000;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #808080;
+}
+
+
+</style>
+
+
+
+  <form action="https://formsubmit.co/ckaniero@syr.edu" method="POST">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Enter First Name">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Enter Last Name">
+
+    <label for="continent">Continent</label>
+    <select id="continent" name="continent">
+      <option value="Choose Continent">Choose Continent</option>
+      <option value="australia">Australia</option>
+      <option value="samerica">South America</option>
+      <option value="namerica">North America</option>
+      <option value="europe">Europe</option>
+      <option value="africa">Africa</option>
+      <option value="asia">Asia</option>
+      <option value="antarctica">Antarctica</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="What's the matter?" style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+
+
+{% endblock %}
+
+</html>

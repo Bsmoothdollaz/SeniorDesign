@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/product/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/config.css') }}">
+    <link href="{{url_for('static', filename='main.css')}}" rel="stylesheet">
+
+
+
+
+    {% extends "base.html" %}
+
+    {% block title %}
+      Configuration
+    {% endblock %}
+  <style>
+        table {
+            border: 1px solid black;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 20px 40px;
+            background-color: green;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+        }
+
+
+    </style>
+
+  </head>
+
+  {% block content %}
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+      <center>
+        <div class="col-md-6 px-0">
+          <h1 class="display-3">Manual Control</h1>
+          <p class="lead my-3">Assume manual control over the drone with these buttons</p>
+        </div>
+      </center>
+      </div>
+
+
+  <body>
+    <table id="remote">
+      <tr>
+        <td><input type="button" value="Takeoff" id="takeoffButton"> </td>
+        <td><input type="button" value="Land" id="landButton"> </td>
+      </tr>
+      <tr>
+        <td><input type="button" value="Up" id="upButton"> </td>
+        <td><input type="button" value="Down" id="downButton"> </td>
+        <td><input type="button" value="Left" id="leftButton"> </td>
+        <td><input type="button" value="Right" id="rightButton"> </td>
+      </tr>
+      <tr>
+        <td><input type="button" value="Clockwise" id="rotateCWButton"> </td>
+        <td><input type="button" value="CounterClockwise" id="rotateCCWButton"> </td>
+      </tr>
+      <tr>
+        <td><input type="button" value="Connect" id="connectButton"> </td>
+      </tr>
+      <tr>
+        <td><input type="button" value="Forward" id="forwardButton"> </td>
+        <td><input type="button" value="Backward" id="backwardButton"> </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="button" value="Kill" id="emergencyButton"> </td>
+        <td><input type="button" value="Pickup" id="pickButton"> </td>
+        <td><input type="button" value="Dropoff" id="dropButton"> </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="button" value="Increase" id="incrSpeedButton"> </td>
+        <td><input type="button" value="Decrease" id="decrSpeedButton"> </td>
+      </tr>
+    </table>
+
+
+
+
+
+
+
+
+    <script>
+      document.getElementById("takeoffButton").onclick = function() {
+      // Make an AJAX request to the server to send the takeoff command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/takeoff", true);
+      xhr.send();
+      };
+      document.getElementById("landButton").onclick = function() {
+      // Make an AJAX request to the server to send the land command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/land", true);
+      xhr.send();
+      };
+      document.getElementById("rightButton").onclick = function() {
+      // Make an AJAX request to the server to send the move right command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/right", true);
+      xhr.send();
+      };
+      document.getElementById("leftButton").onclick = function() {
+      // Make an AJAX request to the server to send the move left command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/left", true);
+      xhr.send();
+      };
+      document.getElementById("upButton").onclick = function() {
+      // Make an AJAX request to the server to send the move up command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/up", true);
+      xhr.send();
+      };
+      document.getElementById("downButton").onclick = function() {
+      // Make an AJAX request to the server to send the move down command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/down", true);
+      xhr.send();
+      };
+      document.getElementById("forwardButton").onclick = function() {
+      // Make an AJAX request to the server to send the move down command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/forward", true);
+      xhr.send();
+      };
+      document.getElementById("backwardButton").onclick = function() {
+      // Make an AJAX request to the server to send the move down command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/backward", true);
+      xhr.send();
+      };
+      document.getElementById("emergencyButton").onclick = function() {
+      // Make an AJAX request to the server to send the emergency command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/kill", true);
+      xhr.send();
+      };
+      document.getElementById("rotateCWButton").onclick = function() {
+      // Make an AJAX request to the server to send the rotate clockwise command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/rotatecw", true);
+      xhr.send();
+      };
+      document.getElementById("rotateCCWButton").onclick = function() {
+      // Make an AJAX request to the server to send the rotate counterclockwise command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/rotateccw", true);
+      xhr.send();
+      };
+      document.getElementById("pickButton").onclick = function() {
+      // Make an AJAX request to the server to make the drone pick the package
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/pick", true);
+      xhr.send();
+      };
+      document.getElementById("dropButton").onclick = function() {
+      // Make an AJAX request to the server to make the drone drop the package
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/drop", true);
+      xhr.send();
+      };
+      document.getElementById("incrSpButton").onclick = function() {
+      // Make an AJAX request to the server to make the drone drop the package
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/increase", true);
+      xhr.send();
+      };
+      document.getElementById("decrSpButton").onclick = function() {
+      // Make an AJAX request to the server to make the drone drop the package
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/decrease", true);
+      xhr.send();
+      };
+
+    </script>
+
+
+  </body>
+
+
+{% endblock %}
+
+</html>

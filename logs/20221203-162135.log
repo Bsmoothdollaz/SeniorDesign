@@ -1,6 +1,0 @@
-2022-12-03 16:21:35,846 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
-2022-12-03 16:21:35,847 | INFO | Trying to connect to the drone now!
-2022-12-03 16:21:38,504 | INFO | Send command: 'mon'
-2022-12-03 16:21:43,458 | INFO | Send command: 'mon'
-2022-12-03 16:21:45,551 | WARNING | Aborting command 'mon'. Did not receive a response after 7 seconds
-2022-12-03 16:21:45,552 | INFO | Send command: 'mon'

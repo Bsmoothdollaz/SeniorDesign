@@ -1,6 +1,0 @@
-2022-12-01 11:55:18,033 | INFO | Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
-2022-12-01 11:55:18,044 | INFO | Send command: 'command'
-2022-12-01 11:55:25,099 | WARNING | Aborting command 'command'. Did not receive a response after 7 seconds
-2022-12-01 11:55:25,100 | INFO | Send command: 'command'
-2022-12-01 11:55:32,140 | WARNING | Aborting command 'command'. Did not receive a response after 7 seconds
-2022-12-01 11:55:32,140 | INFO | Send command: 'command'
