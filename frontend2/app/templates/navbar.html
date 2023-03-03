@@ -13,7 +13,7 @@
         <a class="py-2 d-none d-md-inline-block" href="#">Flight</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
         <a class="py-2 d-none d-md-inline-block" href="support">Support</a>
-        <a id="battery-link" class="py-2 d-none d-md-inline-block" href="#" onclick="getTelloBattery()">Battery/Connect</a>    </nav>
+        <a id="battery-link" class="py-2 d-none d-md-inline-block" href="#" onclick="connectToDrone()">Battery/Connect</a>    </nav>
 
 <script>
 function updateBatteryLevel() {
@@ -30,8 +30,17 @@ function updateBatteryLevel() {
   xhr.send();
 }
 
-// Call updateBatteryLevel every 10 seconds
-setInterval(updateBatteryLevel, 10000);
+// Call updateBatteryLevel every 5 seconds
+setInterval(updateBatteryLevel, 5000);
+</script>
+
+<script>
+function connectToDrone() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/connect_to_drone');
+  xhr.send();
+}
+
 </script>
 
 

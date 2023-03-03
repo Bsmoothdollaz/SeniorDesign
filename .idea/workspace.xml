@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="added test_drone_connection.py">
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="takeoff and land working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/tello.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_drone_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_drone_connection.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -263,7 +265,7 @@
       <workItem from="1670260369566" duration="13356000" />
       <workItem from="1677613283373" duration="3239000" />
       <workItem from="1677632792114" duration="7051000" />
-      <workItem from="1677867911033" duration="3745000" />
+      <workItem from="1677867911033" duration="11565000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -419,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677870593879</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="takeoff and land working">
+      <created>1677871944941</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1677871944941</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,7 +487,8 @@
     <MESSAGE value="ADD FLIGHT PAGE AND ADD OLD FLASK SITE" />
     <MESSAGE value="stable version of connecting to the drone and getting battery" />
     <MESSAGE value="added test_drone_connection.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="added test_drone_connection.py" />
+    <MESSAGE value="takeoff and land working" />
+    <option name="LAST_COMMIT_MESSAGE" value="takeoff and land working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
