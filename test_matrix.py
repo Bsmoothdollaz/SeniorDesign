@@ -1,9 +1,8 @@
 import sys
 import time
 import DJITelloPy.api.tello
-import constants
 from DJITelloPy.api import Tello
-from CameraController import CameraController
+# from CameraController import CameraController
 import threading
 
 state_logging_interval = 0.5  # seconds
@@ -52,16 +51,16 @@ def find_mission_pad(tello):
 
 """ CONNECT TO THE DRONE"""
 tello = Tello()
-tello.LOGGER.info(constants.MESSAGES.try_connect_drone)
+# tello.LOGGER.info(constants.MESSAGES.try_connect_drone)
 
 try:
     try:
         tello.connect()
     except Exception as e:
-        tello.LOGGER.error(constants.MESSAGES.failed_connect_drone)
+        # tello.LOGGER.error(constants.MESSAGES.failed_connect_drone)
         sys.exit('*** Exiting program. Could not connect to the drone.***')
 
-    tello.LOGGER.info(constants.MESSAGES.successful_connect_drone)
+    # tello.LOGGER.info(constants.MESSAGES.successful_connect_drone)
     tello.send_control_command('EXT mled g 00000000')            # clear the display
     tello.send_control_command('EXT led 0 0 0')           # clear to top led
     try:
@@ -74,9 +73,9 @@ try:
     # Start the camera thread
     tello.set_video_bitrate(Tello.BITRATE_5MBPS)
     tello.set_video_resolution(Tello.RESOLUTION_480P)
-    camera = CameraController(tello=tello)
-    # camera.run_front_cam()
-    camera.run_bottom_cam()
+    # camera = CameraController(tello=tello)
+    # # camera.run_front_cam()
+    # camera.run_bottom_cam()
 
     # Start the periodic drone state logger
     state_logger = threading.Thread(target=log_state, args=(state_logging_interval, tello), daemon=True, name='state-logger')

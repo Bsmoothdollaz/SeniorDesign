@@ -1,4 +1,4 @@
-from location import location
+# from location import location
 
 
 def validate_location_instruction(instruction):
@@ -29,6 +29,12 @@ def backend_validate_flight_plan(text):
         converted_text = text.strip()
         list_of_instructions = converted_text.split(';')
         err_counter = 0
+
+        # validate our flight plan
+        # we need to add an identifier "start" at the beginning
+        # we need to and "end"
+        # start needs to match end
+
         for instruction in list_of_instructions:
             if len(instruction) > 0:
                 if '*' in instruction:
@@ -45,6 +51,7 @@ def backend_validate_flight_plan(text):
                         return e
 
         print('Validated Successfully!')
+    print('validated')
 
 
 def backend_submit_flight_plan(text):
@@ -55,9 +62,13 @@ def backend_submit_flight_plan(text):
     print('submitted')
 
 
+def get_connection_status():
+    print('THREAD')
+    return True
+
+
 def get_tello_status():
-    print('active')
-    return 'active'
+    return '10'
 
 #
 # example = '*pickup food_2;Home->B;*drop food_2;A->Home;'
