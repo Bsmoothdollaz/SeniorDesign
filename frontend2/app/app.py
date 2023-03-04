@@ -1,29 +1,32 @@
 from flask import Flask, request, render_template, Response
 import sys
+
+# import DJITelloPy.api.tello as Tello
 import helpers
 import time
-import cv2
+# import cv2
 import logging
-import constants as telloConstants
+# import constants as telloConstants
 import threading
 # import tkinter as tk
 # from tkinter import *
 from threading import *
 
 sys.path.append('../../')
-from DJITelloPy.api import Tello
-from CameraController import CameraController
+# from DJITelloPy.api import tello
+# from CameraController import CameraController
+import test_drone_connection
 
 app = Flask(__name__, static_url_path='/static')  # Flask checks static folder for image files
 
+# drone_thread = threading.Thread(target=helpers.get_connection_status, args=(), daemon=True, name='drone_connection')
+# drone_thread.start()
+
+global drone_wrapper
+drone_wrapper = test_drone_connection.Custom_Drone()
+drone_wrapper.try_connect()
 
 
-
-try:
-    global telloDrone
-    telloDrone = Tello()
-except:
-    print("")
 @app.route("/")
 def view_home():
     return render_template("index.html", title="Home")
@@ -33,13 +36,22 @@ def view_home():
 def view_config():
     return render_template("config.html", title="Config")
 
-@app.route("/control")
-def view_control():
-    return render_template("control.html",title="Control")
+
+@app.route("/flight")
+def view_flight():
+    return render_template("flight.html", title="Flight")
+
 
 @app.route("/support")
 def view_support():
-    return render_template("support.html",title="Support")
+    return render_template("support.html", title="Support")
+
+
+@app.route("/control")
+def view_control():
+    return render_template("control.html", title="Control")
+
+
 @app.route("/validate_flight_plan", methods=["POST"])
 def validate_flight_plan():
     f_plan = request.form['fplanfield']
@@ -55,107 +67,131 @@ def submit_flight_plan():
     response = helpers.backend_submit_flight_plan(f_plan)
     return 'done'
 
-# Allows the drone connect
-@app.route("/connect", methods=["POST"])
-def connect():
 
-    try:
-        telloDrone.connect()
-        isConnected = "Connected Successfully! You may begin flight"
-        print(isConnected)
-    except Exception as e:
-        telloDrone.LOGGER.error(telloConstants.MESSAGES.failed_connect_drone)
-        isConnected = "Failed to Connect, Please Try again"
-        print(isConnected)
-    return render_template("control.html", status=isConnected)
+@app.route("/get_tello_battery", methods=["POST"])
+def get_tello_battery():
+    global drone_wrapper
+    return str(drone_wrapper.get_battery())
 
 
-# Allows the drone takeoff
+@app.route("/get_connection_status", methods=["POST"])
+def get_connection_status():
+    response = helpers.get_tello_status()
+    return response
+
+
 @app.route("/takeoff", methods=["POST"])
-def takeoff():
-    thread1 = Thread(target=telloDrone.takeoff)
-    thread1.start()
-    return ""
+def tello_takeoff():
+    global drone_wrapper
+    takeoff_thread = Thread(target=drone_wrapper.takeoff, args=())
+    takeoff_thread.start()
+    return "True"
 
 
-# Allows the drone land
 @app.route("/land", methods=["POST"])
-def land():
-    thread2 = Thread(target=telloDrone.land)
-    thread2.start()
+def tello_land():
+    global drone_wrapper
+    land_thread = Thread(target=drone_wrapper.land, args=())
+    land_thread.start()
+    # drone_wrapper.land()
+    return "True"
+
+
+@app.route("/connect_to_drone", methods=["POST"])
+def connect_to_drone():
+    global drone_wrapper
+    drone_wrapper.try_connect()
+    return "True"
+
+
+@app.route("/emergency_shutoff", methods=["POST"])
+def emergency_kill_drone():
+    global drone_wrapper
+    emergency_thread = Thread(target=drone_wrapper.emergency, args=())
+    emergency_thread.start()
+
+
+@app.route("/motor_on", methods=["POST"])
+def turn_motor_on():
+    global drone_wrapper
+    motor_on_thread = Thread(target=drone_wrapper.motor_on, args=())
+    motor_on_thread.start()
     return ""
 
 
-# Allows the drone move right
-@app.route("/right", methods=["POST"])
-def right():
-    thread3 = Thread(target=telloDrone.move_right(50))
-    thread3.start()
+@app.route("/motor_off", methods=["POST"])
+def turn_motor_off():
+    global drone_wrapper
+    motor_off_thread = Thread(target=drone_wrapper.motor_off, args=())
+    motor_off_thread.start()
     return ""
 
 
-# Allows the drone move left
-@app.route("/left", methods=["POST"])
-def left():
-    thread4 = Thread(target=telloDrone.move_left(50))
-    thread4.start()
-    return ""
+@app.route("/flip", methods=["POST"])
+def flip():
+    directions = ['l','r','f','b']
+    direction = str(request.form["button"])
+    print(direction)
+    if direction not in directions:
+        print('bad direction')
+        return ('bad direction')
+    global drone_wrapper
+    flip_forward_thread = Thread(target=drone_wrapper.flip, args=(direction,))
+    flip_forward_thread.start()
+    return render_template("control.html",direction=direction)
 
 
-# Allows the drone move up
-@app.route("/up", methods=["POST"])
-def up():
-    thread5 = Thread(target=telloDrone.move_up(50))
-    thread5.start()
-    return ""
+
+@app.route("/set_speed", methods=["POST"])
+def set_drone_speed():
+    global drone_wrapper
+    print('raw speed:', request.form["speedSlider"])
+    speed = int(request.form["speedSlider"])
+    if speed < 10 or speed > 100:
+        print('cant set speed to that amount')
+        return 'Bad speed amount'
+    set_speed_thread = Thread(target=drone_wrapper.set_speed, args=(speed,))
+    set_speed_thread.start()
+    return render_template("control.html",speed=speed)
 
 
-# Allows the drone move down
-@app.route("/down", methods=["POST"])
-def down():
-    thread6 = Thread(target=telloDrone.move_down(50))
-    thread6.start()
-    return ""
+@app.route("/drone_move", methods=["POST"])
+def drone_move():
+    global drone_wrapper
+    direction = str(request.form["button"])
+    distance = int(request.form["value"])
+    directions = ['up', 'down', 'left', 'right', 'forward', 'backward']
+    print("Direction: ", direction)
+    print("Distance: ", distance)
+    if direction not in directions:
+        print('bad direction value')
+        return 'Bad direction value'
+    if distance < 20 or distance > 500:
+        print('Cannot set distance to that amount')
+        return 'Bad distance value'
+    drone_udlr_thread = Thread(target=drone_wrapper.go_up_down_left_right, args=(direction,distance,))
+    drone_udlr_thread.start()
+    return render_template("control.html",direction=direction,distance=distance)
 
 
-# Allows the drone move forward
-@app.route("/forward", methods=["POST"])
-def forward():
-    thread7 = Thread(target=telloDrone.move_forward(50))
-    thread7.start()
-    return ""
+@app.route("/drone_rotate", methods=["POST"])
+def rotate_drone():
+    global drone_wrapper
+    direction = str(request.form["button"])
+    degrees = int(request.form["value"])
+    directions = ['cw', 'ccw']
+    print("Direction: ", direction)
+    print("Degrees: ", degrees)
+    if direction not in directions:
+        print('bad direction value')
+        return 'bad direction value'
+    if degrees < 1 or degrees > 360:
+        print('cant rotate  to that amount')
+        return 'bad degrees value'
+    drone_rotate_thread = Thread(target=drone_wrapper.rotate_drone, args=(direction,degrees))
+    drone_rotate_thread.start()
+    return render_template("control.html",direction=direction,degrees=degrees)
 
-
-# Allows the drone move backward
-@app.route("/backward", methods=["POST"])
-def backward():
-    thread8 = Thread(target=telloDrone.move_back(50))
-    thread8.start()
-    return ""
-
-
-# Kill switch to end flight in case of abnormal behaviour
-@app.route("/kill", methods=["POST"])
-def kill():
-    thread9 = Thread(target=telloDrone.emergency)
-    thread9.start()
-    return ""
-
-
-# Allows the drone rotate clockwise
-@app.route("/rotatecw", methods=["POST"])
-def rotateCW():
-    thread10 = Thread(target=telloDrone.rotate_clockwise(50))
-    thread10.start()
-    return ""
-
-
-# Allows the drone rotate counterclockwise
-@app.route("/rotateccw", methods=["POST"])
-def rotateCCW():
-    thread11 = Thread(target=telloDrone.rotate_counter_clockwise(50))
-    thread11.start()
-    return ""
 
 
 if __name__ == '__main__':

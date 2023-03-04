@@ -51,92 +51,101 @@
     <center>
     <table id="remote">
       <tr>
+        <td></td>
         <td><center><input type="button" value="Takeoff" id="takeoffButton"></center></td>
         <td><center><input type="button" value="Land" id="landButton"></center> </td>
         <td><center><input type="button" value="Kill" id="emergencyButton"></center> </td>
+        <td></td>
       </tr>
-      <tr>
-        <td><center><p></p></center></td>
-        <td><center><p>Motor Control</p></center></td>
-        <td><p style="text-align:center">Flip Control</p></td>
-      </tr>
+
 
       <tr>
         <td>
-          <center><span id="sliderValue"></span></center>
-          <input type="range" min="10" max="100" name="speedSlider" value="50" onchange="show_speed(this.value)"><br>
+          <form action="/set_speed" method="POST">
+            <center>
+            <input type="range" min="10" max="100" step="1" id="speedSlider" name="speedSlider"  onchange="updateRange(this.value)"><br>
+            <span id="sliderSpeed"></span>
+            <input type="hidden" id="slider-value" name="slider-value" value="">
+            <button type="submit" onclick="captureValue()">Set Speed</button>
+            </center>
+          </form>
         </td>
-        <td>
-          <center>
-          <input type="button" value="On" id="motorOnButton">
-          <input type="button" value="Off" id="motorOffButton">
-          </center>
-        </td>
-        <td>
-          <center><input type="button" value="Up" id="flipUpButton"></center>
-
-        </td>
-      </tr>
-      <tr>
-        <td><center><input type="button" value="Set Speed" id="speedSetter"></center></td>
         <td></td>
         <td>
-
-          <input type="button" value="Left" id="flipLeftButton">
-          <input type="button" value="Down" id="flipDownButton">
-          <input type="button" value="Right" id="flipRightButton">
-
+          <center>
+          <input type="button" value="Motor On" id="motorOnButton">
+          <input type="button" value="Motor Off" id="motorOffButton">
+          </center>
         </td>
+        <td></td>
+        <td>
+          <form action="/flip" method="POST">
+            <button type="submit" name="button" value="f">FrontFlip</button>
+            <button type="submit" name="button" value="b">BackFlip</button>
+            <button type="submit" name="button" value="l">FlipLeft</button>
+            <button type="submit" name="button" value="r">FlipRight</button>
+          </form>
+        </td>
+        <td></td>
+
       </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+      </tr>
+
 
       <tr>
         <td>
         <center>
-        <input type="button" value="Forward" id="forwardButton" >
+            <form action="/drone_move" method="POST">
+              <button type="submit" name="button" value="forward">Forward</button>
+              <input type="text" id="fwbwValue" name="value" size="2">
+              <button type="submit" name="button" value="backward">Backward</button>
+            </form>
         </center>
         </td>
+        <td></td>
         <td>
-          <center>
-            <input type="button" value="Up" id="upButton" >
-          </center>
+          <form action="/drone_move" method="POST">
+            <center>
+            <button type="submit" name="button" value="up">Up</button>
+            <button type="submit" name="button" value="down">Down</button>
+            <input type="text" id="uldrValue" name="value" size="2">
+            <button type="submit" name="button" value="left">Left</button>
+            <button type="submit" name="button" value="right">Right</button>
+            </center>
+          </form>
         </td>
+        <td></td>
         <td>
-          <center>
-            <input type="button" value="Clockwise" id="cwButton" >
-          </center>
+          <form action="/drone_rotate" method="POST">
+            <center>
+            <button type="submit" name="button" value="cw">Clockwise</button>
+            <input type="text" id="cwccwValue" name="value" size="2">
+            <button type="submit" name="button" value="ccw">CounterClockwise</button>
+            </center>
+          </form>
         </td>
       </tr>
 
       <tr>
         <td>
-        <center><input type="text" id="fwbwValue" size="2"></center>
         </td>
         <td>
-          <center>
-          <input type="button" value="Left" id="leftButton" >
-          <input type="text" id="uldrValue" size="2">
-          <input type="button" value="Right" id="rightButton" >
-          </center>
-        </td>
-        <td>
-           <center><input type="text" id="cwccwValue" size="2"></center>
         </td>
       </tr>
       <tr>
         <td>
-        <center>
-        <input type="button" value="Backward" id="backwardButton" >
-        </center>
+
         </td>
         <td>
-          <center>
-            <input type="button" value="Down" id="downButton" onclick="getULDRValue()">
-          </center>
         </td>
         <td>
-          <center>
-            <input type="button" value="CounterClockwise" id="ccwButton" >
-          </center>
         </td>
       </tr>
 
@@ -154,10 +163,15 @@
 
 
     <script>
-
-      function show_speed(x){
-        document.getElementById("sliderValue").innerHTML=x;
+      function captureValue(){
+        var sliderValue = document.getElementById("speedSlider").value;
+        document.getElementById("slider-value").value = sliderValue;
       }
+
+      function updateRange(x){
+        document.getElementById("sliderSpeed").innerHTML=x;
+      }
+
       document.getElementById("takeoffButton").onclick = function() {
       // Make an AJAX request to the server to send the takeoff command to the drone
       var xhr = new XMLHttpRequest();
@@ -171,7 +185,6 @@
       xhr.send();
       };
 
-
       document.getElementById("emergencyButton").onclick = function() {
       // Make an AJAX request to the server to send the emergency command to the drone
       var xhr = new XMLHttpRequest();
@@ -180,6 +193,20 @@
       };
 
 
+
+      document.getElementById("motorOffButton").onclick = function() {
+      // Make an AJAX request to the server to send the motor off command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/motor_off", true);
+      xhr.send();
+      };
+
+      document.getElementById("motorOnButton").onclick = function() {
+      // Make an AJAX request to the server to send the motor on command to the drone
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/motor_on", true);
+      xhr.send();
+      };
 
     </script>
 

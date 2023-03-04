@@ -1,3 +1,8 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-dNwT8T2ra6myzIYUv9C1sN/wwO7lUH+NXpfvRc0m8JbyJe0M1fBcv1v7SEWqK8Pm7V12fcDnd7VvdvHgzVErBQ==" crossorigin="anonymous" />
+</head>
+
 <nav class="site-header sticky-top py-1">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2" href="/">
@@ -8,6 +13,27 @@
         <a class="py-2 d-none d-md-inline-block" href="#">Flight</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
         <a class="py-2 d-none d-md-inline-block" href="support">Support</a>
-        <a class="py-2 d-none d-md-inline-block" href="#">Battery/Connect</a>
+        <a id="battery-link" class="py-2 d-none d-md-inline-block" href="#" onclick="getTelloBattery()">Battery/Connect</a>    </nav>
+
+<script>
+function updateBatteryLevel() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/get_tello_battery');
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      var batteryLevel = xhr.responseText;
+      document.getElementById("battery-link").textContent = "Battery: " + batteryLevel;
+    } else {
+      alert('Request failed. Returned status of ' + xhr.status);
+    }
+  };
+  xhr.send();
+}
+
+// Call updateBatteryLevel every 10 seconds
+setInterval(updateBatteryLevel, 10000);
+</script>
+
+
       </div>
     </nav>
