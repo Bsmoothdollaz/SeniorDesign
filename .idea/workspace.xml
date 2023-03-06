@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="update endpoints and drone handles for more functionality">
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="updates before leaving. current bug with set speed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/control.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/control.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +261,8 @@
       <workItem from="1670260369566" duration="13356000" />
       <workItem from="1677613283373" duration="3239000" />
       <workItem from="1677632792114" duration="7051000" />
-      <workItem from="1677867911033" duration="13402000" />
+      <workItem from="1677867911033" duration="14484000" />
+      <workItem from="1678109860164" duration="103000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -440,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677880301740</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="updates before leaving. current bug with set speed">
+      <created>1677882259313</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1677882259313</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,7 +507,8 @@
     <MESSAGE value="added test_drone_connection.py" />
     <MESSAGE value="takeoff and land working" />
     <MESSAGE value="update endpoints and drone handles for more functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="update endpoints and drone handles for more functionality" />
+    <MESSAGE value="updates before leaving. current bug with set speed" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates before leaving. current bug with set speed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
