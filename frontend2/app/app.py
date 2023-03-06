@@ -116,6 +116,7 @@ def turn_motor_on():
     global drone_wrapper
     motor_on_thread = Thread(target=drone_wrapper.motor_on, args=())
     motor_on_thread.start()
+    return ""
 
 
 @app.route("/motor_off", methods=["POST"])
@@ -123,57 +124,65 @@ def turn_motor_off():
     global drone_wrapper
     motor_off_thread = Thread(target=drone_wrapper.motor_off, args=())
     motor_off_thread.start()
+    return ""
+
 
 
 @app.route("/flip", methods=["POST"])
-def flip_forward():
+def flip():
     directions = ['l','r','f','b']
-    direction = str(request.form["direction"])
+    direction = str(request.form["button"])
+    print(direction)
     if direction not in directions:
         print('bad direction')
-        return('bad direction')
+        return ('bad direction')
     global drone_wrapper
     flip_forward_thread = Thread(target=drone_wrapper.flip, args=(direction,))
     flip_forward_thread.start()
+    return render_template("control.html",direction=direction)
 
 
 
-@app.route("/set_speed", methods=["POST"])
+@app.route("/set_speed", methods=["GET", "POST"])
 def set_drone_speed():
     global drone_wrapper
-    print('raw speed:', request.form["speed"])
-    speed = int(request.form["speed"])
+    print('raw speed:', request.form["speedSlider"])
+    speed = int(request.form["speedSlider"])
     if speed < 10 or speed > 100:
         print('cant set speed to that amount')
         return 'Bad speed amount'
     set_speed_thread = Thread(target=drone_wrapper.set_speed, args=(speed,))
     set_speed_thread.start()
-    return 'OK'
+    return render_template("control.html", speed=speed)
 
 
 @app.route("/drone_move", methods=["POST"])
 def drone_move():
     global drone_wrapper
-    direction = str(request.form["direction"])
-    distance = int(request.form["distance"])
+    direction = str(request.form["button"])
+    distance = int(request.form["value"])
     directions = ['up', 'down', 'left', 'right', 'forward', 'back']
+    print("Direction: ", direction)
+    print("Distance: ", distance)
     if direction not in directions:
         print('bad direction value')
         return 'Bad direction value'
     if distance < 20 or distance > 500:
-        print('cant set distance to that amount')
+        print('Cannot set distance to that amount')
         return 'Bad distance value'
     drone_udlr_thread = Thread(target=drone_wrapper.go_up_down_left_right, args=(direction,distance,))
     drone_udlr_thread.start()
-    return 'here'
+    return render_template("control.html",direction=direction,distance=distance)
 
 
 @app.route("/drone_rotate", methods=["POST"])
 def rotate_drone():
     global drone_wrapper
-    direction = str(request.form["direction"])
-    degrees = int(request.form["degrees"])
+    direction = str(request.form["button"])
+    degrees = int(request.form["value"])
     directions = ['cw', 'ccw']
+    print("Direction: ", direction)
+    print("Degrees: ", degrees)
     if direction not in directions:
         print('bad direction value')
         return 'bad direction value'
@@ -182,5 +191,4 @@ def rotate_drone():
         return 'bad degrees value'
     drone_rotate_thread = Thread(target=drone_wrapper.rotate_drone, args=(direction,degrees))
     drone_rotate_thread.start()
-    return 'here'
-
+    return render_template("control.html",direction=direction,degrees=degrees)

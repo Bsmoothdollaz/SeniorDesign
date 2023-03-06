@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="updates before leaving. current bug with set speed">
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="wip working on video stream">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/control.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/control.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
