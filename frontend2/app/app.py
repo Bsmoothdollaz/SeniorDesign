@@ -1,16 +1,19 @@
+import flask
+import numpy as np
 from flask import Flask, request, render_template, Response
 import sys
-
+import socket
 # import DJITelloPy.api.tello as Tello
 import helpers
 import time
-# import cv2
+import cv2
 import logging
 # import constants as telloConstants
 import threading
 # import tkinter as tk
 # from tkinter import *
 from threading import *
+import json
 
 sys.path.append('../../')
 # from DJITelloPy.api import tello
@@ -127,10 +130,9 @@ def turn_motor_off():
     return ""
 
 
-
 @app.route("/flip", methods=["POST"])
 def flip():
-    directions = ['l','r','f','b']
+    directions = ['l', 'r', 'f', 'b']
     direction = str(request.form["button"])
     print(direction)
     if direction not in directions:
@@ -139,8 +141,7 @@ def flip():
     global drone_wrapper
     flip_forward_thread = Thread(target=drone_wrapper.flip, args=(direction,))
     flip_forward_thread.start()
-    return render_template("control.html",direction=direction)
-
+    return render_template("control.html", direction=direction)
 
 
 @app.route("/set_speed", methods=["GET", "POST"])
@@ -170,9 +171,9 @@ def drone_move():
     if distance < 20 or distance > 500:
         print('Cannot set distance to that amount')
         return 'Bad distance value'
-    drone_udlr_thread = Thread(target=drone_wrapper.go_up_down_left_right, args=(direction,distance,))
+    drone_udlr_thread = Thread(target=drone_wrapper.go_up_down_left_right, args=(direction, distance,))
     drone_udlr_thread.start()
-    return render_template("control.html",direction=direction,distance=distance)
+    return render_template("control.html", direction=direction, distance=distance)
 
 
 @app.route("/drone_rotate", methods=["POST"])
@@ -189,6 +190,15 @@ def rotate_drone():
     if degrees < 1 or degrees > 360:
         print('cant rotate  to that amount')
         return 'bad degrees value'
-    drone_rotate_thread = Thread(target=drone_wrapper.rotate_drone, args=(direction,degrees))
+    drone_rotate_thread = Thread(target=drone_wrapper.rotate_drone, args=(direction, degrees))
     drone_rotate_thread.start()
-    return render_template("control.html",direction=direction,degrees=degrees)
+    return render_template("control.html", direction=direction, degrees=degrees)
+
+
+@app.route("/get_tello_data", methods=["GET"])
+def get_tello_data():
+    global drone_wrapper
+    return json.dumps(drone_wrapper.get_drone_state(), indent=4)
+
+
+

@@ -4,6 +4,17 @@ import DJITelloPy.api.tello
 from DJITelloPy.api import Tello
 # from CameraController import CameraController
 import threading
+import cv2
+import socket
+from PIL import Image, ImageTk
+import tkinter as tki
+from tkinter import Toplevel, Scale
+import threading
+import datetime
+import cv2
+import os
+import time
+import platform
 
 
 class Custom_Drone:
@@ -17,8 +28,12 @@ class Custom_Drone:
         self.drone = Tello()
         try:
             self.drone.connect()
+            time.sleep(2)
+            # self.drone.send_control_command("streamon")
+            # self.drone.set_video_bitrate(Tello.BITRATE_5MBPS)
+            # self.drone.set_video_resolution(Tello.RESOLUTION_480p)
         except Exception as e:
-            print('could not connect to drone')
+            print('could not connect to drone', e)
             self.drone = None
 
     def get_battery(self):
@@ -51,21 +66,21 @@ class Custom_Drone:
         try:
             drone.send_command_without_return("emergency")
         except Exception as E:
-            print('exception on emergency', e)
+            print('exception on emergency', E)
 
     def motor_on(self):
         drone = self.get_drone_object()
         try:
             drone.send_control_command("motoron")
         except Exception as E:
-            print('exception on motor on', e)
+            print('exception on motor on', E)
 
     def motor_off(self):
         drone = self.get_drone_object()
         try:
             drone.send_control_command("motoroff")
         except Exception as E:
-            print('exception on motor off', e)
+            print('exception on motor off', E)
 
     def flip(self, direction):
         drone = self.get_drone_object()
@@ -94,3 +109,12 @@ class Custom_Drone:
             drone.send_control_command("{} {}".format(direction, degrees))
         except Exception as e:
             print('exception rotate drone', e)
+
+    def get_drone_state(self):
+        drone = self.get_drone_object()
+        state = None
+        try:
+            state = drone.get_current_state()
+        except Exception as e:
+            print('exception while getting state data', e)
+        return state
