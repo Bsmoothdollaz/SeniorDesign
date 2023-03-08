@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="get_tello_data backend endpoint">
-      <change beforePath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="more gauges">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/app/templates/flight.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/flight.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +67,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -277,7 +276,9 @@
       <workItem from="1677632792114" duration="7051000" />
       <workItem from="1677867911033" duration="14484000" />
       <workItem from="1678109860164" duration="103000" />
-      <workItem from="1678146008884" duration="13968000" />
+      <workItem from="1678146008884" duration="14056000" />
+      <workItem from="1678291013345" duration="72000" />
+      <workItem from="1678291120165" duration="1407000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -475,7 +476,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678237588328</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="more gauges">
+      <created>1678248993345</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1678248993345</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +520,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updates" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/frontend2/app/PyAV" />
+    </ignored-roots>
     <MESSAGE value="refactor for threading" />
     <MESSAGE value="option to pick a front or bottom stream working" />
     <MESSAGE value="stable camera stream" />
@@ -537,7 +547,8 @@
     <MESSAGE value="updates before leaving. current bug with set speed" />
     <MESSAGE value="control page functionality good" />
     <MESSAGE value="get_tello_data backend endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="get_tello_data backend endpoint" />
+    <MESSAGE value="more gauges" />
+    <option name="LAST_COMMIT_MESSAGE" value="more gauges" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
