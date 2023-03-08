@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="more gauges">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="working version here.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/app/templates/flight.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/flight.html" afterDir="false" />
     </list>
@@ -37,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ChikeMidSemDemo" />
+        <entry key="$PROJECT_DIR$" value="mid-sem-demo" />
         <entry key="$PROJECT_DIR$/DJITelloPy" value="4e8c9480d763a0edbe915300e1c1d0dbcf7b4a4a" />
       </map>
     </option>
@@ -278,7 +277,8 @@
       <workItem from="1678109860164" duration="103000" />
       <workItem from="1678146008884" duration="14056000" />
       <workItem from="1678291013345" duration="72000" />
-      <workItem from="1678291120165" duration="1407000" />
+      <workItem from="1678291120165" duration="6028000" />
+      <workItem from="1678298332762" duration="4518000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -483,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678248993345</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="working version here.">
+      <created>1678292705957</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1678292705957</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +530,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend2/app/PyAV" />
     </ignored-roots>
-    <MESSAGE value="refactor for threading" />
     <MESSAGE value="option to pick a front or bottom stream working" />
     <MESSAGE value="stable camera stream" />
     <MESSAGE value="able to write info to the dot matrix" />
@@ -548,7 +554,8 @@
     <MESSAGE value="control page functionality good" />
     <MESSAGE value="get_tello_data backend endpoint" />
     <MESSAGE value="more gauges" />
-    <option name="LAST_COMMIT_MESSAGE" value="more gauges" />
+    <MESSAGE value="working version here." />
+    <option name="LAST_COMMIT_MESSAGE" value="working version here." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
