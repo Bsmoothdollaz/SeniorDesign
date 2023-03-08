@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="charts are working!">
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="working for demo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/flight.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/flight.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +277,7 @@
       <workItem from="1678146008884" duration="14056000" />
       <workItem from="1678291013345" duration="72000" />
       <workItem from="1678291120165" duration="6028000" />
-      <workItem from="1678298332762" duration="7175000" />
+      <workItem from="1678298332762" duration="7858000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -497,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678303284282</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="working for demo">
+      <created>1678311241878</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1678311241878</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +543,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend2/app/PyAV" />
     </ignored-roots>
-    <MESSAGE value="stable camera stream" />
     <MESSAGE value="able to write info to the dot matrix" />
     <MESSAGE value="chike" />
     <MESSAGE value="emergency handler" />
@@ -562,7 +567,8 @@
     <MESSAGE value="more gauges" />
     <MESSAGE value="working version here." />
     <MESSAGE value="charts are working!" />
-    <option name="LAST_COMMIT_MESSAGE" value="charts are working!" />
+    <MESSAGE value="working for demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="working for demo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
