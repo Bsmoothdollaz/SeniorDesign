@@ -14,6 +14,9 @@
     <!-- Custom styles for this template -->
     <link href="{{url_for('static', filename='main.css')}}" rel="stylesheet">
 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/justgage@1.4.0/justgage.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
     {% extends "base.html" %}
 
     {% block title %}
@@ -23,28 +26,190 @@
 
   <body>
     {% block content %}
-       <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background-image: url({{ url_for('static', filename='home.jpg') }}); background-size: contain; background-position: center center;">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-          <h1 class="display-4 font-weight-normal">This is your flight page </h1>
 
+    <!-- Gauges -->
+        <div class="container">
+            <div class="row justify-content-around my-5">
+                <div class="col-4 text-center">
+                    <h4>Temperature (°C)</h4>
+                    <div id="tempGauge"></div>
+                </div>
+                <div class="col-4 text-center">
+                    <h4>Battery (%)</h4>
+                    <div id="batteryGauge"></div>
+                </div>
+                <div class="col-4 text-center">
+                    <h4>Altitude (cm)</h4>
+                    <div id="altitudeGauge"></div>
+                </div>
+            </div>
         </div>
-       </div>
+
+    <div class="container">
+            <div class="row justify-content-around my-5">
+                <div class="col-4 text-center">
+                    <h4>Roll</h4>
+                    <div id="rollGauge"></div>
+                </div>
+                <div class="col-4 text-center">
+                    <h4>Pitch</h4>
+                    <div id="pitchGauge"></div>
+                </div>
+                <div class="col-4 text-center">
+                    <h4>Yaw</h4>
+                    <div id="yawGauge"></div>
+                </div>
+            </div>
+        </div>
+
+    <div class="container">
+            <div class="row justify-content-around my-5">
+                <div class="col-4 text-center">
+                    <h4>vgx</h4>
+                    <div id="vgxGauge"></div>
+                </div>
+                <div class="col-4 text-center">
+                    <h4>vgy</h4>
+                    <div id="vgyGauge"></div>
+                </div>
+                <div class="col-4 text-center">
+                    <h4>vgz</h4>
+                    <div id="vgzGauge"></div>
+                </div>
+            </div>
+        </div>
+
+    <script>
+  // Set up the gauges
+  var tempGauge = new JustGage({
+    id: "tempGauge",
+    value: 0,
+    min: 30,
+    max: 90,
+    title: "Temperature",
+    label: "°C"
+  });
+
+  var batteryGauge = new JustGage({
+    id: "batteryGauge",
+    value: 0,
+    min: 0,
+    max: 100,
+    title: "Battery",
+    label: "%"
+  });
+
+  var altitudeGauge = new JustGage({
+    id: "altitudeGauge",
+    value: 0,
+    min: 0,
+    max: 500,
+    title: "Altitude",
+    label: "cm"
+  });
+
+  var pitchGauge = new JustGage({
+      id: "pitchGauge",
+      value: 0,
+      min: -180,
+      max: 180,
+      title: "Pitch",
+      label: "degrees"
+  });
+
+  var rollGauge = new JustGage({
+      id: "rollGauge",
+      value: 0,
+      min: -180,
+      max: 180,
+      title: "Roll",
+      label: "degrees"
+  });
+
+  var yawGauge = new JustGage({
+      id: "yawGauge",
+      value: 0,
+      min: -180,
+      max: 180,
+      title: "Yaw",
+      label: "degrees"
+  });
+
+  var vgxGauge = new JustGage({
+      id: "vgxGauge",
+      value: 0,
+      min: -180,
+      max: 180,
+      title: "vgx",
+      label: "cm/s"
+  });
+
+  var vgyGauge = new JustGage({
+      id: "vgyGauge",
+      value: 0,
+      min: -180,
+      max: 180,
+      title: "vgy",
+      label: "cm/s"
+  });
+
+  var vgzGauge = new JustGage({
+      id: "vgzGauge",
+      value: 0,
+      min: -180,
+      max: 180,
+      title: "vgz",
+      label: "cm/s"
+  });
+
+  // Function to update the gauges with new data
+  function updateGauges() {
+    fetch('/get_tello_data')
+      .then(response => response.json())
+      .then(data => {
+        // Update the temperature gauge
+
+          if (data.templ && data.temph) {
+          tempGauge.refresh((data.templ + data.temph) / 2);
+        }
+
+        // Update the battery gauge
+        if (data.bat) {
+          batteryGauge.refresh(data.bat);
+        }
+
+        // Update the altitude gauge
+        if (data.h) {
+          altitudeGauge.refresh(data.h);
+        }
+
+        if(data.pitch){
+            pitchGauge.refresh(data.pitch);
+        }
+
+        if(data.roll){
+            rollGauge.refresh(data.roll);
+        }
+        if(data.yaw){
+            yawGauge.refresh(data.yaw);
+        }
+
+        if (data.vgx){
+            vgxGauge.refresh(data.vgx);
+            vgyGauge.refresh(data.vgy);
+            vgzGauge.refresh(data.vgz);
+        }
+
+      });
+  }
+
+  // Update the gauges every .5 seconds
+  setInterval(updateGauges, 500);
+</script>
+
+
     {% endblock %}
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="{{url_for('static',filename='popper.min.js')}}"></script>
-    <script src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
-    <script src=".{{url_for('static',filename='holder.min.js')}}"></script>
-    <script>
-      Holder.addTheme('thumb', {
-        bg: '#55595c',
-        fg: '#eceeef',
-        text: 'Thumbnail'
-      });
-    </script>
-  </body>
+
+</body>
 </html>

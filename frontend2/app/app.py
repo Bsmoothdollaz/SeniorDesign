@@ -198,7 +198,11 @@ def rotate_drone():
 @app.route("/get_tello_data", methods=["GET"])
 def get_tello_data():
     global drone_wrapper
-    return json.dumps(drone_wrapper.get_drone_state(), indent=4)
+    if drone_wrapper is None:
+        return 'No data'
+    else:
+        print('Data:', drone_wrapper.get_drone_state())
+        return json.dumps(drone_wrapper.get_drone_state(), indent=4)
 
 
 
