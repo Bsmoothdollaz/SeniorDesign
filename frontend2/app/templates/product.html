@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/product/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/config.css') }}">
+    <link href="{{url_for('static', filename='main.css')}}" rel="stylesheet">
+
+
+
+
+    {% extends "base.html" %}
+
+    {% block title %}
+      Product
+    {% endblock %}
+  <style>
+    p.blocktext {
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 8em
+    }
+
+
+  </style>
+
+  </head>
+
+  {% block content %}
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+      <center>
+        <div class="col-md-6 px-0">
+          <h1 class="display-3">Product Information</h1>
+          <p class="lead my-3">A summary of the product </p>
+        </div>
+      </center>
+      </div>
+
+
+
+
+
+  <body>
+        <p class="blocktext"><center>
+            The SkyBites team has developed a product that will facilitate efficient delivery of food items in manual and automatic modes.<br>
+            At the core of the project is the <b>DJI RoboMaster TT Drone</b> <i>(shown left)</i> which receives commands as specified in the TELLO Software Development Kit 2.0 to perform various operations.<br>
+            To perform automatic food delivery of the drone, we have incorporated <b>ESP-32</b> <i>(shown right) </i> chips that will assist with pathfinding and localization.<br>
+            An ESP-32 chip will be attached to the head of the drone, serving as the anchor, while the remaining chips will be stationed at the various delivery locations.
+        </center></p>
+      <center><img src="/static/telloDrone.png" alt="Tello Drone" style="width:500px;height:600px;">
+      <img src="/static/espchip.jpg" alt="ESPChip" style="width:500px;height:600px;"></center>
+
+
+
+
+
+
+
+
+
+
+  </body>
+
+{% endblock %}
+
+</html>

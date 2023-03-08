@@ -41,6 +41,9 @@ def view_config():
 def view_flight():
     return render_template("flight.html", title="Flight")
 
+@app.route("/product")
+def view_product():
+    return render_template("product.html", title="Product")
 
 @app.route("/support")
 def view_support():
@@ -116,7 +119,7 @@ def turn_motor_on():
     global drone_wrapper
     motor_on_thread = Thread(target=drone_wrapper.motor_on, args=())
     motor_on_thread.start()
-    return ""
+    #return render_template("control.html")
 
 
 @app.route("/motor_off", methods=["POST"])
@@ -124,7 +127,7 @@ def turn_motor_off():
     global drone_wrapper
     motor_off_thread = Thread(target=drone_wrapper.motor_off, args=())
     motor_off_thread.start()
-    return ""
+    #return render_template("control.html")
 
 
 @app.route("/flip", methods=["POST"])
@@ -134,7 +137,7 @@ def flip():
     print(direction)
     if direction not in directions:
         print('bad direction')
-        return ('bad direction')
+        return ""
     global drone_wrapper
     flip_forward_thread = Thread(target=drone_wrapper.flip, args=(direction,))
     flip_forward_thread.start()
@@ -149,7 +152,7 @@ def set_drone_speed():
     speed = int(request.form["speedSlider"])
     if speed < 10 or speed > 100:
         print('cant set speed to that amount')
-        return 'Bad speed amount'
+        return ""
     set_speed_thread = Thread(target=drone_wrapper.set_speed, args=(speed,))
     set_speed_thread.start()
     return render_template("control.html",speed=speed)
@@ -160,12 +163,12 @@ def drone_move():
     global drone_wrapper
     direction = str(request.form["button"])
     distance = int(request.form["value"])
-    directions = ['up', 'down', 'left', 'right', 'forward', 'backward']
+    directions = ['up', 'down', 'left', 'right', 'forward', 'back']
     print("Direction: ", direction)
     print("Distance: ", distance)
     if direction not in directions:
         print('bad direction value')
-        return 'Bad direction value'
+        return ""
     if distance < 20 or distance > 500:
         print('Cannot set distance to that amount')
         return 'Bad distance value'
@@ -184,7 +187,7 @@ def rotate_drone():
     print("Degrees: ", degrees)
     if direction not in directions:
         print('bad direction value')
-        return 'bad direction value'
+        return ""
     if degrees < 1 or degrees > 360:
         print('cant rotate  to that amount')
         return 'bad degrees value'
