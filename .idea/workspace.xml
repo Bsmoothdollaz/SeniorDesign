@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="get_tello_data backend endpoint">
-      <change beforePath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="working for demo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/flight.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/flight.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ChikeMidSemDemo" />
+        <entry key="$PROJECT_DIR$" value="c281581a6d18f363c90df8c7dc2b5388a7a7fafa" />
         <entry key="$PROJECT_DIR$/DJITelloPy" value="4e8c9480d763a0edbe915300e1c1d0dbcf7b4a4a" />
       </map>
     </option>
@@ -68,7 +65,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -245,10 +242,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests in test_matrix.py" />
-        <item itemvalue="Python.app (1)" />
         <item itemvalue="Python.test_matrix" />
         <item itemvalue="Python.scratch_2" />
         <item itemvalue="Python.remotecontrolUI" />
+        <item itemvalue="Python.app (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -277,7 +274,10 @@
       <workItem from="1677632792114" duration="7051000" />
       <workItem from="1677867911033" duration="14484000" />
       <workItem from="1678109860164" duration="103000" />
-      <workItem from="1678146008884" duration="13968000" />
+      <workItem from="1678146008884" duration="14056000" />
+      <workItem from="1678291013345" duration="72000" />
+      <workItem from="1678291120165" duration="6028000" />
+      <workItem from="1678298332762" duration="7858000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -475,7 +475,35 @@
       <option name="project" value="LOCAL" />
       <updated>1678237588328</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="more gauges">
+      <created>1678248993345</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1678248993345</updated>
+    </task>
+    <task id="LOCAL-00030" summary="working version here.">
+      <created>1678292705957</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1678292705957</updated>
+    </task>
+    <task id="LOCAL-00031" summary="charts are working!">
+      <created>1678303284282</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1678303284282</updated>
+    </task>
+    <task id="LOCAL-00032" summary="working for demo">
+      <created>1678311241878</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1678311241878</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,10 +540,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updates" />
-    <MESSAGE value="refactor for threading" />
-    <MESSAGE value="option to pick a front or bottom stream working" />
-    <MESSAGE value="stable camera stream" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/frontend2/app/PyAV" />
+    </ignored-roots>
     <MESSAGE value="able to write info to the dot matrix" />
     <MESSAGE value="chike" />
     <MESSAGE value="emergency handler" />
@@ -537,7 +564,11 @@
     <MESSAGE value="updates before leaving. current bug with set speed" />
     <MESSAGE value="control page functionality good" />
     <MESSAGE value="get_tello_data backend endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="get_tello_data backend endpoint" />
+    <MESSAGE value="more gauges" />
+    <MESSAGE value="working version here." />
+    <MESSAGE value="charts are working!" />
+    <MESSAGE value="working for demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="working for demo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

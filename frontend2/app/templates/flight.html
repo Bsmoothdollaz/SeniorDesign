@@ -17,6 +17,7 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/justgage@1.4.0/justgage.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     {% extends "base.html" %}
 
     {% block title %}
@@ -47,40 +48,220 @@
 
     <div class="container">
             <div class="row justify-content-around my-5">
-                <div class="col-4 text-center">
-                    <h4>Roll</h4>
-                    <div id="rollGauge"></div>
+               <div class="col-4 text-center">
+                    <h4>Yaw</h4>
+                    <div id="yawGauge"></div>
                 </div>
                 <div class="col-4 text-center">
                     <h4>Pitch</h4>
                     <div id="pitchGauge"></div>
                 </div>
-                <div class="col-4 text-center">
-                    <h4>Yaw</h4>
-                    <div id="yawGauge"></div>
+                  <div class="col-4 text-center">
+                    <h4>Roll</h4>
+                    <div id="rollGauge"></div>
                 </div>
+
             </div>
         </div>
 
-    <div class="container">
-            <div class="row justify-content-around my-5">
-                <div class="col-4 text-center">
-                    <h4>vgx</h4>
-                    <div id="vgxGauge"></div>
-                </div>
-                <div class="col-4 text-center">
-                    <h4>vgy</h4>
-                    <div id="vgyGauge"></div>
-                </div>
-                <div class="col-4 text-center">
-                    <h4>vgz</h4>
-                    <div id="vgzGauge"></div>
-                </div>
-            </div>
-        </div>
+<!--    <div class="container">-->
+<!--            <div class="row justify-content-around my-5">-->
+<!--                <div class="col-4 text-center">-->
+<!--                    <h4>vgx</h4>-->
+<!--                    <div id="vgxGauge"></div>-->
+<!--                </div>-->
+<!--                <div class="col-4 text-center">-->
+<!--                    <h4>vgy</h4>-->
+<!--                    <div id="vgyGauge"></div>-->
+<!--                </div>-->
+<!--                <div class="col-4 text-center">-->
+<!--                    <h4>vgz</h4>-->
+<!--                    <div id="vgzGauge"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<div class="container-fluid">
+  <div class="row d-flex flex-row">
+    <div class="col-md-4">
+      <h4>Velocity and Acceleration on the X-Axis</h4>
+      <div style="height: 400px; overflow: auto;">
+        <canvas id="xchart"></canvas>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h4>Velocity and Acceleration on the Y-Axis</h4>
+      <div style="height: 400px; overflow: auto;">
+        <canvas id="ychart"></canvas>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h4>Velocity and Acceleration on the Z-Axis</h4>
+      <div style="height: 400px; overflow: auto;">
+        <canvas id="zchart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
     <script>
-  // Set up the gauges
+
+// Chart Configuration
+var configX = {
+  type: 'line',
+  data: {
+    labels: [],
+    datasets: [{
+      label: 'Velocity (cm/s)',
+      data: [],
+      borderColor: 'rgb(54, 162, 235)',
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      tension: 0.1
+    }, {
+      label: 'Acceleration (cm/s²)',
+      data: [],
+      borderColor: 'rgb(255, 99, 132)',
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      tension: 0.1
+    }]
+  },
+  options: {
+      height: 400,
+    responsive: true,
+    maintainAspectRatio: true,
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Time'
+        },
+        ticks: {
+          autoSkip: true,
+          maxTicksLimit: 20
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Value'
+        }
+      }
+    }
+  }
+};
+
+var configY = {
+  type: 'line',
+  data: {
+    labels: [],
+    datasets: [{
+      label: 'Velocity (cm/s)',
+      data: [],
+      borderColor: 'rgb(54, 162, 235)',
+      tension: 0.1
+    }, {
+      label: 'Acceleration (cm/s²)',
+      data: [],
+      borderColor: 'rgb(255, 99, 132)',
+      tension: 0.1
+    }]
+  },
+  options: {
+      height: 400,
+    responsive: true,
+    maintainAspectRatio: true,
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Time'
+        },
+        ticks: {
+          autoSkip: true,
+          maxTicksLimit: 20
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Value'
+        }
+      }
+    }
+  }
+};
+
+var configZ = {
+  type: 'line',
+  data: {
+    labels: [],
+    datasets: [{
+      label: 'Velocity (cm/s)',
+      data: [],
+      borderColor: 'rgb(54, 162, 235)',
+      tension: 0.1
+    }, {
+      label: 'Acceleration (cm/s²)',
+      data: [],
+      borderColor: 'rgb(255, 99, 132)',
+      tension: 0.1
+    }]
+  },
+  options: {
+      height: 400,
+    responsive: true,
+    maintainAspectRatio: true,
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Time'
+        },
+        ticks: {
+          autoSkip: true,
+          maxTicksLimit: 20
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Value'
+        }
+      }
+    }
+  }
+};
+
+var xchart = new Chart(document.getElementById('xchart'), configX);
+function updateXChart(time, velocity, acceleration) {
+  configX.data.labels.push(time);
+  configX.data.datasets[0].data.push(velocity);
+  configX.data.datasets[1].data.push(acceleration);
+
+  xchart.update();
+}
+
+var ychart = new Chart(document.getElementById('ychart'), configY);
+function updateYChart(time, velocity, acceleration) {
+  configY.data.labels.push(time);
+  configY.data.datasets[0].data.push(velocity);
+  configY.data.datasets[1].data.push(acceleration);
+
+  ychart.update();
+}
+
+var zchart = new Chart(document.getElementById('zchart'), configZ);
+function updateZChart(time, velocity, acceleration) {
+  configZ.data.labels.push(time);
+  configZ.data.datasets[0].data.push(velocity);
+  configZ.data.datasets[1].data.push(acceleration);
+
+  zchart.update();
+}
+
+
   var tempGauge = new JustGage({
     id: "tempGauge",
     value: 0,
@@ -167,8 +348,12 @@
     fetch('/get_tello_data')
       .then(response => response.json())
       .then(data => {
-        // Update the temperature gauge
+          const timestamp = Date.now();
+         updateXChart(timestamp, data.vgx, data.agx);
+         updateYChart(timestamp, data.vgy, data.agy);
+         updateZChart(timestamp, data.vgz, data.agz);
 
+        // Update the temperature gauge
           if (data.templ && data.temph) {
           tempGauge.refresh((data.templ + data.temph) / 2);
         }
@@ -200,11 +385,18 @@
             vgzGauge.refresh(data.vgz);
         }
 
+
+
       });
+
+
   }
+
+  updateGauges();
 
   // Update the gauges every .5 seconds
   setInterval(updateGauges, 500);
+
 </script>
 
 
