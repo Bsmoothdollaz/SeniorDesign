@@ -117,11 +117,13 @@ var configX = {
       label: 'Velocity (cm/s)',
       data: [],
       borderColor: 'rgb(54, 162, 235)',
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
       tension: 0.1
     }, {
       label: 'Acceleration (cm/s²)',
       data: [],
       borderColor: 'rgb(255, 99, 132)',
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
       tension: 0.1
     }]
   },
@@ -349,7 +351,7 @@ function updateZChart(time, velocity, acceleration) {
           const timestamp = Date.now();
          updateXChart(timestamp, data.vgx, data.agx);
          updateYChart(timestamp, data.vgy, data.agy);
-         updateZChart(timestamp, data.vgy, data.agz);
+         updateZChart(timestamp, data.vgz, data.agz);
 
         // Update the temperature gauge
           if (data.templ && data.temph) {
