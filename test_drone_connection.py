@@ -6,9 +6,9 @@ from DJITelloPy.api import Tello
 import threading
 import cv2
 import socket
-from PIL import Image, ImageTk
-import tkinter as tki
-from tkinter import Toplevel, Scale
+# from PIL import Image, ImageTk
+# import tkinter as tki
+# from tkinter import Toplevel, Scale
 import threading
 import datetime
 import cv2

@@ -14,11 +14,15 @@ import threading
 # from tkinter import *
 from threading import *
 import json
+import requests
+
 
 sys.path.append('../../')
 # from DJITelloPy.api import tello
 # from CameraController import CameraController
 import test_drone_connection
+import parse_esp32_data
+
 
 app = Flask(__name__, static_url_path='/static')  # Flask checks static folder for image files
 
@@ -28,6 +32,27 @@ app = Flask(__name__, static_url_path='/static')  # Flask checks static folder f
 global drone_wrapper
 drone_wrapper = test_drone_connection.Custom_Drone()
 drone_wrapper.try_connect()
+
+ESP_TAG_HOST = ''  # Listen on all available interfaces
+ESP_TAG_PORT = 8888  # Choose a port number
+latest_data = ""  # Global variable to store the latest data received by the UDP socket
+
+
+def udp_handler():
+    global latest_data
+    # Create a UDP socket and bind it to the specified host and port
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
+        sock.bind((ESP_TAG_HOST, ESP_TAG_PORT))
+        print(f"Listening on {ESP_TAG_HOST}:{ESP_TAG_PORT}...")
+        # Loop indefinitely, receiving and storing the latest data from the socket
+        while True:
+            data, addr = sock.recvfrom(1024)
+            latest_data = data.decode('utf-8')
+            # print(f"Received: {latest_data} from {addr}")
+
+
+udp_thread = threading.Thread(target=udp_handler)
+udp_thread.start()
 
 
 @app.route("/")
@@ -182,7 +207,8 @@ def rotate_drone():
     direction = str(request.form["button"])
     degrees = int(request.form["value"])
     directions = ['cw', 'ccw']
-    print("Direction: ", direction)
+    print("Direction: ", direction)            # print(f"Received: {latest_data} from {addr}")
+
     print("Degrees: ", degrees)
     if direction not in directions:
         print('bad direction value')
@@ -205,4 +231,21 @@ def get_tello_data():
         return json.dumps(drone_wrapper.get_drone_state(), indent=4)
 
 
+@app.route('/get_latest_esp32_data', methods=["GET"])
+def get_latest_data():
+    global latest_data
+    return latest_data
 
+
+@app.route("/get_drone_coords", methods=["GET"])
+def get_drone_coords():
+    global drone_wrapper
+    if drone_wrapper is None:
+        return 'No data'
+    else:
+        tag_positions = parse_esp32_data.get_tag_location(1.6764)
+        if tag_positions is None:
+            return 'No tag positions'
+        else:
+            x, y = tag_positions
+            return f'x={x}, y={y}'
