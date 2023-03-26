@@ -4,15 +4,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="working on drone connection status">
-      <change afterPath="$PROJECT_DIR$/parse_esp32_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="get the x and y coords of the tag">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/tello.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_drone_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_drone_connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/flight.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/flight.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parse_esp32_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/parse_esp32_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -494,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678248993345</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="get the x and y coords of the tag">
+      <created>1679542999514</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1679542999514</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +538,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend2/app/PyAV" />
     </ignored-roots>
-    <MESSAGE value="refactor for threading" />
     <MESSAGE value="option to pick a front or bottom stream working" />
     <MESSAGE value="stable camera stream" />
     <MESSAGE value="able to write info to the dot matrix" />
@@ -560,7 +562,8 @@
     <MESSAGE value="control page functionality good" />
     <MESSAGE value="get_tello_data backend endpoint" />
     <MESSAGE value="more gauges" />
-    <option name="LAST_COMMIT_MESSAGE" value="more gauges" />
+    <MESSAGE value="get the x and y coords of the tag" />
+    <option name="LAST_COMMIT_MESSAGE" value="get the x and y coords of the tag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

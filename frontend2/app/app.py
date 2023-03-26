@@ -6,7 +6,7 @@ import socket
 # import DJITelloPy.api.tello as Tello
 import helpers
 import time
-import cv2
+# import cv2
 import logging
 # import constants as telloConstants
 import threading
@@ -243,7 +243,9 @@ def get_drone_coords():
     if drone_wrapper is None:
         return 'No data'
     else:
-        tag_positions = parse_esp32_data.get_tag_location(1.6764)
+        # set this value when the anchors are deployed
+        # (-) value if B is to the right of A
+        tag_positions = parse_esp32_data.get_tag_location(-2.0828)
         if tag_positions is None:
             return 'No tag positions'
         else:
