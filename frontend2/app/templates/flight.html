@@ -63,23 +63,6 @@
             </div>
         </div>
 
-    <div class="container">
-            <div class="row justify-content-around my-5">
-                <div class="col-4 text-center">
-                    <h4>vgx</h4>
-                    <div id="vgxGauge"></div>
-                </div>
-                <div class="col-4 text-center">
-                    <h4>vgy</h4>
-                    <div id="vgyGauge"></div>
-                </div>
-                <div class="col-4 text-center">
-                    <h4>vgz</h4>
-                    <div id="vgzGauge"></div>
-                </div>
-            </div>
-        </div>
-
         <!-- Plot with gridlines -->
     <div class="container">
       <div class="row justify-content-center my-5">
@@ -146,32 +129,7 @@
       label: "degrees"
   });
 
-  var vgxGauge = new JustGage({
-      id: "vgxGauge",
-      value: 0,
-      min: -180,
-      max: 180,
-      title: "vgx",
-      label: "cm/s"
-  });
 
-  var vgyGauge = new JustGage({
-      id: "vgyGauge",
-      value: 0,
-      min: -180,
-      max: 180,
-      title: "vgy",
-      label: "cm/s"
-  });
-
-  var vgzGauge = new JustGage({
-      id: "vgzGauge",
-      value: 0,
-      min: -180,
-      max: 180,
-      title: "vgz",
-      label: "cm/s"
-  });
 
   // Function to update the gauges with new data
   function updateGauges() {
@@ -205,11 +163,7 @@
             yawGauge.refresh(data.yaw);
         }
 
-        if (data.vgx){
-            vgxGauge.refresh(data.vgx);
-            vgyGauge.refresh(data.vgy);
-            vgzGauge.refresh(data.vgz);
-        }
+
 
       });
   }
@@ -272,7 +226,7 @@
       },
       y: {
         type: 'linear',
-        min: -5,
+        min: -1,
         max: 5,
         grid: {
           display: true,
@@ -286,19 +240,29 @@
 });
 
 
-      // Function to update the plot with new data
+
+
+const MAX_DATA_POINTS = 10;
+
+// Function to update the plot with new data
 function updateDroneCoords() {
   fetch('/get_drone_coords')
     .then(response => response.json())
     .then(coords => {
-      // Add the new data point and update the chart
-      droneCoordsChart.data.datasets[0].data.push({ x: coords.x, y: coords.y });
+      // Add the new data point to the beginning of the array
+      droneCoordsChart.data.datasets[0].data.unshift({ x: coords.x, y: coords.y });
+
+      // Remove the oldest data point if we have more than MAX_DATA_POINTS
+      if (droneCoordsChart.data.datasets[0].data.length > MAX_DATA_POINTS) {
+        droneCoordsChart.data.datasets[0].data.pop();
+      }
+
       droneCoordsChart.update();
     });
 }
+// Update the plot every .5 seconds
+setInterval(updateDroneCoords, 500);
 
-      // Update the plot every .5 seconds
-      setInterval(updateDroneCoords, 500);
     </script>
 
 

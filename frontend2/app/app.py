@@ -1,6 +1,6 @@
 import flask
 import numpy as np
-from flask import Flask, request, render_template, Response
+from flask import Flask, request, render_template, Response, jsonify
 import sys
 import socket
 # import DJITelloPy.api.tello as Tello
@@ -241,13 +241,13 @@ def get_latest_data():
 def get_drone_coords():
     global drone_wrapper
     if drone_wrapper is None:
-        return 'No data'
+        return jsonify({'error': 'No data'})
     else:
         # set this value when the anchors are deployed
         # (-) value if B is to the right of A
         tag_positions = parse_esp32_data.get_tag_location(-2.0828)
         if tag_positions is None:
-            return 'No tag positions'
+            return jsonify({'error': 'No tag positions'})
         else:
             x, y = tag_positions
-            return f'x={x}, y={y}'
+            return jsonify({'x': x, 'y': y})
