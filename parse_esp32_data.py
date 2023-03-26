@@ -18,19 +18,23 @@ window_size = 60  # Show the last 10 seconds of data
 
 def parse_esp_32_data():
     response = requests.get('http://127.0.0.1:5000/get_latest_esp32_data')
-    response_text = response.text
-    # Parse the JSON data
-    data = json.loads(response_text)
+    if response.text:
+        data = json.loads(response.text)
+    else:
+        data = {}  # or any default value you want to use when the response is empty
 
     # Extract the "A" and "R" values for each link
     dist_a = None
     dist_b = None
-    for link in data['links']:
-        if link['A'] == '1A86':
-            dist_a = float(link['R'])
-        elif link['A'] == '1B86':
-            dist_b = float(link['R'])
-
+    try:
+        for link in data['links']:
+            if link['A'] == '1A86':
+                dist_a = float(link['R'])
+            elif link['A'] == '1B86':
+                dist_b = float(link['R'])
+    except KeyError:
+        dist_a = 0
+        dist_b = 0
     # Print the extracted values
     print('dist_a: {} - dist_b: {}'.format(dist_a, dist_b))
     return dist_a, dist_b
@@ -188,10 +192,14 @@ def calculate_tag_location(dist_a, dist_b, dist_c):
 
 
 def get_tag_location(distance_a_b):
-    dist_a, dist_b = parse_esp_32_data()
-    tag_location = calculate_tag_location(dist_a, dist_b, distance_a_b)
-    print('Tag location: ({}, {})'.format(tag_location[0], tag_location[1]))
-    return tag_location
+    try:
+        dist_a, dist_b = parse_esp_32_data()
+        tag_location = calculate_tag_location(dist_a, dist_b, distance_a_b)
+        print('Tag location: ({}, {})'.format(tag_location[0], tag_location[1]))
+        return tag_location
+    except TypeError:
+        print('Error: One or both of the distances is None.')
+        return None
 
 
 def collect_and_plot_coordinates(interval, distance_a_b):
@@ -231,9 +239,6 @@ def collect_and_plot_coordinates(interval, distance_a_b):
 
     # Show the final plot
     plt.show()
-
-
-
 
 # Call the function to collect and plot x and y coordinates separately for 1 minute with a sampling interval of 0.1
 # seconds

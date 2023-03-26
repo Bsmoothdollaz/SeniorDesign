@@ -63,22 +63,15 @@
             </div>
         </div>
 
+        <!-- Plot with gridlines -->
     <div class="container">
-            <div class="row justify-content-around my-5">
-                <div class="col-4 text-center">
-                    <h4>vgx</h4>
-                    <div id="vgxGauge"></div>
-                </div>
-                <div class="col-4 text-center">
-                    <h4>vgy</h4>
-                    <div id="vgyGauge"></div>
-                </div>
-                <div class="col-4 text-center">
-                    <h4>vgz</h4>
-                    <div id="vgzGauge"></div>
-                </div>
-            </div>
+      <div class="row justify-content-center my-5">
+        <div class="col-8 text-center">
+          <h4>Drone Coordinates</h4>
+          <canvas id="droneCoords"></canvas>
         </div>
+      </div>
+    </div>
 
     <script>
   // Set up the gauges
@@ -136,32 +129,7 @@
       label: "degrees"
   });
 
-  var vgxGauge = new JustGage({
-      id: "vgxGauge",
-      value: 0,
-      min: -180,
-      max: 180,
-      title: "vgx",
-      label: "cm/s"
-  });
 
-  var vgyGauge = new JustGage({
-      id: "vgyGauge",
-      value: 0,
-      min: -180,
-      max: 180,
-      title: "vgy",
-      label: "cm/s"
-  });
-
-  var vgzGauge = new JustGage({
-      id: "vgzGauge",
-      value: 0,
-      min: -180,
-      max: 180,
-      title: "vgz",
-      label: "cm/s"
-  });
 
   // Function to update the gauges with new data
   function updateGauges() {
@@ -195,11 +163,7 @@
             yawGauge.refresh(data.yaw);
         }
 
-        if (data.vgx){
-            vgxGauge.refresh(data.vgx);
-            vgyGauge.refresh(data.vgy);
-            vgzGauge.refresh(data.vgz);
-        }
+
 
       });
   }
@@ -207,6 +171,101 @@
   // Update the gauges every .5 seconds
   setInterval(updateGauges, 500);
 </script>
+
+       <script>
+      // (Existing script for gauges)
+
+      // Set up the plot
+      const ctx = document.getElementById('droneCoords').getContext('2d');
+      const droneCoordsChart = new Chart(ctx, {
+  type: 'scatter',
+  data: {
+    datasets: [
+      {
+        label: 'Drone Coordinates',
+        data: [],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Fixed Points',
+        data: [
+          { x: 0, y: 0, label: 'A' },
+          { x: 3, y: 0, label: 'B' },
+        ],
+        backgroundColor: ['rgba(0, 0, 255, 0.8)', 'rgba(255, 0, 0, 0.8)'],
+        borderColor: ['rgba(0, 0, 255, 1)', 'rgba(255, 0, 0, 1)'],
+        borderWidth: 1,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          title: function (context) {
+            return context[0].element.$context.dataset.data[context[0].dataIndex].label;
+          },
+        },
+      },
+    },
+    scales: {
+      x: {
+        type: 'linear',
+        min: -5,
+        max: 5,
+        grid: {
+          display: true,
+          drawBorder: true,
+          drawOnChartArea: true,
+          drawTicks: true,
+        },
+      },
+      y: {
+        type: 'linear',
+        min: -1,
+        max: 5,
+        grid: {
+          display: true,
+          drawBorder: true,
+          drawOnChartArea: true,
+          drawTicks: true,
+        },
+      },
+    },
+  },
+});
+
+
+
+
+const MAX_DATA_POINTS = 10;
+
+// Function to update the plot with new data
+function updateDroneCoords() {
+  fetch('/get_drone_coords')
+    .then(response => response.json())
+    .then(coords => {
+      // Add the new data point to the beginning of the array
+      droneCoordsChart.data.datasets[0].data.unshift({ x: coords.x, y: coords.y });
+
+      // Remove the oldest data point if we have more than MAX_DATA_POINTS
+      if (droneCoordsChart.data.datasets[0].data.length > MAX_DATA_POINTS) {
+        droneCoordsChart.data.datasets[0].data.pop();
+      }
+
+      droneCoordsChart.update();
+    });
+}
+// Update the plot every .5 seconds
+setInterval(updateDroneCoords, 500);
+
+    </script>
+
+
 
 
     {% endblock %}

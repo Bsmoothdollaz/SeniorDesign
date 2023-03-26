@@ -1,12 +1,12 @@
 import flask
 import numpy as np
-from flask import Flask, request, render_template, Response
+from flask import Flask, request, render_template, Response, jsonify
 import sys
 import socket
 # import DJITelloPy.api.tello as Tello
 import helpers
 import time
-import cv2
+# import cv2
 import logging
 # import constants as telloConstants
 import threading
@@ -15,6 +15,8 @@ import threading
 from threading import *
 import json
 import requests
+from filterpy.kalman import KalmanFilter
+from numpy import matrix, array
 
 
 sys.path.append('../../')
@@ -241,11 +243,117 @@ def get_latest_data():
 def get_drone_coords():
     global drone_wrapper
     if drone_wrapper is None:
-        return 'No data'
+        return jsonify({'error': 'No data'})
     else:
-        tag_positions = parse_esp32_data.get_tag_location(1.6764)
+        # set this value when the anchors are deployed
+        # (-) value if B is to the right of A
+        tag_positions = parse_esp32_data.get_tag_location(-2.0828)
         if tag_positions is None:
-            return 'No tag positions'
+            return jsonify({'error': 'No tag positions'})
         else:
             x, y = tag_positions
-            return f'x={x}, y={y}'
+            return jsonify({'x': x, 'y': y})
+
+
+# Initialize the Kalman filter
+kf = KalmanFilter(dim_x=9, dim_z=2)
+kf.x = np.array([0., 0., 0., 0., 0., 0., 0., 0., 0.])
+kf.F = np.array([[1., 0., 0., 1., 0., 0., 0., 0., 0.],
+                 [0., 1., 0., 0., 1., 0., 0., 0., 0.],
+                 [0., 0., 1., 0., 0., 1., 0., 0., 0.],
+                 [0., 0., 0., 1., 0., 0., 0., 0., 0.],
+                 [0., 0., 0., 0., 1., 0., 0., 0., 0.],
+                 [0., 0., 0., 0., 0., 1., 0., 0., 0.],
+                 [0., 0., 0., 0., 0., 0., 1., 0., 0.],
+                 [0., 0., 0., 0., 0., 0., 0., 1., 0.],
+                 [0., 0., 0., 0., 0., 0., 0., 0., 1.]])
+kf.H = np.array([[1., 0., 0., 0., 0., 0., 0., 0., 0.],
+                 [0., 1., 0., 0., 0., 0., 0., 0., 0.]])
+kf.P *= 1000.
+kf.R = np.diag([0.1, 0.1])
+kf.Q = np.diag([0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1])
+
+# Initialize the state vector and previous pitch, roll, and yaw values
+state = np.array([0., 0., 0., 0., 0., 0., 0., 0., 0.])
+prev_pitch = 0.
+prev_roll = 0.
+prev_yaw = 0.
+filtered_coords = []
+
+
+@app.route("/get_filtered_coords", methods=["GET"])
+def get_filtered_coords():
+    global filtered_coords, kf, prev_yaw, prev_pitch, prev_roll
+
+    esp32_data = requests.get('http://localhost:5000/get_drone_coords').json()
+
+    # Get pitch, roll, yaw, and acceleration data from the /get_tello_data route
+    tello_data = requests.get('http://localhost:5000/get_tello_data').json()
+
+    # Extract pitch, roll, yaw, and acceleration values from the received data
+    pitch = tello_data['pitch']
+    roll = tello_data['roll']
+    yaw = tello_data['yaw']
+    acceleration_x = tello_data['agx']
+    acceleration_y = tello_data['agy']
+    acceleration_z = tello_data['agz']
+    # Update the state vector with new inputs
+    kf.x[6] = pitch - prev_pitch
+    kf.x[7] = roll - prev_roll
+    kf.x[8] = yaw - prev_yaw
+
+    # Store the previous values for the next iteration
+    prev_pitch = pitch
+    prev_roll = roll
+    prev_yaw = yaw
+
+    # Use the Kalman filter to update the state
+    kf.predict()
+    if esp32_data is not None:
+        z = np.array([[esp32_data['x']], [esp32_data['y']]])
+        kf.update(z)
+
+    # Store the latest filtered coordinates
+    filtered_coords.append((kf.x[0], kf.x[1]))
+    if len(filtered_coords) > 10:
+        filtered_coords.pop(0)
+
+    # Return the latest filtered coordinates and additional data
+    return jsonify(
+        {'filtered_coords': filtered_coords, 'pitch': pitch, 'roll': roll, 'yaw': yaw, 'acceleration_x': acceleration_x,
+         'acceleration_y': acceleration_y, 'acceleration_z': acceleration_z})
+
+
+@app.route("/compare_k_and_real", methods=["GET"])
+def compare_kahlman_and_real():
+    num_iterations = 10
+    total_diff_x = 0
+    total_diff_y = 0
+
+    for _ in range(num_iterations):
+        # Get the real drone coordinates from the /get_drone_coords endpoint
+        real_coords_data = requests.get('http://localhost:5000/get_drone_coords').json()
+
+        # Get the filtered coordinates from the /get_filtered_coords endpoint
+        filtered_coords_data = requests.get('http://localhost:5000/get_filtered_coords').json()
+
+        # Extract x and y values from both sets of coordinates
+        real_x = real_coords_data['x']
+        real_y = real_coords_data['y']
+        filtered_x = filtered_coords_data['filtered_coords'][-1][0]
+        filtered_y = filtered_coords_data['filtered_coords'][-1][1]
+
+        # Calculate the difference between real and filtered coordinates
+        diff_x = abs(real_x - filtered_x)
+        diff_y = abs(real_y - filtered_y)
+
+        # Accumulate the differences
+        total_diff_x += diff_x
+        total_diff_y += diff_y
+
+    # Calculate the average difference
+    avg_diff_x = total_diff_x / num_iterations
+    avg_diff_y = total_diff_y / num_iterations
+
+    # Return the average difference
+    return jsonify({'average_difference': {'x': avg_diff_x, 'y': avg_diff_y}})
