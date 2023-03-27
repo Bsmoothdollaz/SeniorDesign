@@ -18,13 +18,11 @@ import requests
 from filterpy.kalman import KalmanFilter
 from numpy import matrix, array
 
-
 sys.path.append('../../')
 # from DJITelloPy.api import tello
 # from CameraController import CameraController
 import test_drone_connection
 import parse_esp32_data
-
 
 app = Flask(__name__, static_url_path='/static')  # Flask checks static folder for image files
 
@@ -38,6 +36,8 @@ drone_wrapper.try_connect()
 ESP_TAG_HOST = ''  # Listen on all available interfaces
 ESP_TAG_PORT = 8888  # Choose a port number
 latest_data = ""  # Global variable to store the latest data received by the UDP socket
+
+drop_locations = []
 
 
 def udp_handler():
@@ -209,7 +209,7 @@ def rotate_drone():
     direction = str(request.form["button"])
     degrees = int(request.form["value"])
     directions = ['cw', 'ccw']
-    print("Direction: ", direction)            # print(f"Received: {latest_data} from {addr}")
+    print("Direction: ", direction)  # print(f"Received: {latest_data} from {addr}")
 
     print("Degrees: ", degrees)
     if direction not in directions:
@@ -241,18 +241,19 @@ def get_latest_data():
 
 @app.route("/get_drone_coords", methods=["GET"])
 def get_drone_coords():
-    global drone_wrapper
-    if drone_wrapper is None:
-        return jsonify({'error': 'No data'})
-    else:
-        # set this value when the anchors are deployed
-        # (-) value if B is to the right of A
-        tag_positions = parse_esp32_data.get_tag_location(-2.0828)
-        if tag_positions is None:
-            return jsonify({'error': 'No tag positions'})
-        else:
-            x, y = tag_positions
-            return jsonify({'x': x, 'y': y})
+    # global drone_wrapper
+    # if drone_wrapper is None:
+    #     return jsonify({'error': 'No data'})
+    # else:
+    #     # set this value when the anchors are deployed
+    #     # (-) value if B is to the right of A
+    #     tag_positions = parse_esp32_data.get_tag_location(-2.0828)
+    #     if tag_positions is None:
+    #         return jsonify({'error': 'No tag positions'})
+    #     else:
+    #         x, y = tag_positions
+    #         return jsonify({'x': x, 'y': y})
+    return jsonify({'x': 0, 'y': 0})
 
 
 # Initialize the Kalman filter
@@ -357,3 +358,31 @@ def compare_kahlman_and_real():
 
     # Return the average difference
     return jsonify({'average_difference': {'x': avg_diff_x, 'y': avg_diff_y}})
+
+
+class DropLocation:
+    def __init__(self, alias, mission_pad, coords):
+        self.alias = alias
+        self.mission_pad = mission_pad
+        self.coords = coords
+
+
+@app.route("/submit_drop_locations", methods=['POST'])
+def submit_drop_locations():
+    global drop_locations
+    if request.method == 'POST':
+        data = request.get_json()
+
+        drop_locations = []
+
+        for location in data:
+            drop_location = DropLocation(location['alias'], location['mission_pad'], location['coords'])
+            drop_locations.append(drop_location)
+
+        # Process the received data
+        for loc in drop_locations:
+            print(f"Alias: {loc.alias}, Mission Pad: {loc.mission_pad}, Coords: {loc.coords}")
+
+        return 'Data received successfully!'
+    else:
+        return 'Invalid request method'

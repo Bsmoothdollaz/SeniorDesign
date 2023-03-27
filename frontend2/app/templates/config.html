@@ -44,29 +44,183 @@
   </center>
 
   <body>
-
 <style>
-* {
-  box-sizing: border-box;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
+  /* Create three equal columns that float next to each other */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+  .column {
+    flex: 1;
+    padding: 10px;
+    width: 33.33%;
+  }
+
+  /* Ensure that each column has a minimum height */
+  #flight-plan-column,
+  #drop-locations-column,
+  #examples-column {
+    min-height: 500px; /* Minimum height to prevent overlap with footer */
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 </style>
 
-<div class="row">
+</style>
+ <div class="column" style="background-color:#ffffff;">
+    <center>
+      <h2>Define Drop Locations</h2>
+      <br>
+
+
+      <p>How many drop off locations do you want to configure?</p>
+      <input type="number" id="num-drop-locations" min="1" max="4">
+      <br><br>
+      <button type="button" class="btn btn-primary my-2" onclick="configure_drop_locations()">Generate table</button>
+      <table id="drop-locations-table" class="table table-striped" style="display: none;">
+
+  <tbody>
+    <!-- Rows will be dynamically generated with JavaScript -->
+  </tbody>
+</table>
+
+      <div class="submit-button">
+  <button type="button" class="btn btn-primary my-2" onclick="submit_drop_locations()">Submit</button>
+</div>
+
+    </center>
+    <script>
+function configure_drop_locations() {
+  var num_drop_locations = document.getElementById("num-drop-locations").value;
+  var table = document.getElementById("drop-locations-table");
+  var tbody = table.getElementsByTagName("tbody")[0];
+  tbody.innerHTML = "";
+
+  // Add header row
+  var header_row = document.createElement("tr");
+  var location_num_header = document.createElement("th");
+  location_num_header.innerHTML = "Location Number";
+  header_row.appendChild(location_num_header);
+  var alias_header = document.createElement("th");
+  alias_header.innerHTML = "Alias";
+  header_row.appendChild(alias_header);
+  var mission_pad_num_header = document.createElement("th");
+  mission_pad_num_header.innerHTML = "Mission Pad Number";
+  header_row.appendChild(mission_pad_num_header);
+  var coords_header = document.createElement("th");
+  coords_header.innerHTML = "Coordinates";
+  header_row.appendChild(coords_header);
+  tbody.appendChild(header_row);
+
+  // Add rows
+  for (var i = 0; i < num_drop_locations; i++) {
+    var row = document.createElement("tr");
+
+    // Location number cell
+    var location_num_cell = document.createElement("td");
+    location_num_cell.innerHTML = i + 1;
+    row.appendChild(location_num_cell);
+
+    // Alias cell
+    var alias_cell = document.createElement("td");
+    var alias_input = document.createElement("input");
+    alias_input.type = "text";
+    alias_input.name = "alias-" + (i+1);
+    alias_input.id = "alias-" + (i+1);
+    alias_input.value = "Drop Location " + (i + 1); // Set default value
+    alias_cell.appendChild(alias_input);
+    row.appendChild(alias_cell);
+
+    // Mission pad number cell
+    var mission_pad_num_cell = document.createElement("td");
+    var mission_pad_num_input = document.createElement("input");
+    mission_pad_num_input.type = "text";
+    mission_pad_num_input.name = "mission-pad-num-" + (i+1);
+    mission_pad_num_input.id = "mission-pad-num-" + (i+1);
+    mission_pad_num_input.value = i + 1; // Set default value as integer
+    mission_pad_num_cell.appendChild(mission_pad_num_input);
+    row.appendChild(mission_pad_num_cell);
+
+    // Coordinates cell
+    var coords_cell = document.createElement("td");
+    var coords_button = document.createElement("button");
+    coords_button.innerHTML = "Get Drone Coordinates";
+    coords_button.id = "coords-button-" + (i+1);
+    coords_button.setAttribute("onclick", "get_drone_coords(" + (i+1) + ")");
+    coords_cell.appendChild(coords_button);
+    row.appendChild(coords_cell);
+
+    tbody.appendChild(row);
+  }
+
+  // Show table
+  table.style.display = "block";
+}
+
+
+function get_drone_coords(location_num) {
+  var button = document.getElementById("coords-button-" + location_num);
+  button.innerHTML = "Loading...";
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      button.innerHTML = xhr.responseText;
+    }
+  }
+  xhr.open("GET", "/get_drone_coords", true);
+  xhr.send();
+}
+
+
+function submit_drop_locations() {
+  var data = [];
+  var table = document.getElementById("drop-locations-table");
+  var tbody = table.getElementsByTagName("tbody")[0];
+  if (!tbody) {
+    // handle the case where there is no tbody element
+    return;
+  }
+  var rows = tbody.getElementsByTagName("tr");
+  if (rows.length === 0) {
+    // handle the case where there are no rows in the tbody element
+    return;
+  }
+
+  for (var i = 1; i < rows.length; i++) {
+    var row = rows[i];
+    var alias = row.getElementsByTagName("input")[0].value;
+    var mission_pad = row.getElementsByTagName("input")[1].value;
+    var coords = row.getElementsByTagName("button")[0].innerText;
+    data.push({
+      "alias": alias,
+      "mission_pad": mission_pad,
+      "coords": coords
+    });
+  }
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/submit_drop_locations", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify(data));
+}
+
+
+
+
+</script>
+
+  </div>
+
   <div class="column" style="background-color:#ffffff;">
     <center>
       <h3> Enter Flight Plan Below:</h3>

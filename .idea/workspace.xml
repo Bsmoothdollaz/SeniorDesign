@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="updating map of the coords">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/tello.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DJITelloPy" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/config.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/config.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +90,28 @@
       <recent name="$PROJECT_DIR$/frontend2/templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.parse_esp32_data">
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SR-DESIGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/frontend2/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frontend2/app/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="esp_32_socket" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -176,27 +198,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SR-DESIGN" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="scratch_5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -242,18 +243,18 @@
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python.esp_32_socket" />
-      <item itemvalue="Python.scratch_4" />
-      <item itemvalue="Python.visualize_esp32" />
-      <item itemvalue="Python.scratch_5" />
       <item itemvalue="Python.parse_esp32_data" />
+      <item itemvalue="Python.scratch_5" />
+      <item itemvalue="Python.visualize_esp32" />
+      <item itemvalue="Python.app" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.parse_esp32_data" />
         <item itemvalue="Python.scratch_5" />
         <item itemvalue="Python.esp_32_socket" />
         <item itemvalue="Python.visualize_esp32" />
-        <item itemvalue="Python.scratch_4" />
       </list>
     </recent_temporary>
   </component>
@@ -510,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679866165068</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="updating map of the coords">
+      <created>1679868497167</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1679868497167</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
