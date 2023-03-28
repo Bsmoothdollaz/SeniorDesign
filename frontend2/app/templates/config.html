@@ -17,6 +17,10 @@
     <link href="{{url_for('static', filename='css/config.css')}}" rel="stylesheet">
 
     <script src="{{url_for('static', filename='js/config.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://mpld3.github.io/js/mpld3.v0.3.1.dev1.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://mpld3.github.io/js/mpld3.v0.5.1.dev1.min.js"></script>
 
 
     {% extends "base.html" %}
@@ -98,8 +102,17 @@
   <button type="button" class="btn btn-primary my-2" onclick="submit_drop_locations()">Submit</button>
 </div>
 
+
+<canvas id="scatter-plot"></canvas>
+<div id="drop-locations-plot"></div>
+      <div id="drop-locations-plot">{{ plot_html }}</div>
     </center>
+
+
     <script>
+  mpld3.draw_figure("drop-locations-plot", {{ fig_json|safe }});
+
+
 function configure_drop_locations() {
   var num_drop_locations = document.getElementById("num-drop-locations").value;
   var table = document.getElementById("drop-locations-table");
@@ -208,14 +221,59 @@ function submit_drop_locations() {
     });
   }
 
+  // Send data to server
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "/submit_drop_locations", true);
   xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var plotHtml = xhr.responseText;
+      document.getElementById('drop-locations-plot').innerHTML = plotHtml;
+         mpld3.draw_figure("drop-locations-plot", JSON.parse(document.getElementById("figure_json").textContent));
+      var plotData = {
+        datasets: [{
+          label: 'Drop Locations',
+          data: []
+        }]
+      };
+
+      for (var i = 0; i < data.length; i++) {
+        plotData.datasets[0].data.push({
+          x: data[i].coords.x,
+          y: data[i].coords.y
+        });
+      }
+
+      var options = {
+        scales: {
+          xAxes: [{
+            type: 'linear',
+            position: 'bottom',
+            ticks: {
+              min: -10,
+              max: 10
+            }
+          }],
+          yAxes: [{
+            type: 'linear',
+            position: 'left',
+            ticks: {
+              min: -10,
+              max: 10
+            }
+          }]
+        }
+      };
+
+      var myChart = new Chart(ctx, {
+        type: 'scatter',
+        data: plotData,
+        options: options
+      });
+    }
+  };
   xhr.send(JSON.stringify(data));
 }
-
-
-
 
 </script>
 

@@ -1,4 +1,7 @@
+import random
+
 import flask
+import matplotlib
 import numpy as np
 from flask import Flask, request, render_template, Response, jsonify
 import sys
@@ -17,6 +20,7 @@ import json
 import requests
 from filterpy.kalman import KalmanFilter
 from numpy import matrix, array
+import matplotlib.pyplot as plt
 
 sys.path.append('../../')
 # from DJITelloPy.api import tello
@@ -253,7 +257,9 @@ def get_drone_coords():
     #     else:
     #         x, y = tag_positions
     #         return jsonify({'x': x, 'y': y})
-    return jsonify({'x': 0, 'y': 0})
+    rand_x = random.randint(-5, 5)
+    rand_y = random.randint(-5, 5)
+    return jsonify({'x': rand_x, 'y': rand_y})
 
 
 # Initialize the Kalman filter
@@ -365,11 +371,36 @@ class DropLocation:
         self.alias = alias
         self.mission_pad = mission_pad
         self.coords = coords
+        coords_dict = json.loads(coords)
+        self.x = coords_dict['x']
+        self.y = coords_dict['y']
+
+
+import mpld3
+
+matplotlib.use('Agg')
+import io
+import base64
+
+class NumpyEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        else:
+            return super(NumpyEncoder, self).default(obj)
 
 
 @app.route("/submit_drop_locations", methods=['POST'])
 def submit_drop_locations():
     global drop_locations
+    x_values = []
+    y_values = []
+    aliases = []
+
     if request.method == 'POST':
         data = request.get_json()
 
@@ -379,10 +410,31 @@ def submit_drop_locations():
             drop_location = DropLocation(location['alias'], location['mission_pad'], location['coords'])
             drop_locations.append(drop_location)
 
-        # Process the received data
-        for loc in drop_locations:
-            print(f"Alias: {loc.alias}, Mission Pad: {loc.mission_pad}, Coords: {loc.coords}")
+        # create scatter plot and add text annotations for each point
+        fig, ax = plt.subplots()
+        ax.set_xlim([-10, 10])
+        ax.set_ylim([-10, 10])
+        ax.set_xlabel('x')
+        ax.set_ylabel('y')
+        ax.set_title('Drop Locations')
+        ax.grid(True)
 
-        return 'Data received successfully!'
+        for loc in drop_locations:
+            # add each drop location into a matplotlib
+            print(f"Alias: {loc.alias}, Mission Pad: {loc.mission_pad}, Coords: {loc.coords}")
+            x = loc.x
+            y = loc.y
+            aliases.append(loc.alias)
+            print('x:{}, y:{}'.format(x, y))
+            ax.scatter(x, y)
+            ax.annotate(loc.alias, (x, y))
+
+            # convert the plot to an interactive HTML format
+            plot_html = mpld3.fig_to_html(fig)
+
+            fig_json_str = json.dumps(mpld3.fig_to_dict(fig), cls=NumpyEncoder)
+
+        # return the plot as HTML and JSON
+        return render_template('plot.html', plot_html=plot_html, fig_json=fig_json_str)
     else:
         return 'Invalid request method'
