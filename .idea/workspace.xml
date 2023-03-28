@@ -4,19 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="control to manual control">
-      <change afterPath="$PROJECT_DIR$/frontend2/app/static/espchip.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend2/app/static/telloDrone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend2/app/templates/plot.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend2/app/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/tello.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/config.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/config.html" afterDir="false" />
-    </list>
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="trying to dynamically update the scatter plot on the website" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -299,7 +287,7 @@
       <workItem from="1678291013345" duration="72000" />
       <workItem from="1678291120165" duration="1407000" />
       <workItem from="1679936122607" duration="925000" />
-      <workItem from="1679967117737" duration="7882000" />
+      <workItem from="1679967117737" duration="7932000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1668128305439</created>
@@ -532,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679868497167</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="trying to dynamically update the scatter plot on the website">
+      <created>1679976021994</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1679976021994</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +567,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend2/app/PyAV" />
     </ignored-roots>
-    <MESSAGE value="able to write info to the dot matrix" />
     <MESSAGE value="chike" />
     <MESSAGE value="emergency handler" />
     <MESSAGE value="caught some exceptions" />
@@ -597,7 +591,8 @@
     <MESSAGE value="get the x and y coords of the tag" />
     <MESSAGE value="get the x and y coords of the tag (working)" />
     <MESSAGE value="updating map of the coords" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating map of the coords" />
+    <MESSAGE value="trying to dynamically update the scatter plot on the website" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to dynamically update the scatter plot on the website" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
