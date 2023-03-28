@@ -382,6 +382,7 @@ matplotlib.use('Agg')
 import io
 import base64
 
+
 class NumpyEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, np.integer):
@@ -410,31 +411,15 @@ def submit_drop_locations():
             drop_location = DropLocation(location['alias'], location['mission_pad'], location['coords'])
             drop_locations.append(drop_location)
 
-        # create scatter plot and add text annotations for each point
-        fig, ax = plt.subplots()
-        ax.set_xlim([-10, 10])
-        ax.set_ylim([-10, 10])
-        ax.set_xlabel('x')
-        ax.set_ylabel('y')
-        ax.set_title('Drop Locations')
-        ax.grid(True)
+        chart_data = []
 
         for loc in drop_locations:
-            # add each drop location into a matplotlib
-            print(f"Alias: {loc.alias}, Mission Pad: {loc.mission_pad}, Coords: {loc.coords}")
-            x = loc.x
-            y = loc.y
-            aliases.append(loc.alias)
-            print('x:{}, y:{}'.format(x, y))
-            ax.scatter(x, y)
-            ax.annotate(loc.alias, (x, y))
+            chart_data.append({
+                'x': loc.x,
+                'y': loc.y,
+                'alias': loc.alias
+            })
 
-            # convert the plot to an interactive HTML format
-            plot_html = mpld3.fig_to_html(fig)
-
-            fig_json_str = json.dumps(mpld3.fig_to_dict(fig), cls=NumpyEncoder)
-
-        # return the plot as HTML and JSON
-        return render_template('plot.html', plot_html=plot_html, fig_json=fig_json_str)
+        return jsonify(chart_data)
     else:
         return 'Invalid request method'

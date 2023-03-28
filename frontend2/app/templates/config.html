@@ -192,7 +192,6 @@ function get_drone_coords(location_num) {
   xhr.send();
 }
 
-
 function submit_drop_locations() {
   var data = [];
   var table = document.getElementById("drop-locations-table");
@@ -219,57 +218,90 @@ function submit_drop_locations() {
     });
   }
 
-  // Generate plot data
-  var plotData = {
-    datasets: [{
-      label: 'Drop Locations',
-      data: []
-    }]
-  };
-  for (var i = 0; i < data.length; i++) {
-    plotData.datasets[0].data.push({
-      x: data[i].coords.x,
-      y: data[i].coords.y
-    });
-  }
-
-  var ctx = document.getElementById('scatter-plot').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'scatter',
-    data: {
-        datasets: [{
-            label: 'My Dataset',
-            data: [{
-                x: -10,
-                y: 0
-            }, {
-                x: 0,
-                y: 10
-            }, {
-                x: 10,
-                y: 5
-            }]
-        }]
-    },
-    options: {
-        scales: {
-            xAxes: [{
-                type: 'linear',
-                position: 'bottom'
-            }],
-            yAxes: [{
-                type: 'linear',
-                position: 'left'
-            }]
-        }
-    }
-});
   // Send data to server
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "/submit_drop_locations", true);
   xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var chartData = JSON.parse(xhr.responseText);
+
+      var plotData = {
+  datasets: [{
+    label: 'Drop Locations',
+    data: chartData.map(function(loc) {
+      return {
+        x: loc.x,
+        y: loc.y,
+        alias: loc.alias
+      };
+    }),
+    pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+    datalabels: {
+      display: true
+    }
+  }]
+};
+
+   var options = {
+  scales: {
+    x: {
+      type: 'linear',
+      position: 'bottom',
+      min: -10,
+      max: 10
+    },
+    y: {
+      type: 'linear',
+      position: 'left',
+      min: -10,
+      max: 10
+    }
+  },
+  plugins: {
+    tooltip: {
+      callbacks: {
+        title: function(tooltipItems, data) {
+          return data.datasets[0].data[tooltipItems[0].dataIndex].alias;
+        }
+      }
+    },
+    datalabels: {
+      anchor: 'end',
+      align: 'top',
+      offset: 5,
+      color: 'black',
+      font: {
+        weight: 'bold'
+      },
+      formatter: function(value, context) {
+        return context.dataset.data[context.dataIndex].alias;
+      }
+    }
+  }
+};
+      var ctx = document.getElementById('scatter-plot').getContext('2d');
+    // Check if there is an existing chart instance and destroy it
+if (window.myChart != undefined) {
+  window.myChart.destroy();
+}
+      var myChart = new Chart(ctx, {
+        type: 'scatter',
+        data: plotData,
+        options: options
+      });
+
+      window.myChart = myChart;
+
+
+
+
+    }
+  };
   xhr.send(JSON.stringify(data));
 }
+
+
 </script>
 
   </div>
