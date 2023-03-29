@@ -138,7 +138,8 @@ def get_flight_plan():
             # Check if src of current instruction is the same as the previous dst
             if src != previous_dst:
                 return jsonify(
-                    {"error": f"Invalid flight plan. Instruction {counter}'s source does not match previous destination."})
+                    {
+                        "error": f"Invalid flight plan. Instruction {counter}'s source does not match previous destination."})
 
         data.append({
             'instruction_number': counter,
@@ -309,7 +310,7 @@ def get_drone_coords():
     #         x, y = tag_positions
     #         return jsonify({'x': x, 'y': y})
     rand_x = random.randint(-5, 5)
-    rand_y = random.randint(-5, 5)
+    rand_y = random.randint(-1, 5)
     return jsonify({'x': rand_x, 'y': rand_y})
 
 
@@ -427,9 +428,7 @@ class DropLocation:
         self.y = coords_dict['y']
 
 
-
 matplotlib.use('Agg')
-
 
 
 @app.route("/submit_drop_locations", methods=['POST'])
@@ -442,13 +441,13 @@ def submit_drop_locations():
     if request.method == 'POST':
         data = request.get_json()
 
-        new_drop_locations = [] # create a new list to hold the new data
+        new_drop_locations = []  # create a new list to hold the new data
 
         for location in data:
             drop_location = DropLocation(location['alias'], location['mission_pad'], location['coords'])
             new_drop_locations.append(drop_location)
 
-        drop_locations = new_drop_locations # overwrite existing drop_locations with new data
+        drop_locations = new_drop_locations  # overwrite existing drop_locations with new data
 
         chart_data = []
 
@@ -467,10 +466,11 @@ def submit_drop_locations():
 @app.route("/get_drop_locations", methods=['GET'])
 def get_drop_locations():
     global drop_locations
+
     data = []
 
     for location in drop_locations:
-        coords_dict = json.loads(location.coords)   # convert coords string to a dictionary
+        coords_dict = json.loads(location.coords)  # convert coords string to a dictionary
         data.append({
             'alias': location.alias,
             'mission_pad': location.mission_pad,
@@ -484,8 +484,7 @@ def get_drop_locations():
 def pathfind():
     # take in src and a dst from the endpoint containing the current instruction
     # get the current orientation of the drone in our coord system
-        # yaw or imu data?
-
+    # yaw or imu data?
 
     # calculate the angle that we need to be heading
     # takeoff

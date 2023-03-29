@@ -4,12 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="some progress with plotting">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="changes to get and submit flight plan">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_drone_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_drone_connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_matrix.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/flight.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/flight.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="flight-charts" />
+        <entry key="$PROJECT_DIR$" value="esp32-comm" />
         <entry key="$PROJECT_DIR$/DJITelloPy" value="9a54bb54762cbfcc83ec38a860b2350df78bc0a1" />
       </map>
     </option>
@@ -541,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679980986312</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="changes to get and submit flight plan">
+      <created>1680106702027</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1680106702028</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +587,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend2/app/PyAV" />
     </ignored-roots>
-    <MESSAGE value="emergency handler" />
     <MESSAGE value="caught some exceptions" />
     <MESSAGE value="minor fixes and progress" />
     <MESSAGE value="minor bug fix" />
@@ -607,7 +611,8 @@
     <MESSAGE value="updating map of the coords" />
     <MESSAGE value="trying to dynamically update the scatter plot on the website" />
     <MESSAGE value="some progress with plotting" />
-    <option name="LAST_COMMIT_MESSAGE" value="some progress with plotting" />
+    <MESSAGE value="changes to get and submit flight plan" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes to get and submit flight plan" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

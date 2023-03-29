@@ -189,7 +189,7 @@
         borderWidth: 1,
       },
       {
-        label: 'Fixed Points',
+        label: 'Anchor Locations',
         data: [
           { x: 0, y: 0, label: 'A' },
           { x: 3, y: 0, label: 'B' },
@@ -200,6 +200,15 @@
         pointRadius: 5,
         pointHoverRadius: 7,
       },
+         {
+                    label: 'Drop-off Locations',
+                    data: [],
+                    backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                    borderColor: 'rgba(255, 0, 0, 1)',
+                    borderWidth: 1,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                }
     ],
   },
   options: {
@@ -239,7 +248,29 @@
   },
 });
 
+ // Function to get drop locations and add them to the chart
+  async function getDropLocations() {
+    try {
+      const response = await fetch('/get_drop_locations');
+      const dropLocations = await response.json();
 
+      // Add drop locations to the chart
+      dropLocations.forEach(location => {
+        droneCoordsChart.data.datasets[2].data.push({
+          x: location.coords.x,
+          y: location.coords.y,
+          label: location.alias,
+        });
+      });
+
+      droneCoordsChart.update();
+    } catch (error) {
+      console.error('Error fetching drop locations:', error);
+    }
+  }
+
+  // Call getDropLocations once the page is loaded
+  window.addEventListener('load', getDropLocations);
 
 
 const MAX_DATA_POINTS = 10;
