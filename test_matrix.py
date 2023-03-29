@@ -72,7 +72,7 @@ try:
 
     # Start the camera thread
     tello.set_video_bitrate(Tello.BITRATE_5MBPS)
-    tello.set_video_resolution(Tello.RESOLUTION_480P)
+    tello.set_video_resolution('high')
     # camera = CameraController(tello=tello)
     # # camera.run_front_cam()
     # camera.run_bottom_cam()

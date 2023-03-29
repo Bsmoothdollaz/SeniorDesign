@@ -4,13 +4,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="trying to dynamically update the scatter plot on the website">
-      <change beforePath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SR-DESIGN.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/tello.py" afterDir="false" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="some progress with plotting">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/config.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/config.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_drone_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_drone_connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_matrix.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +93,7 @@
       <recent name="$PROJECT_DIR$/frontend2/templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.test_video">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -227,7 +226,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="visualize_esp32" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_video" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SR-DESIGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -239,8 +238,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualize_esp32.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_video.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -250,20 +248,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.app" />
-      <item itemvalue="Python.esp_32_socket" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.esp_32_socket" />
       <item itemvalue="Python.parse_esp32_data" />
       <item itemvalue="Python.scratch_5" />
-      <item itemvalue="Python.visualize_esp32" />
+      <item itemvalue="Python.app" />
+      <item itemvalue="Python.test_video" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_video" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.parse_esp32_data" />
         <item itemvalue="Python.scratch_5" />
         <item itemvalue="Python.esp_32_socket" />
-        <item itemvalue="Python.visualize_esp32" />
       </list>
     </recent_temporary>
   </component>
@@ -536,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679976021994</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="some progress with plotting">
+      <created>1679980986312</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1679980986312</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +582,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend2/app/PyAV" />
     </ignored-roots>
-    <MESSAGE value="chike" />
     <MESSAGE value="emergency handler" />
     <MESSAGE value="caught some exceptions" />
     <MESSAGE value="minor fixes and progress" />
@@ -602,7 +606,8 @@
     <MESSAGE value="get the x and y coords of the tag (working)" />
     <MESSAGE value="updating map of the coords" />
     <MESSAGE value="trying to dynamically update the scatter plot on the website" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to dynamically update the scatter plot on the website" />
+    <MESSAGE value="some progress with plotting" />
+    <option name="LAST_COMMIT_MESSAGE" value="some progress with plotting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

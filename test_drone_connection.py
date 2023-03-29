@@ -29,9 +29,9 @@ class Custom_Drone:
         try:
             self.drone.connect()
             time.sleep(2)
-            # self.drone.send_control_command("streamon")
-            # self.drone.set_video_bitrate(Tello.BITRATE_5MBPS)
-            # self.drone.set_video_resolution(Tello.RESOLUTION_480p)
+            self.drone.send_control_command("streamon")
+            self.drone.set_video_bitrate(Tello.BITRATE_5MBPS)
+            self.drone.set_video_resolution('high')
         except Exception as e:
             print('could not connect to drone', e)
             self.drone = None

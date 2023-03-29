@@ -9,7 +9,7 @@ import socket
 # import DJITelloPy.api.tello as Tello
 import helpers
 import time
-# import cv2
+import cv2
 import logging
 # import constants as telloConstants
 import threading
@@ -21,6 +21,8 @@ import requests
 from filterpy.kalman import KalmanFilter
 from numpy import matrix, array
 import matplotlib.pyplot as plt
+import socket
+import threading
 
 sys.path.append('../../')
 # from DJITelloPy.api import tello
@@ -42,6 +44,7 @@ ESP_TAG_PORT = 8888  # Choose a port number
 latest_data = ""  # Global variable to store the latest data received by the UDP socket
 
 drop_locations = []
+flight_plan = []
 
 
 def udp_handler():
@@ -97,9 +100,57 @@ def validate_flight_plan():
 
 @app.route("/submit_flight_plan", methods=["POST"])
 def submit_flight_plan():
+    global flight_plan
     f_plan = request.form['fplanfield']
-    response = helpers.backend_submit_flight_plan(f_plan)
+
+    temp_f_plan = []
+    # parse f_plan into a list of instructions
+    instructions = f_plan.split(';')
+    for i in instructions:
+        temp_f_plan.append(i)
+
+    flight_plan = temp_f_plan
+    print('set global flight_plan', flight_plan)
+
     return 'done'
+
+
+@app.route("/get_flight_plan", methods=['GET'])
+def get_flight_plan():
+    global flight_plan
+    if len(flight_plan) == 0:
+        data = {}
+        return jsonify(data)
+
+    data = []  # list of instruction dictionaries
+    previous_dst = None
+
+    counter = 0
+    for instruction in flight_plan:
+        src, dst = instruction.split('->')
+        src = src.strip()
+        dst = dst.strip()
+
+        if counter == 0:
+            if src != "Home":
+                return jsonify({"error": f"Invalid flight plan. Instruction {counter} should start from 'Home'."})
+        else:
+            # Check if src of current instruction is the same as the previous dst
+            if src != previous_dst:
+                return jsonify(
+                    {"error": f"Invalid flight plan. Instruction {counter}'s source does not match previous destination."})
+
+        data.append({
+            'instruction_number': counter,
+            'dst': dst.strip(),
+            'src': src.strip()
+
+        })
+
+        previous_dst = dst
+        counter += 1
+
+    return jsonify(data)
 
 
 @app.route("/get_tello_battery", methods=["POST"])
@@ -376,23 +427,9 @@ class DropLocation:
         self.y = coords_dict['y']
 
 
-import mpld3
 
 matplotlib.use('Agg')
-import io
-import base64
 
-
-class NumpyEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, np.integer):
-            return int(obj)
-        elif isinstance(obj, np.floating):
-            return float(obj)
-        elif isinstance(obj, np.ndarray):
-            return obj.tolist()
-        else:
-            return super(NumpyEncoder, self).default(obj)
 
 
 @app.route("/submit_drop_locations", methods=['POST'])
@@ -405,11 +442,13 @@ def submit_drop_locations():
     if request.method == 'POST':
         data = request.get_json()
 
-        drop_locations = []
+        new_drop_locations = [] # create a new list to hold the new data
 
         for location in data:
             drop_location = DropLocation(location['alias'], location['mission_pad'], location['coords'])
-            drop_locations.append(drop_location)
+            new_drop_locations.append(drop_location)
+
+        drop_locations = new_drop_locations # overwrite existing drop_locations with new data
 
         chart_data = []
 
@@ -423,3 +462,34 @@ def submit_drop_locations():
         return jsonify(chart_data)
     else:
         return 'Invalid request method'
+
+
+@app.route("/get_drop_locations", methods=['GET'])
+def get_drop_locations():
+    global drop_locations
+    data = []
+
+    for location in drop_locations:
+        coords_dict = json.loads(location.coords)   # convert coords string to a dictionary
+        data.append({
+            'alias': location.alias,
+            'mission_pad': location.mission_pad,
+            'coords': coords_dict
+        })
+
+    return jsonify(data)
+
+
+@app.route("/pathfind", methods=['POST'])
+def pathfind():
+    # take in src and a dst from the endpoint containing the current instruction
+    # get the current orientation of the drone in our coord system
+        # yaw or imu data?
+
+
+    # calculate the angle that we need to be heading
+    # takeoff
+    # rotate toward calculated angle
+    # move forward x cm
+    # until we detect a mission pad...
+    pass
