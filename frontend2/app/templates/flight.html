@@ -63,17 +63,40 @@
             </div>
         </div>
 
-        <!-- Plot with gridlines -->
-    <div class="container">
-      <div class="row justify-content-center my-5">
-        <div class="col-8 text-center">
-          <h4>Drone Coordinates</h4>
-          <canvas id="droneCoords"></canvas>
-        </div>
+     <!-- Plot with gridlines and buttons -->
+<div class="container">
+  <div class="row justify-content-center my-5">
+    <div class="col-8 text-center">
+      <h4>Drone Coordinates</h4>
+      <canvas id="droneCoords"></canvas>
+    </div>
+    <div class="col-4">
+      <h4>Controls</h4>
+      <div class="d-flex flex-column">
+        <button id="startBtn" class="btn btn-info mb-3">Start</button>
+        <button id="hoverBtn" class="btn btn-warning mb-3">Hover</button>
+        <button id="emergencyStopBtn" class="btn btn-dark mb-3">Emergency Stop</button>
       </div>
     </div>
+  </div>
+</div>
 
     <script>
+      // Add event listeners to buttons
+  document.getElementById('startBtn').addEventListener('click', () => {
+    fetch('/start_drone_mission', { method: 'POST' });
+  });
+
+  document.getElementById('hoverBtn').addEventListener('click', () => {
+    fetch('/hover_drone', { method: 'POST' });
+  });
+
+  document.getElementById('emergencyStopBtn').addEventListener('click', () => {
+    fetch('/emergency_shutoff', { method: 'POST' });
+  });
+
+
+
   // Set up the gauges
   var tempGauge = new JustGage({
     id: "tempGauge",
@@ -224,8 +247,8 @@
     scales: {
       x: {
         type: 'linear',
-        min: -5,
-        max: 5,
+        min: -10,
+        max: 10,
         grid: {
           display: true,
           drawBorder: true,
@@ -235,8 +258,8 @@
       },
       y: {
         type: 'linear',
-        min: -1,
-        max: 5,
+        min: -10,
+        max: 10,
         grid: {
           display: true,
           drawBorder: true,

@@ -127,29 +127,30 @@ def get_flight_plan():
 
     counter = 0
     for instruction in flight_plan:
-        src, dst = instruction.split('->')
-        src = src.strip()
-        dst = dst.strip()
+        if len(instruction) > 1:
+            src, dst = instruction.split('->')
+            src = src.strip()
+            dst = dst.strip()
 
-        if counter == 0:
-            if src != "Home":
-                return jsonify({"error": f"Invalid flight plan. Instruction {counter} should start from 'Home'."})
-        else:
-            # Check if src of current instruction is the same as the previous dst
-            if src != previous_dst:
-                return jsonify(
-                    {
-                        "error": f"Invalid flight plan. Instruction {counter}'s source does not match previous destination."})
+            if counter == 0:
+                if src != "Home":
+                    return jsonify({"error": f"Invalid flight plan. Instruction {counter} should start from 'Home'."})
+            else:
+                # Check if src of current instruction is the same as the previous dst
+                if src != previous_dst:
+                    return jsonify(
+                        {
+                            "error": f"Invalid flight plan. Instruction {counter}'s source does not match previous destination."})
 
-        data.append({
-            'instruction_number': counter,
-            'dst': dst.strip(),
-            'src': src.strip()
+            data.append({
+                'instruction_number': counter,
+                'dst': dst.strip(),
+                'src': src.strip()
 
-        })
+            })
 
-        previous_dst = dst
-        counter += 1
+            previous_dst = dst
+            counter += 1
 
     return jsonify(data)
 
@@ -193,8 +194,12 @@ def connect_to_drone():
 @app.route("/emergency_shutoff", methods=["POST"])
 def emergency_kill_drone():
     global drone_wrapper
+    if drone_wrapper is None:
+        return jsonify({"error": "Drone not initialized"}), 500
+
     emergency_thread = Thread(target=drone_wrapper.emergency, args=())
     emergency_thread.start()
+    return jsonify({"success": "Emergency stop initiated"}), 200
 
 
 @app.route("/motor_on", methods=["POST"])
@@ -483,12 +488,107 @@ def get_drop_locations():
 @app.route("/pathfind", methods=['POST'])
 def pathfind():
     # take in src and a dst from the endpoint containing the current instruction
-    # get the current orientation of the drone in our coord system
-    # yaw or imu data?
+    data = request.json
+    src = data['src']
+    dst = data['dst']
+    number = data['instruction_number']
 
-    # calculate the angle that we need to be heading
-    # takeoff
-    # rotate toward calculated angle
-    # move forward x cm
-    # until we detect a mission pad...
-    pass
+    # grab the coords for the src and dst
+    global drop_locations
+    for loc in drop_locations:
+        if loc.alias == src:
+            src_x, src_y = loc.x, loc.y
+        if loc.alias == dst:
+            dst_x, dst_y = loc.x, loc.y
+
+    success = False
+
+    def execute_flight_plan():
+        nonlocal success
+        try:
+            distance_between_src_dst, cw_rotate_angle, direction = helpers.calculate_distance_angle(src_x=src_x,
+                                                                                                    src_y=src_y,
+                                                                                                    dst_x=dst_x,
+                                                                                                    dst_y=dst_y)
+            # Print the computed values to the console
+            print(f"Computed distance: {distance_between_src_dst}")
+            print(f"Computed angle: {cw_rotate_angle}")
+            print(f"Computed direction: {direction}")
+
+            # do our tello movements here
+            global drone_wrapper
+            takeoff_thread = Thread(target=drone_wrapper.takeoff, args=())
+            takeoff_thread.start()
+            time.sleep(2)
+
+            drone_wrapper.rotate_drone('cw', cw_rotate_angle)
+            time.sleep(2)
+
+            distance_cm = distance_between_src_dst * 100
+            drone_wrapper.go_up_down_left_right('forward', distance_cm)
+
+            time.sleep(3)
+
+            drone_wrapper.emergency()
+
+            success = True
+        except:
+            success = False
+
+        # Create a new thread to execute the flight plan
+        t = Thread(target=execute_flight_plan)
+        t.start()
+
+        # Wait for the thread to finish executing
+        t.join()
+
+        # Return a response based on the success or failure of the operation
+        if success:
+            # Return a success response if the operation was successful
+            response_data = {'status': 'success', 'instruction_number': number}
+            status_code = 200
+
+        else:
+            # Return an error response if the operation failed
+            response_data = {'error': 'Failed to execute flight plan', 'instruction_number': number}
+            status_code = 500
+
+        response = jsonify(response_data)
+        response.status_code = status_code
+
+        # return the response object with the status code
+        return response
+
+
+@app.route("/start_drone_mission", methods=['POST'])
+def start_drone_mission():
+    # Get the flight plan from the /get_flight_plan endpoint
+    response = requests.get("http://127.0.0.1:5000/get_flight_plan")
+
+    # Check if the request was successful and load the JSON data
+    if response.status_code == 200:
+        flight_plan_data = response.json()
+        for instruction in flight_plan_data:
+            src = instruction['src']
+            dst = instruction['dst']
+            number = instruction['instruction_number']
+
+            data = {'src': src, 'dst': dst, 'instruction_number': number}
+            # poll the /pathfind endpoint until a successful response is received
+            while True:
+                response = requests.post('http://127.0.0.1:5000/pathfind', json=data)
+                print('response:', response.text)
+
+                # check if the response is successful
+                if response.status_code == 200:
+                    print('set instruction number {}'.format(number))
+                    break  # exit the loop if the response is successful
+                else:
+                    # handle the error response from the server
+                    # wait for some time before making the next request
+                    time.sleep(1)  # wait for 1 second before trying again
+
+        return jsonify(flight_plan_data)  # Return flight plan data as JSON
+
+    else:
+        return jsonify({"error": "Failed to retrieve flight plan data."}), 500
