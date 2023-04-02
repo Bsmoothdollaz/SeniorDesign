@@ -302,21 +302,21 @@ def get_latest_data():
 
 @app.route("/get_drone_coords", methods=["GET"])
 def get_drone_coords():
-    # global drone_wrapper
-    # if drone_wrapper is None:
-    #     return jsonify({'error': 'No data'})
-    # else:
-    #     # set this value when the anchors are deployed
-    #     # (-) value if B is to the right of A
-    #     tag_positions = parse_esp32_data.get_tag_location(-2.0828)
-    #     if tag_positions is None:
-    #         return jsonify({'error': 'No tag positions'})
-    #     else:
-    #         x, y = tag_positions
-    #         return jsonify({'x': x, 'y': y})
-    rand_x = random.randint(-5, 5)
-    rand_y = random.randint(-1, 5)
-    return jsonify({'x': rand_x, 'y': rand_y})
+    global drone_wrapper
+    if drone_wrapper is None:
+        return jsonify({'error': 'No data'})
+    else:
+        # set this value when the anchors are deployed
+        # (-) value if B is to the right of A
+        tag_positions = parse_esp32_data.get_tag_location(-2.0828)
+        if tag_positions is None:
+            return jsonify({'error': 'No tag positions'})
+        else:
+            x, y = tag_positions
+            return jsonify({'x': x, 'y': y})
+    # rand_x = random.randint(-5, 5)
+    # rand_y = random.randint(-1, 5)
+    # return jsonify({'x': rand_x, 'y': rand_y})
 
 
 # Initialize the Kalman filter
