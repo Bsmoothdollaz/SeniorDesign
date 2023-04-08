@@ -29,7 +29,7 @@ def backend_validate_flight_plan(text):
         converted_text = text.strip()
         list_of_instructions = converted_text.split(';')
         err_counter = 0
-
+        # C:\Users\KENNETH - DEAN\Desktop\Github\SR - DESIGN\venv\Lib\site - packages\PIL\__init__.py
         # validate our flight plan
         # we need to add an identifier "start" at the beginning
         # we need to and "end"
@@ -70,7 +70,7 @@ def get_connection_status():
 def get_tello_status():
     return '10'
 
-#
+# #
 # example = '*pickup food_2;Home->B;*drop food_2;A->Home;'
 #
 # backend_validate_flight_plan(example)

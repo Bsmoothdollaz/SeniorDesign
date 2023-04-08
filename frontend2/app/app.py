@@ -1,3 +1,4 @@
+import cv2
 import flask
 import numpy as np
 from flask import Flask, request, render_template, Response, jsonify
@@ -6,7 +7,6 @@ import socket
 # import DJITelloPy.api.tello as Tello
 import helpers
 import time
-# import cv2
 import logging
 # import constants as telloConstants
 import threading
@@ -17,14 +17,14 @@ import json
 import requests
 from filterpy.kalman import KalmanFilter
 from numpy import matrix, array
-
+from flask_socketio import SocketIO, emit
 sys.path.append('../../')
-# from DJITelloPy.api import tello
-# from CameraController import CameraController
+from CameraController import CameraController
 import test_drone_connection
 import parse_esp32_data
 
 app = Flask(__name__, static_url_path='/static')  # Flask checks static folder for image files
+
 
 # drone_thread = threading.Thread(target=helpers.get_connection_status, args=(), daemon=True, name='drone_connection')
 # drone_thread.start()
@@ -55,6 +55,9 @@ def udp_handler():
 
 udp_thread = threading.Thread(target=udp_handler)
 udp_thread.start()
+
+
+
 
 
 @app.route("/")
@@ -386,3 +389,8 @@ def submit_drop_locations():
         return 'Data received successfully!'
     else:
         return 'Invalid request method'
+
+if __name__ == '__main__':
+    # run() method of Flask class runs the application
+    # on the local development server.
+    app.run()
