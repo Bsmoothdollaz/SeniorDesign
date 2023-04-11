@@ -4,7 +4,13 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="Updated Product page along with images" />
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="Updated Product page along with images">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DJITelloPy" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/tello.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/config.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/config.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_drone_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_drone_connection.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

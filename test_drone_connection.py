@@ -7,13 +7,10 @@ import threading
 import cv2
 import socket
 # from PIL import Image, ImageTk
-# import tkinter as tki
 # from tkinter import Toplevel, Scale
-import threading
 import datetime
 import cv2
 import os
-import time
 import platform
 
 
@@ -118,3 +115,23 @@ class Custom_Drone:
         except Exception as e:
             print('exception while getting state data', e)
         return state
+
+    def video_stream_on(self):
+        drone = self.get_drone_object()
+        try:
+            drone.send_control_command("streamon")
+            drone.stream_on = True
+        except Exception as e:
+            print('exception turning video stream on', e)
+
+    def video_stream_off(self):
+        drone = self.get_drone_object()
+        try:
+            drone.send_control_command("streamoff")
+            drone.stream_on = True
+        except Exception as e:
+            print('exception while turning video stream off', e)
+
+
+    def getUDP(self):
+        drone = self.get_drone_object()
