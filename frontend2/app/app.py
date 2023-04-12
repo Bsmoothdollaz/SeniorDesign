@@ -432,6 +432,9 @@ class DropLocation:
         self.x = coords_dict['x']
         self.y = coords_dict['y']
 
+    def get_mission_pad(self):
+        return self.mission_pad()
+
 
 matplotlib.use('Agg')
 
@@ -489,54 +492,8 @@ def get_drop_locations():
 def pathfind():
     # take in src and a dst from the endpoint containing the current instruction
     data = request.json
-    src = data['src']
-    dst = data['dst']
-    number = data['instruction_number']
-
-    # grab the coords for the src and dst
-    global drop_locations
-    for loc in drop_locations:
-        if loc.alias == src:
-            src_x, src_y = loc.x, loc.y
-            src_mpad = loc.mission_pad
-        if loc.alias == dst:
-            dst_x, dst_y = loc.x, loc.y
-            dst_mpad = loc.mission_pad
 
     success = False
-
-    import helpers
-    import statistics
-    def where_is_tag_stats():
-        # Initialize lists to store the values
-        esp32_data = requests.get('http://localhost:5000/get_drone_coords').json()
-
-        x = []
-        y = []
-
-        # Collect 10 values
-        for i in range(10):
-            x_loc = esp32_data['x']
-            x.append(x_loc)
-            y_loc = esp32_data['y']
-            y.append(y_loc)
-
-        # Filter out the outliers using the median absolute deviation (MAD) method
-        med_distance = statistics.median(x)
-        med_angle = statistics.median(y)
-        mad_distance = statistics.median([abs(d - med_distance) for d in x])
-        mad_angle = statistics.median([abs(a - med_angle) for a in y])
-        filtered_distances = [d for d in x if abs(d - med_distance) < 3 * mad_distance]
-        filtered_angles = [a for a in y if abs(a - med_angle) < 3 * mad_angle]
-
-        # Calculate the average value
-        avg_x = statistics.mean(filtered_distances)
-        avg_y = statistics.mean(filtered_angles)
-
-        # Print the results
-        print("Average x:", avg_x)
-        print("Average y:", avg_y)
-        return avg_x, avg_y
 
     def execute_flight_plan():
         nonlocal success
@@ -569,12 +526,17 @@ def pathfind():
                     drone_wrapper.emergency()
 
                 drone_wrapper.land()
+                return
 
             drone_wrapper.emergency()
 
             success = True
-        except:
+        except Exception as e:
+            print("An error occurred during flight plan execution:", e)
             success = False
+            error_message = str(e)
+            response_data = {'error': error_message, 'instruction_number': number}
+            return response_data
 
         # Create a new thread to execute the flight plan
         t = Thread(target=execute_flight_plan)
@@ -601,6 +563,40 @@ def pathfind():
         return response
 
 
+import helpers
+import statistics
+
+
+def where_is_tag_stats():
+    # Initialize lists to store the values
+    x = []
+    y = []
+    for i in range(10):
+        esp32_data = requests.get('http://localhost:5000/get_drone_coords').json()
+        x_loc = esp32_data['x']
+        x.append(x_loc)
+        y_loc = esp32_data['y']
+        y.append(y_loc)
+        time.sleep(0.1)
+
+    # Filter out the outliers using the median absolute deviation (MAD) method
+    med_x = statistics.median(x)
+    med_y = statistics.median(y)
+    mad_x = statistics.median([abs(d - med_x) for d in x])
+    mad_y = statistics.median([abs(a - med_y) for a in y])
+    filtered_x = [d for d in x if abs(d - med_x) < 3 * mad_x]
+    filtered_y = [a for a in y if abs(a - med_y) < 3 * mad_y]
+
+    # Calculate the average value
+    avg_x = statistics.mean(filtered_x)
+    avg_y = statistics.mean(filtered_y)
+
+    # Print the results
+    print("Average x:", avg_x)
+    print("Average y:", avg_y)
+    return avg_x, avg_y
+
+
 @app.route("/start_drone_mission", methods=['POST'])
 def start_drone_mission():
     # Get the flight plan from the /get_flight_plan endpoint
@@ -609,25 +605,63 @@ def start_drone_mission():
     # Check if the request was successful and load the JSON data
     if response.status_code == 200:
         flight_plan_data = response.json()
+
         for instruction in flight_plan_data:
             src = instruction['src']
             dst = instruction['dst']
-            number = instruction['instruction_number']
+            instruction_number = instruction['instruction_number']
+            # grab the coords for the src and dst
+            global drop_locations
+            dst_x, dst_y, dst_mpad = None, None, None
+            src_x, src_y, src_mpad = None, None, None
+            for loc in drop_locations:
+                if loc.alias == src:
+                    src_x, src_y = loc.x, loc.y
+                    src_mpad = loc.mission_pad
+                if loc.alias == dst:
+                    dst_x, dst_y = loc.x, loc.y
+                    dst_mpad = loc.mission_pad
 
-            data = {'src': src, 'dst': dst, 'instruction_number': number}
-            # poll the /pathfind endpoint until a successful response is received
-            while True:
-                response = requests.post('http://127.0.0.1:5000/pathfind', json=data)
-                print('response:', response.text)
+            if dst_x is not None and dst_y is not None:
+                print('src x:{} y:{}'.format(src_x, src_y))
+                print('dst x{} y{}'.format(dst_x, dst_y))
+            else:
+                # Handle the case where dst was not found
+                print('Destination not found')
 
-                # check if the response is successful
-                if response.status_code == 200:
-                    print('set instruction number {}'.format(number))
-                    break  # exit the loop if the response is successful
-                else:
-                    # handle the error response from the server
-                    # wait for some time before making the next request
-                    time.sleep(1)  # wait for 1 second before trying again
+
+            try:
+                # do our tello movements here
+                global drone_wrapper
+                print('taking off')
+                takeoff_thread = Thread(target=drone_wrapper.takeoff, args=())
+                takeoff_thread.start()
+                time.sleep(4)
+
+                print('here***')
+
+                # curr_x, curr_y = where_is_tag_stats()
+                esp32_data = requests.get('http://localhost:5000/get_drone_coords').json()
+                curr_x = esp32_data['x']
+                curr_y = esp32_data['y']
+
+                distance, angle, direction = helpers.calculate_distance_angle(curr_x, curr_y, dst_x, dst_y)
+                print('distance:', distance)
+                print('angle:', angle)
+
+                drone_wrapper.rotate_drone('cw', angle)
+                print('rotated the drone')
+                time.sleep(2)
+
+                # go forward
+                amount = (distance*100)/2
+                drone_wrapper.go_up_down_left_right('forward', amount)
+                time.sleep(2)
+
+                drone_wrapper.land()
+
+            except Exception as e:
+                print('Exception', e)
 
         return jsonify(flight_plan_data)  # Return flight plan data as JSON
 
