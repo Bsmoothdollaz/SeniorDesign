@@ -498,36 +498,77 @@ def pathfind():
     for loc in drop_locations:
         if loc.alias == src:
             src_x, src_y = loc.x, loc.y
+            src_mpad = loc.mission_pad
         if loc.alias == dst:
             dst_x, dst_y = loc.x, loc.y
+            dst_mpad = loc.mission_pad
 
     success = False
+
+    import helpers
+    import statistics
+    def where_is_tag_stats():
+        # Initialize lists to store the values
+        esp32_data = requests.get('http://localhost:5000/get_drone_coords').json()
+
+        x = []
+        y = []
+
+        # Collect 10 values
+        for i in range(10):
+            x_loc = esp32_data['x']
+            x.append(x_loc)
+            y_loc = esp32_data['y']
+            y.append(y_loc)
+
+        # Filter out the outliers using the median absolute deviation (MAD) method
+        med_distance = statistics.median(x)
+        med_angle = statistics.median(y)
+        mad_distance = statistics.median([abs(d - med_distance) for d in x])
+        mad_angle = statistics.median([abs(a - med_angle) for a in y])
+        filtered_distances = [d for d in x if abs(d - med_distance) < 3 * mad_distance]
+        filtered_angles = [a for a in y if abs(a - med_angle) < 3 * mad_angle]
+
+        # Calculate the average value
+        avg_x = statistics.mean(filtered_distances)
+        avg_y = statistics.mean(filtered_angles)
+
+        # Print the results
+        print("Average x:", avg_x)
+        print("Average y:", avg_y)
+        return avg_x, avg_y
 
     def execute_flight_plan():
         nonlocal success
         try:
-            distance_between_src_dst, cw_rotate_angle, direction = helpers.calculate_distance_angle(src_x=src_x,
-                                                                                                    src_y=src_y,
-                                                                                                    dst_x=dst_x,
-                                                                                                    dst_y=dst_y)
-            # Print the computed values to the console
-            print(f"Computed distance: {distance_between_src_dst}")
-            print(f"Computed angle: {cw_rotate_angle}")
-            print(f"Computed direction: {direction}")
-
             # do our tello movements here
             global drone_wrapper
             takeoff_thread = Thread(target=drone_wrapper.takeoff, args=())
             takeoff_thread.start()
-            time.sleep(2)
+            time.sleep(4)
 
-            drone_wrapper.rotate_drone('cw', cw_rotate_angle)
-            time.sleep(2)
+            detected_dest_mission_pad = False
+            mpad_counter = 0
+            while not detected_dest_mission_pad:
+                if mpad_counter > 9:
+                    detected_dist_mission_pad = True
+                else:
+                    if drone_wrapper.get_mission_pad() == dst_mpad:
+                        mpad_counter += 1
 
-            distance_cm = distance_between_src_dst * 100
-            drone_wrapper.go_up_down_left_right('forward', distance_cm)
+                curr_x, curr_y = where_is_tag_stats()
+                distance, angle, direction = helpers.calculate_distance_angle(curr_x, curr_y, dst_x, dst_y)
 
-            time.sleep(3)
+                while distance > .2:
+                    curr_x, curr_y = where_is_tag_stats()
+                    distance, angle, direction = helpers.calculate_distance_angle(curr_x, curr_y, dst_x, dst_y)
+                    drone_wrapper.rotate_drone('cw', angle)
+
+                    print('rotated the drone')
+                    time.sleep(2)
+                    drone_wrapper.emergency()
+
+                drone_wrapper.land()
 
             drone_wrapper.emergency()
 

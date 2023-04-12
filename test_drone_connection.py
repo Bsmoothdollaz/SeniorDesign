@@ -32,6 +32,7 @@ class Custom_Drone:
             self.drone.send_control_command("streamon")
             self.drone.set_video_bitrate(Tello.BITRATE_5MBPS)
             self.drone.set_video_resolution('high')
+            self.drone.enable_mission_pads()
         except Exception as e:
             print('could not connect to drone', e)
             self.drone = None
@@ -118,3 +119,12 @@ class Custom_Drone:
         except Exception as e:
             print('exception while getting state data', e)
         return state
+
+    def get_mission_pad(self):
+        drone = self.get_drone_object()
+        id = None
+        try:
+            id = self.drone.get_mission_pad_id()
+        except Exception as e:
+            print('Caught exception in mission pad')
+        return id
