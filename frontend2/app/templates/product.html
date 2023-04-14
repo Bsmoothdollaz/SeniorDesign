@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/product/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/config.css') }}">
+    <link href="{{url_for('static', filename='main.css')}}" rel="stylesheet">
+
+
+
+
+    {% extends "base.html" %}
+
+    {% block title %}
+      Product
+    {% endblock %}
+
+
+  </head>
+
+  {% block content %}
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+      <center>
+        <div class="col-md-6 px-0">
+          <h1 class="display-3">Product Information</h1>
+          <p class="lead my-3">A summary of the product </p>
+        </div>
+      </center>
+      </div>
+
+
+
+
+
+  <body>
+
+        <center><p style="font-family: Arial, sans-serif; font-size: 24px;">
+            The SkyBites team has developed a product that will facilitate efficient delivery of food items in manual and automatic modes.<br>
+            At the core of the project is the <b>DJI RoboMaster TT Drone</b> <i>(shown left)</i> which receives commands as specified in the TELLO Software Development Kit 2.0 to perform various operations.<br>
+            To perform automatic food delivery of the drone, we have incorporated <b>ESP-32</b> <i>(shown right) </i> chips that will assist with pathfinding and localization.<br>
+            An ESP-32 chip will be attached to the head of the drone, serving as the anchor, while the remaining chips will be stationed at the various delivery locations.
+        </p></center>
+      <center><img src="/static/telloDrone.png" alt="Tello Drone" style="width:500px;height:600px;">
+      <img src="/static/espchip.jpg" alt="ESPChip" style="width:500px;height:600px;"></center>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{{url_for('static',filename='popper.min.js')}}"></script>
+    <script src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+    <script src=".{{url_for('static',filename='holder.min.js')}}"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+
+
+  </body>
+
+
+
+</html>

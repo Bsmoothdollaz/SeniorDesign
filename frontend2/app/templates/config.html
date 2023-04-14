@@ -23,7 +23,7 @@
     {% extends "base.html" %}
 
     {% block title %}
-      Configuration
+      Config
     {% endblock %}
 
   </head>
@@ -34,74 +34,60 @@
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
       <center>
         <div class="col-md-6 px-0">
-          <h1 class="display-3">Configure Your Flight Plan</h1>
-          <p class="lead my-3">Insert instructions for the user to follow on this page</p>
+          <h1 class="display-3">Automatic Mode</h1>
+          <p class="lead my-3">Configure your flight plan by specifying all intended locations</p>
           <p>
-            <button type="button" class="btn btn-primary my-2" onclick="validate_flight_plan()">Validate</button>
+            <button type="button" class="btn btn-primary my-2" onclick="#">Validate</button>
             <button type="button" class="btn btn-primary my-2" onclick="submit_flight_plan()">Submit</button>
           </p>
         </div>
-      </div>
-  </center>
+      </center>
+    </div>
+
 
   <body>
-<style>
-  * {
-    box-sizing: border-box;
-  }
-
-  /* Create three equal columns that float next to each other */
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .column {
-    flex: 1;
-    padding: 10px;
-    width: 33.33%;
-  }
-
-  /* Ensure that each column has a minimum height */
-  #flight-plan-column,
-  #drop-locations-column,
-  #examples-column {
-    min-height: 500px; /* Minimum height to prevent overlap with footer */
-  }
-
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-</style>
-
-</style>
- <div class="column" style="background-color:#ffffff;">
     <center>
       <h2>Define Drop Locations</h2>
       <br>
 
 
-      <p>How many drop off locations do you want to configure?</p>
+      <p>How many drop off locations do you want to configure? (1-4)</p>
       <input type="number" id="num-drop-locations" min="1" max="4">
       <br><br>
       <button type="button" class="btn btn-primary my-2" onclick="configure_drop_locations()">Generate table</button>
       <table id="drop-locations-table" class="table table-striped" style="display: none;">
 
-  <tbody>
+      <tbody>
     <!-- Rows will be dynamically generated with JavaScript -->
-  </tbody>
-</table>
+      </tbody>
+      </table>
+
 
       <div class="submit-button">
-  <button type="button" class="btn btn-primary my-2" onclick="submit_drop_locations()">Submit</button>
-</div>
+        <button type="button" class="btn btn-primary my-2" onclick="submit_drop_locations()">Submit</button>
+      </div>
 
+        <br>
+      <center>
+            <h2>Enter Flight Plan</h2>
+          <input type="text" id="fplanfield" style="height: 100px; width: 300px;">
+      </center>
+
+
+        <br>
+
+      <h2>Tutorial</h2>
       <br>
+      <p> Drone Instructions are precceded by '*'</p>
+      <p> Drone Examples: '* pickup food_#' or '* drop food_#'</p>
+      <br>
+      <p> Location instructions are delimited by '->'</p>
+      <p> Location Examples: 'Home->A' or 'A->B' </p>
 
-     <canvas id="scatter-plot" width="800" height="600"></canvas>
+
+
+
+
 
 
     </center>
@@ -109,13 +95,32 @@
 
     <script>
 
-
+function validate_flight_plan(){
+          var fplan = document.getElementById("fplanfield").value;
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/validate_flight_plan", true);
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          xhr.send("fplanfield=" + encodeURIComponent(fplan));
+        }
+        function submit_flight_plan(){
+          var fplan = document.getElementById("fplanfield").value;
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/submit_flight_plan", true);
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          xhr.send("fplanfield=" + encodeURIComponent(fplan));
+        }
 
 function configure_drop_locations() {
   var num_drop_locations = document.getElementById("num-drop-locations").value;
   var table = document.getElementById("drop-locations-table");
   var tbody = table.getElementsByTagName("tbody")[0];
+  var marginLeft = (window.innerWidth - table.offsetWidth) / 3.25; // Divided by 3.5 so we can accurately centralize the table
+
+  // Apply the margin-left as inline style to the table element so we can centrally align the generated table
+  table.style.marginLeft = marginLeft + 'px';
   tbody.innerHTML = "";
+
+
 
   // Add header row
   var header_row = document.createElement("tr");
@@ -304,62 +309,24 @@ if (window.myChart != undefined) {
 
 </script>
 
-  </div>
-
-  <div class="column" style="background-color:#ffffff;">
-    <center>
-      <h3> Enter Flight Plan Below:</h3>
-      <textarea id= "fplanfield" rows = "10" cols = "60" id= "fplan"></textarea>
-    </center>
-      <script>
-        function validate_flight_plan(){
-          var fplan = document.getElementById("fplanfield").value;
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", "/validate_flight_plan", true);
-          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-          xhr.send("fplanfield=" + encodeURIComponent(fplan));
-        }
-      </script>
-
-    <script>
-        function submit_flight_plan(){
-          var fplan = document.getElementById("fplanfield").value;
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", "/submit_flight_plan", true);
-          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-          xhr.send("fplanfield=" + encodeURIComponent(fplan));
-        }
-      </script>
-  </div>
-  <div class="column" style="background-color:#ffffff;">
-    <center>
-      <h2>Examples</h2>
-      <br>
-      <p1> Drone Instructions are precceded by '*'</p1> <br>
-      <p1> Drone Examples: '* pickup food_#' or '* drop food_#'</p1> <br>
-
-      <br> <br>
-
-      <p1> Location instructions are delimited by '->'</p1> <br>
-      <p1> Location Examples: 'Home->A' or 'A->B' </p1>
-
-
-    </center>
-
-  </div>
-</div>
-
-</body>
-
-
-  <center>
 
 
 
 
 
 
-    </center>
+
+
+
+
+
+
+
+
+
+
+
+
     {% endblock %}
 
 
