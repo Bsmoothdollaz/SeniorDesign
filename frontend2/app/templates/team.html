@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/product/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/config.css') }}">
+    <link href="{{url_for('static', filename='main.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/config.css')}}" rel="stylesheet">
+
+    <script src="{{url_for('static', filename='js/config.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <style>
+    /* Grid container */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns with equal width */
+      gap: 20px; /* Gap between grid items */
+    }
+
+    /* Grid item */
+    .grid-item {
+      text-align: center;
+    }
+
+    /* Team member picture */
+    .team-member-picture {
+      width: 200px; /* Adjust the width as needed */
+      height: 200px; /* Adjust the height as needed */
+      object-fit: cover; /* Ensure the picture covers the entire space */
+      border-radius: 50%; /* Round the edges of the picture */
+    }
+
+    /* Team member name */
+    .team-member-name {
+      margin-top: 10px; /* Add margin as needed */
+      font-weight: bold;
+    }
+  </style>
+    {% extends "base.html" %}
+
+    {% block title %}
+      Team
+    {% endblock %}
+
+  </head>
+
+  {% block content %}
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+      <center>
+        <div class="col-md-6 px-0">
+          <h1 class="display-3">Meet the Team</h1>
+        </div>
+      </center>
+      </div>
+
+
+<body>
+  <div class="grid-container">
+    <div class="grid-item">
+      <img class="team-member-picture" src="team_member_1.jpg" alt="Team Member 1">
+      <h2 class="team-member-name">Alexander Perez</h2>
+      <h3><b>Team Lead/Software Developer</b></h3>
+    </div>
+    <div class="grid-item">
+      <img class="team-member-picture" src="/static/chike.jpg" alt="Team Member 2">
+      <h2 class="team-member-name">Chikeluba Anierobi</h2>
+      <h3><b>Software Developer</b></h3>
+    </div>
+    <div class="grid-item">
+      <img class="team-member-picture" src="team_member_3.jpg" alt="Team Member 3">
+      <h2 class="team-member-name">Christopher Gill</h2>
+      <h3><b>Hardware Engineer</b></h3>
+    </div>
+    <div class="grid-item">
+      <img class="team-member-picture" src="team_member_4.jpg" alt="Team Member 4">
+      <h2 class="team-member-name">Tysean Canada</h2>
+      <h3><b>Technical Writer</b></h3>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{{url_for('static',filename='popper.min.js')}}"></script>
+    <script src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+    <script src=".{{url_for('static',filename='holder.min.js')}}"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+</body>
+</html>

@@ -4,12 +4,20 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="Updated Product page along with images">
+    <list default="true" id="24816bb4-5bd6-457e-a02d-ee781811f8d5" name="Changes" comment="Footer fix resolved; currently adding video stream">
+      <change afterPath="$PROJECT_DIR$/frontend2/app/static/chike.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend2/app/static/espchip.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend2/app/static/telloDrone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend2/app/templates/privacy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend2/app/templates/product.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend2/app/templates/team.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend2/app/templates/terms.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DJITelloPy/api/tello.py" beforeDir="false" afterPath="$PROJECT_DIR$/DJITelloPy/api/tello.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend2/app/templates/config.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/config.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_drone_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_drone_connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/control.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/control.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend2/app/templates/support.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend2/app/templates/support.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -66,25 +74,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "last_opened_file_path": "C:/Users/KENNETH-DEAN/Desktop/Github/SR-DESIGN/frontend2/app/static",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN\frontend2\app\static" />
       <recent name="$PROJECT_DIR$/frontend2/static" />
       <recent name="$PROJECT_DIR$/frontend2/assets" />
       <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN" />
       <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN\frontend\templates" />
-      <recent name="C:\Users\acpere\localRepoMaint" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\KENNETH-DEAN\Desktop\Github\SR-DESIGN\frontend2\app\static" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/frontend2/app" />
       <recent name="$PROJECT_DIR$/frontend/app" />
       <recent name="$PROJECT_DIR$/frontend2/static" />
-      <recent name="$PROJECT_DIR$/frontend2/templates" />
     </key>
   </component>
   <component name="RunManager" selected="Python.app">
@@ -515,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679868497167</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Footer fix resolved; currently adding video stream">
+      <created>1681231224191</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1681231224191</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +572,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend2/app/PyAV" />
     </ignored-roots>
-    <MESSAGE value="able to write info to the dot matrix" />
     <MESSAGE value="chike" />
     <MESSAGE value="emergency handler" />
     <MESSAGE value="caught some exceptions" />
@@ -580,7 +596,8 @@
     <MESSAGE value="get the x and y coords of the tag" />
     <MESSAGE value="get the x and y coords of the tag (working)" />
     <MESSAGE value="updating map of the coords" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating map of the coords" />
+    <MESSAGE value="Footer fix resolved; currently adding video stream" />
+    <option name="LAST_COMMIT_MESSAGE" value="Footer fix resolved; currently adding video stream" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -85,6 +85,22 @@ def view_control():
     return render_template("control.html", title="Control")
 
 
+@app.route("/product")
+def view_product():
+    return render_template("product.html", title="Product")
+
+@app.route("/team")
+def view_team():
+    return render_template("team.html", title="Team")
+
+@app.route("/privacy")
+def view_privacy():
+    return render_template("privacy.html", title="Privacy")
+
+@app.route("/terms")
+def view_terms():
+    return render_template("terms.html", title="Terms")
+
 @app.route("/validate_flight_plan", methods=["POST"])
 def validate_flight_plan():
     f_plan = request.form['fplanfield']

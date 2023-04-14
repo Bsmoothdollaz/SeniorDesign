@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/product/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/config.css') }}">
+    <link href="{{url_for('static', filename='main.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/config.css')}}" rel="stylesheet">
+
+    <script src="{{url_for('static', filename='js/config.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    {% extends "base.html" %}
+
+    {% block title %}
+      Terms
+    {% endblock %}
+
+  </head>
+
+    {% block content %}
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+      <center>
+        <div class="col-md-6 px-0">
+          <h1 class="display-3">Terms of Service</h1>
+<!--          <p>Last Updated: April 14th 2023</p>-->
+        </div>
+      </center>
+      </div>
+
+<body style="padding: 20px;">
+  <center>
+  <p style="font-family: Arial, sans-serif; font-size: 24px;">Welcome to Skybites' food drone delivery system. By accessing or using the Service, you agree to be bound by these Terms of Service. If you do not agree with these Terms, please do not use the Service.</p>
+  </center>
+  <h2 style="color: #333;">Use of the Service</h2>
+  <p style="font-family: Arial, sans-serif; font-size: 24px;">You must be at least 18 years old to use the Service. You are responsible for providing accurate and complete information when using the Service, including when placing orders and providing delivery instructions. You may not use the Service for any illegal or unauthorized purpose.</p>
+
+  <h2 style="color: #333;">Ordering and Delivery</h2>
+  <p style="font-family: Arial, sans-serif; font-size: 24px;">You can place orders through the Service for food delivery. Once an order is placed, you may receive updates on the status of your order. We will make reasonable efforts to deliver the food to the designated location, but we do not guarantee delivery times or availability of food items. Delivery may be subject to weather conditions, unforeseen circumstances, or other factors beyond our control.</p>
+
+  <h2 style="color: #333;">Payment and Fees</h2>
+  <p style="font-family: Arial, sans-serif; font-size: 24px;">You agree to pay for all orders placed through the Service, including the cost of food, delivery fees, and applicable taxes. Payment methods may include credit card, debit card, or other forms of electronic payment. You are responsible for providing accurate and up-to-date payment information. All payments are final and non-refundable, except as required by applicable law.</p>
+
+  <h2 style="color: #333;">Cancellation and Refunds</h2>
+  <p style="font-family: Arial, sans-serif; font-size: 24px;">You may cancel an order before it is prepared or dispatched, subject to our cancellation policy. If you are dissatisfied with the quality or condition of the food, please contact us within a reasonable time to request a refund or replacement. Refunds may be issued at our discretion, based on the specific circumstances.</p>
+
+  <h2 style="color: #333;">User Conduct</h2>
+  <p style="font-family: Arial, sans-serif; font-size: 24px;">You agree to use the Service in a responsible and lawful manner. You may not use the Service to harass, defame, or harm others, or to engage in any illegal, abusive, or fraudulent activities. You may not modify, reverse engineer, or interfere with the Service or its content. You may not use the Service to transmit viruses, spam, or other harmful or disruptive content.</p>
+
+  <h2 style="color: #333;">Intellectual Property</h2>
+  <p style="font-family: Arial, sans-serif; font-size: 24px;">All content and materials on the Service, including but not limited to logos, trademarks, text, images, videos, and software, are owned by or licensed to [Your Company Name] and are protected by intellectual property laws. You may not use, reproduce, modify, or distribute any content or materials from the Service without our prior written consent.</p>
+
+  <h2 style="color: #333;">Privacy</h2>
+  <p style="font-family: Arial, sans-serif; font-size: 24px;">Your use of the Service is subject to our Privacy Policy, which describes how we collect, use, and protect your personal information. By using the Service, you consent to the collection and use of your information as described in our Privacy Policy.</p>
+
+  <hr style="border: 1px solid #ddd; margin-top: 30px; margin-bottom: 30px;">
+
+  <b><h2>Contact Information</h2></b>
+    <p style="font-family: Arial, sans-serif; font-size: 24px;">If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us via the Support page</p>
+
+{% endblock %}
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{{url_for('static',filename='popper.min.js')}}"></script>
+    <script src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+    <script src=".{{url_for('static',filename='holder.min.js')}}"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+</body>
+</html>
