@@ -4,14 +4,14 @@ import DJITelloPy.api.tello
 from DJITelloPy.api import Tello
 # from CameraController import CameraController
 import threading
-import cv2
+# import cv2
 import socket
 # from PIL import Image, ImageTk
 # import tkinter as tki
 # from tkinter import Toplevel, Scale
 import threading
 import datetime
-import cv2
+# import cv2
 import os
 import time
 import platform
@@ -122,9 +122,28 @@ class Custom_Drone:
 
     def get_mission_pad(self):
         drone = self.get_drone_object()
-        id = None
+        test_id = -1
         try:
-            id = self.drone.get_mission_pad_id()
+            test_id = int(drone.get_mission_pad_id())
         except Exception as e:
             print('Caught exception in mission pad')
-        return id
+        return test_id
+
+    def get_yaw_drone(self):
+        drone = self.get_drone_object()
+        yaw = None
+        try:
+            yaw = drone.get_yaw()
+        except Exception as e:
+            print('caught exception while getting the yaw ')
+        return yaw
+
+    def center_mission_pad(self, pad):
+        drone = self.get_drone_object()
+        try:
+            drone.go_xyz_speed_mid(0,0,50,10,pad)
+            time.sleep(2)
+        except Exception as e:
+            print('EXCEPTION WHILE CENTERING ON MISSION PAD')
+        return
+

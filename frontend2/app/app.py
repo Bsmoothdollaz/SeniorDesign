@@ -1,3 +1,4 @@
+import math
 import random
 
 import flask
@@ -9,7 +10,7 @@ import socket
 # import DJITelloPy.api.tello as Tello
 import helpers
 import time
-import cv2
+# import cv2
 import logging
 # import constants as telloConstants
 import threading
@@ -567,34 +568,77 @@ import helpers
 import statistics
 
 
-def where_is_tag_stats():
+def where_is_tag_stats(estimated_x, estimated_y):
     # Initialize lists to store the values
     x = []
     y = []
-    for i in range(10):
+    print('gathering esp_points')
+    print('ESTIMATED X AND Y'.format(estimated_x, estimated_y))
+    while len(x) < 5:
         esp32_data = requests.get('http://localhost:5000/get_drone_coords').json()
         x_loc = esp32_data['x']
-        x.append(x_loc)
         y_loc = esp32_data['y']
-        y.append(y_loc)
-        time.sleep(0.1)
 
-    # Filter out the outliers using the median absolute deviation (MAD) method
-    med_x = statistics.median(x)
-    med_y = statistics.median(y)
-    mad_x = statistics.median([abs(d - med_x) for d in x])
-    mad_y = statistics.median([abs(a - med_y) for a in y])
-    filtered_x = [d for d in x if abs(d - med_x) < 3 * mad_x]
-    filtered_y = [a for a in y if abs(a - med_y) < 3 * mad_y]
+        print('ESTIMATED X AND Y PASSED IN {}, {}'.format(estimated_x, estimated_y))
 
-    # Calculate the average value
-    avg_x = statistics.mean(filtered_x)
-    avg_y = statistics.mean(filtered_y)
+        print('DIFFERENCE X: {}'.format(abs(estimated_x - x_loc)))
+        print('DIFFERENCE Y: {}'.format(abs(estimated_y - y_loc)))
 
-    # Print the results
-    print("Average x:", avg_x)
-    print("Average y:", avg_y)
-    return avg_x, avg_y
+        if abs(estimated_x - x_loc) < 1.2 and abs(estimated_y - y_loc) < 1.2:
+            x.append(x_loc)
+            y.append(y_loc)
+            print('adding value')
+        print('got {},{}'.format(x_loc, y_loc))
+        time.sleep(0.3)
+        print('SIZE OF X {}'.format(len(x)))
+
+    return (sum(x) / len(x)), (sum(y) / len(y))
+
+
+def drone_to_north():
+    print('setting drone to north')
+    drone = drone_wrapper
+    curr_yaw = drone.get_yaw_drone()
+    if curr_yaw < 0:
+        drone_wrapper.rotate_drone('cw', abs(int(curr_yaw)))
+    elif curr_yaw > 0:
+        drone_wrapper.rotate_drone('ccw', abs(int(curr_yaw)))
+
+    print('done setting drone to north')
+    time.sleep(2)
+    return
+
+
+def coords_to_instructions(curr_x, curr_y, dst_x, dst_y):
+    global drone_wrapper
+    distance, angle, direction = helpers.calculate_distance_angle(curr_x, curr_y, dst_x, dst_y)
+    print('calculated distance:', distance)
+    print('calculated angle:', angle)
+    if angle > 180:
+        drone_wrapper.rotate_drone('ccw', int((360 - angle) / 4))
+    else:
+        drone_wrapper.rotate_drone('cw', int(angle / 4))
+    print('rotated the drone')
+    time.sleep(2)
+    # go forward
+
+    delta_x = dst_x - curr_x  # value is a float in m
+    delta_y = dst_y - curr_y  # value is a float in m
+
+    # actual error was 30 cm more than expected
+    amount = ((distance * 100) / 2)
+    try:
+        drone_wrapper.go_up_down_left_right('forward', amount)
+    except Exception as e:
+        print('could not go forward')
+
+    time.sleep(3)
+    return delta_x / 2, delta_y / 2
+
+
+import logging
+
+logging.basicConfig(filename='drone_mission.log', level=logging.INFO)
 
 
 @app.route("/start_drone_mission", methods=['POST'])
@@ -624,41 +668,106 @@ def start_drone_mission():
 
             if dst_x is not None and dst_y is not None:
                 print('src x:{} y:{}'.format(src_x, src_y))
+                logging.info('src x:{} y:{}'.format(src_x, src_y))
                 print('dst x{} y{}'.format(dst_x, dst_y))
             else:
                 # Handle the case where dst was not found
                 print('Destination not found')
 
-
+            # Start drone flight
             try:
                 # do our tello movements here
                 global drone_wrapper
-                print('taking off')
+                logging.info('taking off')
                 takeoff_thread = Thread(target=drone_wrapper.takeoff, args=())
                 takeoff_thread.start()
-                time.sleep(4)
+                time.sleep(6)
 
-                print('here***')
+                drone_wrapper.go_up_down_left_right('up', 80)
+                time.sleep(3)
+                logging.info('drone finished going up ***')
 
-                # curr_x, curr_y = where_is_tag_stats()
-                esp32_data = requests.get('http://localhost:5000/get_drone_coords').json()
-                curr_x = esp32_data['x']
-                curr_y = esp32_data['y']
+                estimated_x = src_x
+                estimated_y = src_y
 
-                distance, angle, direction = helpers.calculate_distance_angle(curr_x, curr_y, dst_x, dst_y)
-                print('distance:', distance)
-                print('angle:', angle)
+                # start the path finding
+                counter = 0
+                dx = dst_x - src_x
+                dy = dst_y - src_y
+                logging.info('CURRENT DX AND DY {}{}'.format(dx, dy))
 
-                drone_wrapper.rotate_drone('cw', angle)
-                print('rotated the drone')
+                drone_wrapper.go_up_down_left_right('left', int(abs(dx * 100) / 2))
+                estimated_x += int(dx / 2)
+                time.sleep(3)
+
+                y_move = int(abs(dy * 100) / 2)
+                logging.info('Y MOVE VALUE: {}'.format(y_move))
+                drone_wrapper.go_up_down_left_right('forward', y_move)
+                estimated_y += int(dy / 2)
                 time.sleep(2)
 
-                # go forward
-                amount = (distance*100)/2
-                drone_wrapper.go_up_down_left_right('forward', amount)
+                drone_to_north()
+
+                # second try
+                logging.info('SECOND MOVEMENT')
+                curr_x, curr_y = where_is_tag_stats(estimated_x, estimated_y)
+                logging.info('DRONE ESTIMATION X AND Y {}, {}'.format(curr_x, curr_y))
+                logging.info('CURRENT X AND Y {}, {}'.format(curr_x, curr_y))
+                logging.info('MAKE SURE THESE VALUES ARE WITHIN A RANGE!!')
+
+                dx = dst_x - curr_x
+                dy = dst_y - curr_y
+                logging.info('CURRENT DX AND DY {}, {}'.format(dx, dy))
+                logging.info('MOVING FOR THE SECOND TIME')
+
+                drone_wrapper.go_up_down_left_right('left', int(abs(dx * 100)))
+                estimated_x += (int(dx))
+                time.sleep(3)
+
+                drone_wrapper.go_up_down_left_right('forward', int(abs(dy * 100)))
+                time.sleep(3)
+                estimated_y += int(dy)
+
+                logging.info('ESTIMATED X AND Y {}, {}'.format(estimated_x, estimated_y))
+
+                # curr_x, curr_y = where_is_tag_stats(estimated_x, estimated_y)
+                # logging.info('SHOULD BE NEAR THE FINAL DESTINATION')
+                # logging.info('DRONE ESTIMATION X AND Y {}, {}'.format(curr_x, curr_y))
+                #
+                # logging.info('CURRENT X AND Y {}, {}'.format(curr_x, curr_y))
+                # dx = dst_x - curr_x
+                # dy = dst_y - curr_y
+                # logging.info('CURRENT DX AND DY {}{}'.format(dx, dy))
+                # logging.info('DRONE ESTIMATION X AND Y {}, {}'.format(curr_x, curr_y))
+                # logging.info('CHECK THE DX DY OFFSETS')
+                #
+                # # detect mpad and center
+                # if abs(dx) < 1.0 and abs(dy) < 1.0:
+                #     drone_wrapper.go_up_down_left_right('up', 50)
+                #     logging.info('TRY TO DETECT A MISSION PAD NOW')
+                #     print('TRY TO DETECT A MISSION PAD NOW')
+
+                # try to detect the mission pad... we should be close
+                drone_wrapper.go_up_down_left_right('down', 60)
+                time.sleep(2)
+                try:
+                    time.sleep(1)
+                    for i in range(5):
+                        pad_id = drone_wrapper.get_mission_pad()
+                        logging.info('MISISON PAD NUMBER {}'.format(pad_id))
+                        logging.info('DST MAD NUMBER {}'.format(dst_mpad))
+                        if int(pad_id) == int(dst_mpad):
+                            logging.info('FOUND MISSION PAD NOW CENTERING!')
+                            drone_wrapper.center_mission_pad(pad_id)
+                    # MAYBE MORE CODE HERE FOR MINOR ADJUSTMENTS
+                    drone_wrapper.land()
+                except Exception as e:
+                    print('EXCEPTION WHILE IN THE MISSION PAD SECTION')
+                    logging.info('EXCEPTION WHILE IN THE MISSION PAD SETCTION')
+                    drone_wrapper.land()
+
                 time.sleep(2)
 
-                drone_wrapper.land()
 
             except Exception as e:
                 print('Exception', e)
@@ -667,3 +776,7 @@ def start_drone_mission():
 
     else:
         return jsonify({"error": "Failed to retrieve flight plan data."}), 500
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
